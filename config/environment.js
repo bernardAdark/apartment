@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'apartment',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    firebase: 'https://blinding-torch-8228.firebaseio.com',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
