@@ -1,0 +1,13 @@
+<h2>Available Homes</h2>
+<ul>
+  {{#each model as |home|}}
+  <li>
+  <a href="#"><p style="border: 1px solid #000;height:100px;width:100px;">Banner image</p></a>
+  <p>Price: GHS {{home.price}}</p>
+  <p>Private kitchen: <em>{{if home.kitchen "Yes" "No"}}</em></p>
+  <p>Private bathroom: <em>{{if home.bathroom "Yes" "No"}}</em></p>
+  <p>Internet (Wi-Fi): <em>{{ if home.internet "Yes" "No" }}</em></p>
+  <p>Number of rooms: <em>{{ home.rooms }}</em></p>
+  </li>
+  {{/each}}
+</ul>
