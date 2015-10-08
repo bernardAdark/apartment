@@ -6,8 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('homes', function() {
+  this.resource('homes', function() {
     this.route('new');
+    this.route('show', {path: '/:home_id'});
+    this.route('edit', {path: '/:home_id/edit'});
   });
 });
 
