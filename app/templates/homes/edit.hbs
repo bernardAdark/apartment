@@ -1,0 +1,14 @@
+<h2>Edit</h2>
+<div>{{textarea value=model.description placeholder="A really nice description goes here..."}}</div>
+<div>{{input value=model.price type=number placeholder="Price"}}</div>
+<div>{{input value=model.rooms type=number placeholder="Number of rooms"}}</div>
+<div>{{input value=model.period type=number placeholder="Months it can be rented for"}}</div>
+<div>Private bathroom:
+      {{radio-button value=1 groupValue=bathroom}}Yes
+      {{radio-button value=0 groupValue=bathroom}}No
+</div>
+<div>Private kitchen:
+      {{labeled-radio-button value=1 groupValue=kitchen}}Yes
+      {{labeled-radio-button value=0 groupValue=kitchen}}No
+</div>
+<div><button {{action "updateHome" model}}>Save</button></div>
