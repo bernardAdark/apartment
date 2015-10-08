@@ -2,7 +2,7 @@
 <ul>
   {{#each model as |home|}}
   <li>
-  <a href="#"><p style="border: 1px solid #000;height:100px;width:100px;">Banner image</p></a>
+  {{#link-to 'homes.show' home}}<p style="border:1px solid #000;height:100px;width:100px;">Banner image</p>{{/link-to}}
   <p>Price: GHS {{home.price}}</p>
   <p>Private kitchen: <em>{{if home.kitchen "Yes" "No"}}</em></p>
   <p>Private bathroom: <em>{{if home.bathroom "Yes" "No"}}</em></p>
