@@ -8,6 +8,7 @@ export default DS.Model.extend({
   rooms: DS.attr('number',      { defaultValue: 1 }),
   available: DS.attr('boolean', { defaultValue: true }),
   period: DS.attr('number'),
+  description: DS.attr('string'),
   createdAt: DS.attr('date', { defaultValue() { return new Date(); } }),
   updatedAt: DS.attr('date', { defaultValue() { return new Date(); } })
 });
