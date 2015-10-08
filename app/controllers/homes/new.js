@@ -11,7 +11,12 @@ export default Ember.Controller.extend({
         bathroom: this.get('bathroom')
       });
 
-      newHome.save();
+      newHome.save().
+        catch(function(error) {
+          console.log(error.errors);
+        // Stay in the same place but show a flash message to acknowledge the error.
+        });
+
       this.transitionToRoute('homes');
     }
   }
