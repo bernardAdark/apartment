@@ -11,6 +11,21 @@ Router.map(function() {
     this.route('show', {path: '/:home_id'});
     this.route('edit', {path: '/:home_id/edit'});
   });
+
+  this.route('towns', function() {
+    this.route('new');
+    this.route('edit', {path: '/:town_id/edit'});
+    this.route('show', {path: '/:town_id'});
+  });
+  this.route('town', {path: '/:town_name'}, function() {
+    this.route('homes');
+    this.route('suburbs');
+  });
+
+  this.route('suburbs', function() {
+    this.route('new');
+    this.route('edit', {path: '/:suburb_slug/edit'});
+  });
 });
 
 export default Router;
