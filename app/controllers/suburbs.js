@@ -13,11 +13,10 @@ export default Ember.Controller.extend({
       });
 
       var suburbOf = this.store.peekRecord('town', this.get('town'));
-      newSuburb.set('town', suburbOf);
-      newSuburb.save().
-        catch((error) => { console.log(error.errors); });
+      suburbOf.get('suburbs').addObject(newSuburb);
+      newSuburb.save().then(() => { return suburbOf.save(); })
 
-      this.transitionToRoute('town.suburbs', suburbOf.lowercased_name);
+      this.transitionToRoute('suburbs');
     }
   }
 });
