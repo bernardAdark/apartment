@@ -1,0 +1,8 @@
+<h2>Suburbs of {{model.name}}</h2>
+{{#if model.suburbs.length}}
+  {{#each model.suburbs as |suburb|}}
+  <p>{{suburb}}</p>
+  {{/each}}
+{{else}}
+<h2>No suburbs, but this is not true so I'm working on a fix. Sorry about that</h2>
+{{/if}}

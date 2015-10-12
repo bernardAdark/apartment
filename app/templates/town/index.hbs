@@ -1,0 +1,16 @@
+{{#link-to 'towns'}}All towns{{/link-to}}
+
+{{#if model}}
+<h1>Single town</h1>
+<h2>{{model.name}}</h2>
+<em>{{model.description}}</em>
+
+<p>{{#link-to 'towns.edit' model}}Edit{{/link-to}}</p>
+
+<hr>
+
+<p>{{#link-to 'town.homes' model.lowercased_name}}See homes here{{/link-to}}</p>
+<p>{{#link-to 'town.suburbs' model.lowercased_name}}See suburbs{{/link-to}}</p>
+{{else}}
+<p>Nothing found :(</p>
+{{/if}}

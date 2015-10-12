@@ -1,0 +1,15 @@
+{{#if model.length}}
+<h2>Find a place in one of the following towns:</h2>
+<ul>
+{{#each model as |town|}}
+  <li>
+    <div class="town">
+      <p>{{#link-to 'town' town.lowercased_name}}{{ town.name }}{{/link-to}}</p>
+      <p>{{ town.description }}</p>
+    </div>
+  </li>
+{{/each}}
+</ul>
+{{/if}}
+
+{{#link-to 'towns.new'}}Add a new town{{/link-to}}

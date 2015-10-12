@@ -1,0 +1,9 @@
+<h2>Homes in {{model.name}}</h2>
+<ul>
+{{#each model.homes as |home|}}
+  <li>
+    <div>Price: {{home.price}}</div>
+    <div>Period: {{home.period}}</div>
+  </li>
+{{/each}}
+</ul>

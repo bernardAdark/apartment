@@ -1,0 +1,8 @@
+<h2>Update {{model.name}}</h2>
+<ul>
+  <form>
+    <p>{{input value=model.name placeholder="Name of town"}}</p>
+    <p>{{textarea value=model.description placeholder="Description"}}</p>
+    <p><button type="submit" {{action "updateTown" model}}>Save</button></p>
+  </form>
+</ul>
