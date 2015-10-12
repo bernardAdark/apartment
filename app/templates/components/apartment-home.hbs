@@ -1,0 +1,10 @@
+{{#link-to 'homes'}}All homes{{/link-to}}
+<h2>{{if home.description home.description "This beautiful home is missing the great description it deserves :("}}</h2>
+<p>Price: GHS {{home.price}}</p>
+<p>Private kitchen: <em>{{if home.kitchen "Yes" "No"}}</em></p>
+<p>Private bathroom: <em>{{if home.bathroom "Yes" "No"}}</em></p>
+<p>Internet (Wi-Fi): <em>{{ if home.internet "Yes" "No" }}</em></p>
+<p>Number of rooms: <em>{{ home.rooms }}</em></p>
+
+{{#link-to "homes.edit" home}}Edit{{/link-to}}
+
