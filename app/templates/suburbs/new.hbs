@@ -1,0 +1,14 @@
+<h2>Add a new suburb</h2>
+<form>
+<p>{{input value=name placeholder='Name of suburb'}}</p>
+<p>{{textarea value=description placeholder='Sweet, succint summary of suburb'}}</p>
+<p>Suburb of
+  <select onchange={{action (mut town) value="target.value"}}>
+  <option>---</option>
+  {{#each model.towns as |choice|}}
+    <option value={{choice.id}} selected={{eq town choice.lowercased_name}}>{{choice.name}}</option>
+  {{/each}}
+  </select>
+</p>
+<p><button type=submit {{action 'createSuburb'}}>Create new suburb</button></p>
+</form>

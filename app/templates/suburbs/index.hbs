@@ -1,0 +1,12 @@
+{{#if model}}
+<h2>These are all the suburbs available:</h2>
+<ul>
+{{#each model.suburbs as |suburb|}}
+  <li>{{suburb.name}}</li>
+{{/each}}
+</ul>
+{{else}}
+Alright, information we got back is that no suburbs are available :(
+{{/if}}
+
+<p>{{#link-to 'suburbs.new'}}Add another suburb{{/link-to}}</p>
