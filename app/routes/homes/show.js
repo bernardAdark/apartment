@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(params) { return this.store.find('home', params.home_id); },
+  model(params) { return this.store.findRecord('home', params.home_id); },
 
   actions: {
-    error(error, transition) {
+    error(error) {
       console.log(error);
       this.transitionTo('homes');
     }
