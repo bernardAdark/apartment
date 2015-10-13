@@ -1,0 +1,10 @@
+<h2>{{#link-to 'town' model.slug}}{{model.name}}{{/link-to}}</h2>
+<h3>Suburbs</h3>
+{{#if model.suburbs.length}}
+  {{#each model.suburbs as |suburb|}}
+  <p>{{suburb.name}}</p>
+  {{/each}}
+{{else}}
+<h2>No suburbs, but this is not true so I'm working on a fix. Sorry about that</h2>
+{{/if}}
+
