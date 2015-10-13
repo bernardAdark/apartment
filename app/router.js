@@ -19,7 +19,9 @@ Router.map(function() {
   });
   this.route('town', {path: '/:town_name'}, function() {
     this.route('homes');
-    this.route('suburbs');
+    this.route('suburbs', function() {
+      this.route('suburb', {path: '/:suburb_slug'});
+    });
   });
 
   this.route('suburbs', function() {
