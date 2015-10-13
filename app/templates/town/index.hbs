@@ -9,8 +9,8 @@
 
 <hr>
 
-<p>{{#link-to 'town.homes' model.lowercased_name}}See homes here{{/link-to}}</p>
-<p>{{#link-to 'town.suburbs' model.lowercased_name}}See suburbs{{/link-to}}</p>
+<p>{{#link-to 'town.homes' model.slug}}See homes here{{/link-to}}</p>
+<p>{{#link-to 'town.suburbs' model.slug}}See suburbs{{/link-to}}</p>
 {{else}}
 <p>Nothing found :(</p>
 {{/if}}

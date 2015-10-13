@@ -6,7 +6,7 @@
   <select onchange={{action (mut town) value="target.value"}}>
   <option>---</option>
   {{#each model.towns as |choice|}}
-    <option value={{choice.id}} selected={{eq town choice.lowercased_name}}>{{choice.name}}</option>
+    <option value={{choice.id}} selected={{eq town choice.slug}}>{{choice.name}}</option>
   {{/each}}
   </select>
 </p>

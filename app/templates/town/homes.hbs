@@ -1,4 +1,5 @@
-<h2>Homes in {{model.name}}</h2>
+<h2>{{#link-to 'town' model.slug}}{{model.name}}{{/link-to}}</h2>
+<h3>Homes</h3>
 <ul>
 {{#each model.homes as |home|}}
   <li>

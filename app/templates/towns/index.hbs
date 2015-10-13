@@ -4,7 +4,7 @@
 {{#each model as |town|}}
   <li>
     <div class="town">
-      <p>{{#link-to 'town' town.lowercased_name}}{{ town.name }}{{/link-to}}</p>
+      <p>{{#link-to 'town' town.slug}}{{ town.name }}{{/link-to}}</p>
       <p>{{ town.description }}</p>
     </div>
   </li>
