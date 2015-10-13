@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('town', {orderBy: 'name'});
+    return this.store.findAll('town', {orderBy: 'slug'});
   }
 });
