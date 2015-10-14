@@ -6,7 +6,8 @@ module.exports = function(environment) {
     environment: environment,
     contentSecurityPolicy: {
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
-      'script-src': "'self' https://*.firebaseio.com"
+      'script-src': "'self' https://*.firebaseio.com",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com"
     },
     firebase: 'https://blinding-torch-8228.firebaseio.com',
     baseURL: '/',
