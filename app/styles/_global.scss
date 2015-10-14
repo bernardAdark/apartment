@@ -1,0 +1,61 @@
+html, body {
+  font-family: $font-stack;
+}
+
+// Navigation Bar Styles
+.navigation {
+  border-color: #EAEAEA;
+  background-color: #fff;
+  .navbar-brand {
+    padding: 13px 19px;
+    border-right: 1px solid #EAEAEA;
+    padding: 19px 19px 41px 19px;
+  }
+  .links {
+    border: 0px solid #EAEAEA;
+    li {
+      border-left: 1px solid #EAEAEA;
+      padding: 5px;
+      a:link, a:visited {
+      }
+      a:hover, a:active {
+        color: #ED145B;
+      }
+    }
+    li#new-listing {
+      background-color: #ED145B;
+      a:link, a:visited {
+        color: #fff;
+      }
+    }
+    li#new-listing:hover {
+      background-color: #fff;
+      a:link, a:visited {
+        color: #ED145B;
+      }
+    }
+  }
+}
+
+#content {
+  // border: 1px solid #EAEAEA;
+  position: relative;
+  top: 60px;
+  .jumbotron.elevator-pitch {
+    text-align: center;
+    margin-bottom: 0;
+    .usp {
+      // text-transform: uppercase;
+      font-size: 35px;
+      color: #ED145B;
+    }
+    .supporting-usp {
+      font-weight: normal;
+      @include font-smoothing(antialiased);
+    }
+  }
+  .property-search {  
+    background-color: #ED145B;
+    min-height: 200px;
+  }
+}
