@@ -37,25 +37,36 @@ html, body {
   }
 }
 
+// Content Area
 #content {
   // border: 1px solid #EAEAEA;
   position: relative;
   top: 60px;
-  .jumbotron.elevator-pitch {
-    text-align: center;
-    margin-bottom: 0;
-    .usp {
-      // text-transform: uppercase;
-      font-size: 35px;
-      color: #ED145B;
-    }
-    .supporting-usp {
-      font-weight: normal;
-      @include font-smoothing(antialiased);
+
+  // General
+  .selectize-control {
+    .selectize-input {
+      box-shadow: none; 
+      @include border-radius(0);
+      padding: 13px 8px 9px 10px;
+      background-image: none;
+      background-color: #fff;
+      .item {
+        padding-bottom: 5px;
+        font-size: 19px;
+      }
+      input {
+        font-size: 15px;
+        width: 50% !important;
+      }
     }
   }
-  .property-search {  
-    background-color: #ED145B;
-    min-height: 200px;
+  button {
+    background-color: transparent;
+    border: 1px solid #EAEAEA;
+    height: 43px;
+    padding-left: 15px;
+    padding-right: 17px;
+    padding-top: 5px;
   }
 }
