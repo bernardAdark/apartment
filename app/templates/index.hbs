@@ -1,4 +1,35 @@
-<p>{{#link-to 'homes'}}See available homes{{/link-to}}</p>
-<p>{{#link-to 'towns'}}See cities that have a place for you{{/link-to}}</p>
-<p>{{#link-to 'suburbs'}}Or if granular is your taste, suburbs that have a place for you in their hearts{{/link-to}}</p>
+<div class="index-page">
+  <div class="jumbotron elevator-pitch">
+    <div class="container">
+      <h2 class="usp">Find a Place to Stay</h2>
+      <p class="lead supporting-usp">Choose from over 100+ neighborhoods in Ghana.</p>
+      <p class="lead bouncing-arrow"><a href=""><i class="fa fa-chevron-circle-down fa-3x"></i></a></p>
+    </div>
+  </div>
+  <div class="property-search">
+    <div class="container">
+      <div class="row">
+        <form>
+          <div class="col-lg-4 input-box town">
+            {{ember-selectize
+              content=model.towns
+              optionValuePath="content.id"
+              optionLabelPath="content.name"
+              placeholder="Town"}}
+          </div>
+          <div class="col-lg-4 input-box suburb">
+            {{ember-selectize
+              content=model.towns
+              optionValuePath="content.id"
+              optionLabelPath="content.name"
+              placeholder="Suburb"}}
+          </div>
+          <div class="col-lg-4 input-box">
+            <button type="button" class="search-listings-button">Search Listings</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
+</div>
