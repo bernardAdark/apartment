@@ -1,5 +1,5 @@
 <h2>Available Homes</h2>
-<p>{{#link-to 'homes.new'}}List your property{{/link-to}}</p>
+<p>{{link-to 'List your property' 'homes.new'}}</p>
 <ul>
   {{#each model as |home|}}
   <li>{{fermis-home-summary home=home}}</li>

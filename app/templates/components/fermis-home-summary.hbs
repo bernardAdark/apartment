@@ -6,4 +6,4 @@
 <p>Number of rooms: <em>{{ home.rooms }}</em></p>
 
 <p>Suburb: {{home.suburb.name}}</p>
-<p>Town: {{home.town.name}}</p>
+<p>Town: {{link-to home.town.name 'town' home.town.slug}}</p>
