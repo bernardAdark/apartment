@@ -1,13 +1,7 @@
 <h2>Available Homes</h2>
+<p>{{#link-to 'homes.new'}}List your property{{/link-to}}</p>
 <ul>
   {{#each model as |home|}}
-  <li>
-  {{#link-to 'homes.show' home}}<p style="border:1px solid #000;height:100px;width:100px;">Banner image</p>{{/link-to}}
-  <p>Price: GHS {{home.price}}</p>
-  <p>Private kitchen: <em>{{if home.kitchen "Yes" "No"}}</em></p>
-  <p>Private bathroom: <em>{{if home.bathroom "Yes" "No"}}</em></p>
-  <p>Internet (Wi-Fi): <em>{{ if home.internet "Yes" "No" }}</em></p>
-  <p>Number of rooms: <em>{{ home.rooms }}</em></p>
-  </li>
+  <li>{{fermis-home-summary home=home}}</li>
   {{/each}}
 </ul>
