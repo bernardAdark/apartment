@@ -3,6 +3,7 @@
     .jumbotron.elevator-pitch {
       text-align: center;
       margin-bottom: 0;
+      padding: 60px 0;
       .usp {
         // text-transform: uppercase;
         font-size: 35px;
@@ -12,10 +13,22 @@
         font-weight: normal;
         @include font-smoothing(antialiased);
       }
-      .bouncing-arrow {
-        margin-top: 2em;
+      .bouncing-arrow-box {
+        margin-top: 2.5em;
+        text-align: center;
+        a {
+          .bouncing-arrow {
+            -webkit-animation-duration: 3s;
+            -webkit-animation-delay: 5s;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-duration: 3s;
+            -moz-animation-delay: 5s;
+            -moz-animation-iteration-count: infinite;
+          }
+        }
         a:link, a:visited {
           color: #ED145B;
+          // color: #FFF;
         }
       }
     }
@@ -36,6 +49,11 @@
               padding: 24px 15px 15px 15px;
               input {
                 font-size: 19px;
+              }
+            }
+            .selectize-dropdown {
+              .option {
+                padding: 15px;
               }
             }
           }
