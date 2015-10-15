@@ -6,7 +6,8 @@ export default Ember.Controller.extend({
     createSuburb() {
       var newSuburb = this.store.createRecord('suburb', {
         name: this.get('name'),
-        description: this.get('description')
+        description: this.get('description'),
+        slug: Ember.String.dasherize(this.get('name'))
       });
 
       var suburbOf = this.store.peekRecord('town', this.get('town'));
@@ -14,6 +15,12 @@ export default Ember.Controller.extend({
       newSuburb.save().then(() => { return suburbOf.save(); })
 
       this.transitionToRoute('town.suburbs', suburbOf.get('slug'));
+    },
+
+
+    updateSuburb(model) {
+      //TODO: Update a suburb...
     }
+
   }
 });

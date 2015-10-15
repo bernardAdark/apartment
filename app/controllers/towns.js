@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
         name: this.get('model.name'),
         description: this.get('model.description'),
         slug: Ember.String.dasherize(this.get('model.name'))
-      })
+      });
 
       model.save().catch((error) => {
         console.log(error.errors);
