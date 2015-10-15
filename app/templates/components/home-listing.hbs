@@ -5,7 +5,7 @@
       <a href="#"><img src="https://a1.muscache.com/im/pictures/110310002/bf11161f_original.jpg?aki_policy=x_medium" class="img img-responsive listing-image" /></a>
       <a href="" class="previous-image-control image-control"><i class="fa fa-angle-left fa-3x"></i></a>
       <a href="" class="next-image-control image-control"><i class="fa fa-angle-right fa-3x"></i></a>
-      <div class="price-tag">{{home.price}} <sup>&#8373;</sup></div>
+      <div class="price-tag">{{value-or-default home.price '0'}} <sup>&#8373;</sup></div>
     </div>
     <div class="bottom details">
       <p class="lead description">{{value-or-default home.description 'No description'}}
