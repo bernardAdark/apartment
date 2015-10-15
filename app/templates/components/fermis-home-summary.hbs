@@ -1,4 +1,4 @@
-<h2>{{if home.description home.description "This beautiful home is missing the great description it deserves :("}}</h2>
+<h2>{{#link-to 'homes.home' home.id}}{{if home.description home.description "This beautiful home is missing the great description it deserves :("}}{{/link-to}}</h2>
 <p>Price: GHS {{home.price}}</p>
 <p>Private kitchen: <em>{{if home.kitchen "Yes" "No"}}</em></p>
 <p>Private bathroom: <em>{{if home.bathroom "Yes" "No"}}</em></p>
@@ -7,6 +7,3 @@
 
 <p>Suburb: {{home.suburb.name}}</p>
 <p>Town: {{home.town.name}}</p>
-
-{{#link-to "homes.home.edit" home.id}}Edit{{/link-to}}
-

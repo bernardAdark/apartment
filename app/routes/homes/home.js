@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(params) { return this.store.findRecord('home', params.home_id); },
+  controllerName: 'homes',
 
-  actions: {
-    error(error) {
-      console.log(error);
-      this.transitionTo('homes');
-    }
+  model(params) {
+    return Ember.RSVP.hash({
+      home: this.store.findRecord('home', params.home_id),
+      suburbs: this.store.findAll('suburb')
+    });
   }
 });
