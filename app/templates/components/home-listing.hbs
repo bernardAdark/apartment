@@ -1,0 +1,23 @@
+<!-- Home Listing Card --> 
+<div class="col-xs-4 listing-card">
+  <div class="box">
+    <div class="top image-and-price">
+      <a href="#"><img src={{currentImage}} class="img img-responsive listing-image" /></a>
+      {{home-listing-previous-image-control previousImage=(action 'showPreviousImage')}}
+      {{home-listing-next-image-control nextImage=(action 'showNextImage')}}
+      <div class="price-tag">{{value-or-default home.price '0'}} <sup>&#8373;</sup></div>
+    </div>
+    <div class="bottom details">
+      <p class="lead description">{{value-or-default home.description 'No description'}}
+      </p>
+      <p class="small location-and-room-count">
+        <span class="location">
+        {{value-or-default home.suburb.name 'Unknown suburb'}},
+        {{value-or-default home.town.name 'Unknown town'}}
+        </span> &middot; 
+        <span class="room-count">{{home.rooms}} Room(s)</span> &middot; 
+        <a href="" class="full-details-link"><i class="fa fa-arrow-circle-o-right"></i></a>
+      </p>
+    </div>
+  </div>
+</div>

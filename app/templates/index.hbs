@@ -1,4 +1,49 @@
-<p>{{link-to 'See available homes' 'homes'}}</p>
-<p>{{link-to 'See cities that have a place for you' 'towns'}}</p>
-<p>{{link-to 'Or if granular is your taste, suburbs' 'suburbs'}}</p>
+<div class="index-page">
+  <div class="jumbotron elevator-pitch">
+    <div class="container">
+      <h2 class="usp">Find a Place to Stay</h2>
+      <p class="lead supporting-usp">Choose from over 100+ neighborhoods in Ghana.</p>
+          <p class="lead bouncing-arrow-box"><a href=""><i class="fa fa-chevron-circle-down fa-3x bouncing-arrow animated infinite bounce" title="Start searching below"></i></a></p>
+    </div>
+  </div>
 
+  <div class="property-search">
+    <div class="container">
+      <div class="row">
+        <form>
+          <div class="col-lg-4 input-box town">
+            {{ember-selectize
+              content=model.towns
+              optionValuePath="content.id"
+              optionLabelPath="content.name"
+              placeholder="Town"}}
+          </div>
+          <div class="col-lg-4 input-box suburb">
+            {{ember-selectize
+              content=model.suburbs
+              optionValuePath="content.id"
+              optionLabelPath="content.name"
+              placeholder="Suburb"}}
+          </div>
+          <div class="col-lg-4 input-box">
+            <button type="button" class="search-listings-button">Search Listings</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container featured-home-listings">
+    <div class="row heading">
+      <div class="col-lg-12">
+        <h2 class="main">Newest Additions</h2>
+        <p class="lead sub text-muted small">Featured something that suits your style and budget</p>
+      </div>
+    </div>
+    <div class="row listings">
+      {{#each model.homes as |home|}} 
+        {{home-listing home=home}}
+      {{/each}}
+    </div>
+  </div>
+</div>

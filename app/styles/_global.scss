@@ -1,0 +1,189 @@
+html, body {
+  font-family: $font-stack;
+}
+
+// Navigation Bar Styles
+.navigation {
+  border-color: #EAEAEA;
+  background-color: #fff;
+  .navbar-brand {
+    padding: 13px 19px;
+    border-right: 1px solid #EAEAEA;
+    padding: 19px 19px 41px 19px;
+  }
+  .links {
+    border: 0px solid #EAEAEA;
+    li {
+      border-left: 1px solid #EAEAEA;
+      padding: 5px;
+      a:link, a:visited {
+      }
+      a:hover, a:active {
+        color: #ED145B;
+      }
+    }
+    li#new-listing {
+      background-color: #ED145B;
+      a:link, a:visited {
+        color: #fff;
+      }
+    }
+    li#new-listing:hover {
+      background-color: #fff;
+      a:link, a:visited {
+        color: #ED145B;
+      }
+    }
+  }
+}
+
+// Content Area
+#content {
+  // border: 1px solid #EAEAEA;
+  position: relative;
+  top: 60px;
+
+  // General
+  .selectize-control {
+    .selectize-input {
+      box-shadow: none; 
+      @include border-radius(0);
+      padding: 13px 8px 9px 10px;
+      background-image: none;
+      background-color: #fff;
+      .item {
+        padding-bottom: 5px;
+        font-size: 19px;
+      }
+      input {
+        font-size: 15px;
+        width: 50% !important;
+      }
+    }
+  }
+  button {
+    background-color: transparent;
+    border: 1px solid #EAEAEA;
+    height: 43px;
+    padding-left: 15px;
+    padding-right: 17px;
+    padding-top: 5px;
+  }
+
+  // Home listings
+  .listing-card {
+    margin-bottom: 20px;
+    .box {
+      border: 0px solid #bbb;
+      height: 292px;
+      .top,
+      .bottom {
+        border: 0px solid #f00;
+      }
+      .top {
+        position: relative;
+        .listing-image {}
+        .image-control {
+          position: absolute;
+          top: 37%;
+          color: #fff
+        }
+        .previous-image-control {
+          left: 10px;
+        }
+        .next-image-control {
+          right: 10px;
+        }
+        .price-tag {
+          border: 1px solid #ED145B;
+          background-color: #ED145B;
+          color: #FFF;
+          padding: 5px 10px;
+          position: absolute;
+          bottom: 20px;
+          left: 0;
+          font-size: 20px;
+          font-weight: 300;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 50px;
+        }
+      }
+      .bottom {
+        border: 0px solid #bbb;
+        padding: 5px;
+        .description {
+          font-size: 17px;
+          color: #565A5C;
+          color: #ED145B;
+          font-weight: bold;
+          -webkit-font-smoothing: antialiased;
+          margin-bottom: 0;
+        }
+        .location-and-room-count {
+          font-size: 90%;
+          color: #82888A;
+          .full-details-link {
+            color: #82888A;
+          }
+          .full-details-link:hover {
+            color: #ED145B;
+          }
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  background-color: #EEEEEE;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+  .copyright-notice {
+    margin-bottom: 0;
+    a:link, a:visited {
+      color: #ED145B;
+    }
+  }
+  #heart { 
+    position: relative; 
+    width: 100px; 
+    height: 90px; 
+    margin: 0 auto;
+  } 
+
+  #heart:before, #heart:after { 
+    position: absolute; 
+    content: ""; 
+    left: 50px; 
+    top: 0; 
+    width: 50px; 
+    height: 80px; 
+    background: #ED145B; 
+    border-radius: 50px 50px 0 0; 
+    -webkit-transform: rotate(-45deg); 
+    -moz-transform: rotate(-45deg); 
+    -ms-transform: rotate(-45deg); 
+    -o-transform: rotate(-45deg); 
+    transform: rotate(-45deg); 
+    -webkit-transform-origin: 0 100%; 
+    -moz-transform-origin: 0 100%; 
+    -ms-transform-origin: 0 100%; 
+    -o-transform-origin: 0 100%; 
+    transform-origin: 0 100%; 
+  } 
+
+  #heart:after { 
+    left: 0; 
+    -webkit-transform: rotate(45deg); 
+    -moz-transform: rotate(45deg); 
+    -ms-transform: rotate(45deg); 
+    -o-transform: rotate(45deg); 
+    transform: rotate(45deg); 
+    -webkit-transform-origin: 100% 100%; 
+    -moz-transform-origin: 100% 100%; 
+    -ms-transform-origin: 100% 100%; 
+    -o-transform-origin: 100% 100%; 
+    transform-origin :100% 100%; 
+  }
+}

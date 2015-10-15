@@ -18,6 +18,12 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+  
+  // Additional Libraries
+  app.import('vendor/custom-font-awesome/font-awesome.min.css');
+  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
+  app.import('vendor/custom-bootstrap/js/bootstrap.js'); 
+  app.import('bower_components/animate.css/animate.min.css');
 
   return app.toTree();
 };

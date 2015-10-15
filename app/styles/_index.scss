@@ -1,0 +1,108 @@
+#content {
+  .index-page {
+    .jumbotron.elevator-pitch {
+      text-align: center;
+      margin-bottom: 0;
+      padding: 60px 0;
+      .usp {
+        // text-transform: uppercase;
+        font-size: 35px;
+        color: #ED145B;
+      }
+      .supporting-usp {
+        font-weight: normal;
+        @include font-smoothing(antialiased);
+      }
+      .bouncing-arrow-box {
+        margin-top: 2.5em;
+        text-align: center;
+        a {
+          .bouncing-arrow {
+            -webkit-animation-duration: 3s;
+            -webkit-animation-delay: 5s;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-duration: 3s;
+            -moz-animation-delay: 5s;
+            -moz-animation-iteration-count: infinite;
+          }
+        }
+        a:link, a:visited {
+          color: #ED145B;
+          // color: #FFF;
+        }
+      }
+    }
+    .property-search {  
+      padding: 50px;
+      background-color: #ED145B;
+      min-height: 100px;
+      .container {
+        // border: 1px solid #FFFFFF;
+        .row {
+          // border: 1px solid #FFFFFF;
+          width: 70%;
+          margin: 0 auto;
+          .input-box {
+            padding-left: 0;
+            padding-right: 0;
+            .selectize-input {
+              padding: 24px 15px 15px 15px;
+              input {
+                font-size: 19px;
+              }
+            }
+            .selectize-dropdown {
+              .option {
+                padding: 15px;
+              }
+            }
+          }
+          .input-box.town {
+            .selectize-input {
+              @include border-top-left-radius(4px);
+              @include border-bottom-left-radius(4px);
+            }
+          }
+          .input-box.suburb {
+            .selectize-input {
+              border-left-color: #EEEEEE;
+            }
+          }
+        }
+      }
+      .selectize-input {
+        border-color: #FFFFFF;
+      }
+      .search-listings-button {
+        background-color: #fff;
+        color: #ED145B;
+        width: 100%;
+        @include border-top-right-radius(4px);
+        @include border-bottom-right-radius(4px);
+        font-size: 19px;
+        height: 64px;
+      }
+      .search-listings-button:hover {
+        background-color: #ED145B;
+        color: #FFF;
+      }
+    }
+
+    .featured-home-listings {
+      border: 0px solid #bbb;
+      padding-top: 50px;
+      margin-bottom: 80px;
+      .heading {
+        text-align: center;
+        margin-bottom: 20px;
+        .main {
+          color: #ED145B;
+        }
+        .sub {
+          @include font-smoothing(antialiased);
+          font-size: 95%;
+        }
+      }
+    }
+  }
+}
