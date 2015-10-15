@@ -23,6 +23,7 @@ module.exports = function(defaults) {
   app.import('vendor/custom-font-awesome/font-awesome.min.css');
   app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
   app.import('vendor/custom-bootstrap/js/bootstrap.js'); 
+  app.import('bower_components/animate.css/animate.min.css');
 
   return app.toTree();
 };
