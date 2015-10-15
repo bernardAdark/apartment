@@ -32,4 +32,17 @@
     </div>
   </div>
 
+  <div class="container featured-home-listings">
+    <div class="row heading">
+      <div class="col-lg-12">
+        <h2 class="main">Newest Additions</h2>
+        <p class="lead sub text-muted small">Featured something that suits your style and budget</p>
+      </div>
+    </div>
+    <div class="row listings">
+      {{#each model.homes as |home|}} 
+        {{home-listing home=home}}
+      {{/each}}
+    </div>
+  </div>
 </div>

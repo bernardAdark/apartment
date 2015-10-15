@@ -69,5 +69,22 @@
         color: #FFF;
       }
     }
+
+    .featured-home-listings {
+      border: 0px solid #bbb;
+      padding-top: 50px;
+      margin-bottom: 80px;
+      .heading {
+        text-align: center;
+        margin-bottom: 20px;
+        .main {
+          color: #ED145B;
+        }
+        .sub {
+          @include font-smoothing(antialiased);
+          font-size: 95%;
+        }
+      }
+    }
   }
 }
