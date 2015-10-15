@@ -70,68 +70,68 @@ html, body {
     padding-top: 5px;
   }
 
-  // // Home listings
-  // .listing-card {
-  //   margin-bottom: 20px;
-  //   .box {
-  //     border: 0px solid #bbb;
-  //     height: 292px;
-  //     .top,
-  //     .bottom {
-  //       border: 0px solid #f00;
-  //     }
-  //     .top {
-  //       position: relative;
-  //       .listing-image {}
-  //       .image-control {
-  //         position: absolute;
-  //         top: 37%;
-  //         color: #fff
-  //       }
-  //       .previous-image-control {
-  //         left: 10px;
-  //       }
-  //       .next-image-control {
-  //         right: 10px;
-  //       }
-  //       .price-tag {
-  //         border: 1px solid #ED145B;
-  //         background-color: #ED145B;
-  //         color: #FFF;
-  //         padding: 5px 10px;
-  //         position: absolute;
-  //         bottom: 20px;
-  //         left: 0;
-  //         font-size: 20px;
-  //         font-weight: 300;
-  //         border-top-right-radius: 10px;
-  //         border-bottom-right-radius: 50px;
-  //       }
-  //     }
-  //     .bottom {
-  //       border: 0px solid #bbb;
-  //       padding: 5px;
-  //       .description {
-  //         font-size: 17px;
-  //         color: #565A5C;
-  //         color: #ED145B;
-  //         font-weight: bold;
-  //         -webkit-font-smoothing: antialiased;
-  //         margin-bottom: 0;
-  //       }
-  //       .location-and-room-count {
-  //         font-size: 90%;
-  //         color: #82888A;
-  //         .full-details-link {
-  //           color: #82888A;
-  //         }
-  //         .full-details-link:hover {
-  //           color: #ED145B;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+  // Home listings
+  .listing-card {
+    margin-bottom: 20px;
+    .box {
+      border: 0px solid #bbb;
+      height: 292px;
+      .top,
+      .bottom {
+        border: 0px solid #f00;
+      }
+      .top {
+        position: relative;
+        .listing-image {}
+        .image-control {
+          position: absolute;
+          top: 37%;
+          color: #fff
+        }
+        .previous-image-control {
+          left: 10px;
+        }
+        .next-image-control {
+          right: 10px;
+        }
+        .price-tag {
+          border: 1px solid #ED145B;
+          background-color: #ED145B;
+          color: #FFF;
+          padding: 5px 10px;
+          position: absolute;
+          bottom: 20px;
+          left: 0;
+          font-size: 20px;
+          font-weight: 300;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 50px;
+        }
+      }
+      .bottom {
+        border: 0px solid #bbb;
+        padding: 5px;
+        .description {
+          font-size: 17px;
+          color: #565A5C;
+          color: #ED145B;
+          font-weight: bold;
+          -webkit-font-smoothing: antialiased;
+          margin-bottom: 0;
+        }
+        .location-and-room-count {
+          font-size: 90%;
+          color: #82888A;
+          .full-details-link {
+            color: #82888A;
+          }
+          .full-details-link:hover {
+            color: #ED145B;
+          }
+        }
+      }
+    }
+  }
 }
 
 #footer {
