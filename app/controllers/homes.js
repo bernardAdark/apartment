@@ -35,22 +35,15 @@ export default Ember.Controller.extend({
       var oldSuburb = model.home.get('suburb').get('id');
       var newSuburb = this.store.peekRecord('suburb', this.get('suburb'));
 
-      if (oldSuburb) {
-        if (oldSuburb === this.get('suburb')) {
-          model.home.save();
-        } else {
-          oldSuburb = this.store.peekRecord('suburb', oldSuburb);
-          oldSuburb.get('homes').removeObject(model.home);
-          newSuburb.get('homes').addObject(model.home);
-          model.home.save().then(() => {
-            newSuburb.save();
-            return oldSuburb.save();
-          });
-        }
+      if (oldSuburb === this.get('suburb')) {
+        model.home.save();
       } else {
+        oldSuburb = this.store.peekRecord('suburb', oldSuburb);
+        oldSuburb.get('homes').removeObject(model.home);
         newSuburb.get('homes').addObject(model.home);
         model.home.save().then(() => {
-          return newSuburb.save();
+          newSuburb.save();
+          return oldSuburb.save();
         });
       }
 
