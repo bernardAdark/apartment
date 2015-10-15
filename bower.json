@@ -15,7 +15,8 @@
     "firebase": "^2.1.0",
     "bootstrap": "3.3.2",
     "font-awesome": "~4.3.0",
-    "selectize": "~0.12.1"
+    "selectize": "~0.12.1",
+    "animate.css": "3.4.0"
   },
   "resolutions": {
     "ember": "^2.0.0"
