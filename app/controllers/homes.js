@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   queryParams: ['u'],
   u: null,
+  suburb: null,
 
   actions: {
     createHome() {
@@ -15,9 +16,14 @@ export default Ember.Controller.extend({
         bathroom: this.get('bathroom')
       });
 
-      newHome.save().catch((error) => {
-        console.log(error.errors);
-      })
+      var s = this.store.peekRecord('suburb', this.get('suburb'));
+      s.get('homes').addObject(newHome);
+      newHome.save().then(() => { return s.save();  })
+
+      this.transitionToRoute('homes.home', newHome);
+    },
+
+    updateHome(model) {
     }
   }
 });
