@@ -6,16 +6,19 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('homes', function() {
+  this.route('homes', function() {
     this.route('new');
-    this.route('show', {path: '/:home_id'});
-    this.route('edit', {path: '/:home_id/edit'});
+    this.route('home', {path: '/:home_id'}, function() {
+      this.route('edit');
+    });
   });
 
   this.route('towns', function() {
     this.route('new');
+    this.route('town', {path: '/:town_id'}, function() {
+      this.route('edit');
+    });
     this.route('edit', {path: '/:town_id/edit'});
-    this.route('show', {path: '/:town_id'});
   });
   this.route('town', {path: '/:town_name'}, function() {
     this.route('homes');

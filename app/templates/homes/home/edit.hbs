@@ -1,14 +1,24 @@
 <h2>Edit</h2>
-<div>{{textarea value=model.description placeholder="A really nice description goes here..."}}</div>
-<div>{{input value=model.price type=number placeholder="Price"}}</div>
-<div>{{input value=model.rooms type=number placeholder="Number of rooms"}}</div>
-<div>{{input value=model.period type=number placeholder="Months it can be rented for"}}</div>
-<div>Private bathroom:
-      {{radio-button value=1 groupValue=bathroom}}Yes
-      {{radio-button value=0 groupValue=bathroom}}No
+<select onchange={{action (mut suburb) value="target.value"}}>
+<option>---</option>
+{{#each model.suburbs as |choice|}}
+<option value={{choice.id}} selected={{eq suburb choice.id}}>{{choice.name}}</option>
+{{/each}}
+</select>
+<div>{{textarea value=model.home.description placeholder="A really nice description goes here..."}}</div>
+<div>{{input value=model.home.price placeholder="Price"}}</div>
+<div>{{input value=model.home.rooms placeholder="Number of rooms"}}</div>
+<div>{{input value=model.home.period placeholder="Months it can be rented for"}}</div>
+<div>
+  <label>Private bathroom:
+    <input name="bathroom" type="radio" value="1" checked={{if model.home.bathroom 'checked'}}>Yes
+    <input name="bathroom" type="radio" value="0" checked={{if (not model.home.bathroom) 'checked'}}>No
+  </label>
 </div>
-<div>Private kitchen:
-      {{labeled-radio-button value=1 groupValue=kitchen}}Yes
-      {{labeled-radio-button value=0 groupValue=kitchen}}No
+<div>
+  <label>Private kitchen:
+    <input name="kitchen" type="radio" value="1" checked={{if model.home.kitchen 'checked'}}>Yes
+    <input name="kitchen" type="radio" value="0" checked={{if (not model.home.kitchen) 'checked'}}>No
+  </label>
 </div>
 <div><button {{action "updateHome" model}}>Save</button></div>
