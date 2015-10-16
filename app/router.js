@@ -31,6 +31,8 @@ Router.map(function() {
     this.route('new');
     this.route('edit', {path: '/:suburb_slug/edit'});
   });
+
+  this.route('suburb', {path: '/s/:suburb_slug'});
 });
 
 export default Router;
