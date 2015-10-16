@@ -21,7 +21,6 @@ Router.map(function() {
     this.route('edit', {path: '/:town_id/edit'});
   });
   this.route('town', {path: '/:town_name'}, function() {
-    this.route('homes');
     this.route('suburbs', function() {
       this.route('suburb', {path: '/:suburb_slug'});
     });

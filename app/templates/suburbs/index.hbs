@@ -2,7 +2,7 @@
 <h2>These are all the suburbs available:</h2>
 <ul>
 {{#each model.suburbs as |suburb|}}
-  <li>{{suburb.name}}</li>
+  <li>{{link-to suburb.name 'suburb' suburb.slug}}</li>
 {{/each}}
 </ul>
 {{else}}
