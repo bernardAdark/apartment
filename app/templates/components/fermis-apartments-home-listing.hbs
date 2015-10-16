@@ -5,7 +5,7 @@
       <a href="#"><img src={{currentImage}} class="img img-responsive listing-image" /></a>
       {{fermis-apartments-home-listing-previous-image-control previousImage=(action 'showPreviousImage')}}
       {{fermis-apartments-home-listing-next-image-control nextImage=(action 'showNextImage')}}
-      <div class="price-tag">{{value-or-default home.price '0'}} <sup>&#8373;</sup></div>
+      <div class="price-tag">{{value-or-default home.price '0'}} per month<sup>&#8373;</sup></div>
     </div>
     <div class="bottom details">
       <p class="lead description">{{value-or-default home.description 'No description'}}
@@ -20,7 +20,9 @@
         {{/link-to}}
         </span> &middot;
         <span class="room-count">{{home.rooms}} Room(s)</span> &middot;
-        <a href="" class="full-details-link"><i class="fa fa-arrow-circle-o-right"></i></a>
+        {{#link-to 'homes.home' home.id}}
+          <i class="fa fa-arrow-circle-o-right"></i>
+        {{/link-to}}
       </p>
     </div>
   </div>

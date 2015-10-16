@@ -14,17 +14,9 @@
 $font-stack: "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 /*colors*/
-// $grocers-red: #DA1920;
-// $grocers-red-darker-tint: #C4161D;
-// $grocers-orange: #FC9146;
-// $grocers-orange-darker-tint: #E3823F;
-// $grocers-yellow: #F7E42A;
-// $grocers-yellow-darker-tint: #DECD26;
-// $grocers-green: #59D63A;
-// $grocers-green-darker-tint: #50C134;
-// $grocers-blue: #058DB5;
-// $grocers-blue-tint-one: #047FA3;
+$fermis-razmattaz: #ED145B;
 
 @import 'mixins';
 @import 'global';
 @import 'index';
+@import 'home_detail';

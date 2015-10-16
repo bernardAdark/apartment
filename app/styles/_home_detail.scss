@@ -1,0 +1,23 @@
+#content {
+  .home-detail {
+    .jumbotron.home-banner {
+      min-height: 400px;
+      position: relative;
+      .overlay {
+        // width: 200px;
+        @include color-button($fermis-razmattaz);
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        text-align: center;
+        padding: 20px 30px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 50px;
+        border-top-left-radius: 25px;
+        .price-tag {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}
