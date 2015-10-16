@@ -28,8 +28,6 @@ Router.map(function() {
   });
 
   this.route('suburbs', function() {
-    this.route('suburb', {path: '/:suburb_slug'}, function() {
-    });
     this.route('new');
     this.route('edit', {path: '/:suburb_slug/edit'});
   });
