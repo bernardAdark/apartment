@@ -3,6 +3,7 @@
     .jumbotron.home-banner {
       min-height: 400px;
       position: relative;
+      margin-bottom: 300px;
       .overlay {
         // width: 200px;
         @include color-button($fermis-razmattaz);
