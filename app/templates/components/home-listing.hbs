@@ -1,4 +1,4 @@
-<!-- Home Listing Card --> 
+<!-- Home Listing Card -->
 <div class="col-xs-4 listing-card">
   <div class="box">
     <div class="top image-and-price">
@@ -12,10 +12,10 @@
       </p>
       <p class="small location-and-room-count">
         <span class="location">
-        {{value-or-default home.suburb.name 'Unknown suburb'}},
-        {{value-or-default home.town.name 'Unknown town'}}
-        </span> &middot; 
-        <span class="room-count">{{home.rooms}} Room(s)</span> &middot; 
+        {{link-to home.suburb.name 'suburb' home.suburb.slug}},
+        {{link-to home.town.name 'town' home.town.slug}}
+        </span> &middot;
+        <span class="room-count">{{home.rooms}} Room(s)</span> &middot;
         <a href="" class="full-details-link"><i class="fa fa-arrow-circle-o-right"></i></a>
       </p>
     </div>
