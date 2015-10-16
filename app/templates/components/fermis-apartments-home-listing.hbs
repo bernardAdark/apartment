@@ -12,10 +12,10 @@
       </p>
       <p class="small location-and-room-count">
         <span class="location">
-        {{#link-to 'suburbs.suburb' home.suburb.slug}}
+        {{#link-to 'suburb' home.suburb.slug}}
           {{value-or-default home.suburb.name 'Unknown suburb'}},
         {{/link-to}}
-        {{#link-to 'towns.town' home.town.slug}}
+        {{#link-to 'town' home.town.slug}}
           {{value-or-default home.town.name 'Unknown town'}}
         {{/link-to}}
         </span> &middot;
