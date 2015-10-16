@@ -122,10 +122,12 @@ html, body {
         .location-and-room-count {
           font-size: 90%;
           color: #82888A;
-          .full-details-link {
+          .full-details-link,
+          a {
             color: #82888A;
           }
-          .full-details-link:hover {
+          .full-details-link:hover,
+          a:hover {
             color: #ED145B;
           }
         }
