@@ -10,6 +10,7 @@ Router.map(function() {
     this.route('new');
     this.route('home', {path: '/:home_id'}, function() {
       this.route('edit');
+      this.route('host');
     });
   });
 
