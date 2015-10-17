@@ -12,12 +12,8 @@
       </p>
       <p class="small location-and-room-count">
         <span class="location">
-        {{#link-to 'suburb' home.suburb.slug}}
-          {{value-or-default home.suburb.name 'Unknown suburb'}},
-        {{/link-to}}
-        {{#link-to 'town' home.town.slug}}
-          {{value-or-default home.town.name 'Unknown town'}}
-        {{/link-to}}
+        {{#link-to 'suburb' home.suburb.slug}}{{value-or-default home.suburb.name 'Unknown suburb'}}{{/link-to}},
+        {{#link-to 'town' home.town.slug}}{{value-or-default home.town.name 'Unknown town'}}{{/link-to}}
         </span> &middot;
         <span class="room-count">{{home.rooms}} Room(s)</span> &middot;
         {{#link-to 'homes.home' home.id}}
