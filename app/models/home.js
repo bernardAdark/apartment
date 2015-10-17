@@ -9,11 +9,13 @@ export default DS.Model.extend({
   available: DS.attr('boolean', { defaultValue: true }),
   period: DS.attr('number'),
   description: DS.attr('string'),
+  address: DS.attr('string'),
   furnished: DS.attr('boolean'),
   createdAt: DS.attr('date', { defaultValue() { return new Date() } }),
   updatedAt: DS.attr('date', { defaultValue() { return new Date() } }),
 
   // Associations.
+  host: DS.belongsTo('host', { async: true }),
   suburb: DS.belongsTo('suburb', { async: true }),
   town: Ember.computed('suburb', function() { return this.get('suburb').get('town') }),
 
