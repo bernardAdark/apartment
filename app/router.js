@@ -33,6 +33,10 @@ Router.map(function() {
   });
 
   this.route('suburb', {path: '/s/:suburb_slug'});
+
+  this.route('hosts', function() {
+    this.route('new');
+  });
 });
 
 export default Router;
