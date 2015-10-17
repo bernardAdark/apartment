@@ -10,10 +10,15 @@ export default DS.Model.extend({
   period: DS.attr('number'),
   description: DS.attr('string'),
   furnished: DS.attr('boolean'),
-  createdAt: DS.attr('date', { defaultValue() { return new Date(); } }),
-  updatedAt: DS.attr('date', { defaultValue() { return new Date(); } }),
+  createdAt: DS.attr('date', { defaultValue() { return new Date() } }),
+  updatedAt: DS.attr('date', { defaultValue() { return new Date() } }),
 
   // Associations.
   suburb: DS.belongsTo('suburb', { async: true }),
-  town: Ember.computed('suburb', function() { return this.get('suburb').get('town'); })
+  town: Ember.computed('suburb', function() { return this.get('suburb').get('town') }),
+
+  // Computed.
+  pricePerMonth: Ember.computed('price', 'period', function() {
+    return Math.round(this.get('price') / this.get('period')) - 0.01;
+  })
 });
