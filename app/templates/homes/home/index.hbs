@@ -1,7 +1,69 @@
 <div class="home-detail">
+  <!-- Big Banner-->
   <div class="jumbotron home-banner" style="background-image: url(https://a0.muscache.com/im/pictures/110857116/15925182_original.jpg?aki_policy=xx_large)">
     <div class="overlay">
       <p class="lead price-tag">{{value-or-default model.home.pricePerMonth '0'}} <sup>&#8373;</sup>/mo</p>
+    </div>
+  </div>
+
+  <div class="container summary-and-call-to-action">
+    <div class="row">
+      <div class="col-lg-2 host-information-box">
+        <img id="host-image" src="https://a2.muscache.com/ac/users/44317480/profile_pic/1442606909/original.jpg?interpolation=lanczos-none&crop=w:w;*,*&crop=h:h;*,*&resize=225:*&output-format=jpg&output-quality=70" class="img img-circle img-responsive" />
+        <a href="">Yaw</a>
+      </div>
+       <div class="col-lg-10 summary-and-call-to-action-box">
+        <div class="row">
+          <div class="col-lg-8 summary-box">
+            <div class="summary">
+              <h3 class="home-summary">{{model.home.description}}</h3>
+              <p class="small location-and-room-count">
+                <span class="location">
+                {{#link-to 'suburb' model.home.suburb.slug}}{{value-or-default model.home.suburb.name 'Unknown suburb'}}{{/link-to}},
+                {{#link-to 'town' model.home.town.slug}}{{value-or-default model.home.town.name 'Unknown town'}}{{/link-to}}
+                </span> &middot;
+                <span class="room-count">{{model.home.rooms}} Room(s)</span>
+              </p>
+              <div class="at-a-glance">
+                <div class="feature">
+                  <img class="img" src="/assets/images/couch3-razmattaz.png" />
+                  <span class="feature-label">2 Halls</span>
+                </div>
+                <div class="feature">
+                  <img class="img" src="/assets/images/bed-razmattaz.png" />
+                  <span class="feature-label">2 Bedrooms</span>
+                </div>
+                <div class="feature">
+                  <img class="img" src="/assets/images/kitchen6-razmattaz.png" />
+                  <span class="feature-label">2 Kitchens</span>
+                </div>
+                <div class="feature">
+                  <img class="img" src="/assets/images/shower2-razmattaz.png" />
+                  <span class="feature-label">2 Showers</span>
+                </div>
+                <div class="feature">
+                  <img class="img" src="/assets/images/toilet-razmattaz.png" />
+                  <span class="feature-label">2 Toilets</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 call-to-action-box">
+            <p class="lead text-muted small">Want to schedule a date and time to see this property?<br /> Call <a href=""><span class="agent-name">Akwasi</span></a> on:</p>
+            <h3 class="agent-phone-number">0244 323 000</h3>
+            <p class="lead text-muted small"> to book a viewing!</p>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+
+  <!-- Full Details -->
+  <div class="container-fluid full-details">
+    <div class="row">
+      <div class="col-lg-12">
+        <p class="lead"></p>
+      </div>
     </div>
   </div>
 </div>

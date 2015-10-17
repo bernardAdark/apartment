@@ -3,22 +3,107 @@
     .jumbotron.home-banner {
       min-height: 400px;
       position: relative;
-      margin-bottom: 300px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      margin-bottom: 0;
       .overlay {
         // width: 200px;
-        @include color-button($fermis-razmattaz);
+        @include color-button($fermis-apartments-razmattaz);
         position: absolute;
         left: 0px;
         bottom: 0px;
         text-align: center;
-        padding: 20px 30px;
+        padding: 17px 30px 16px 30px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 50px;
         border-top-left-radius: 25px;
         .price-tag {
           margin-bottom: 0px;
+          font-size: 20px;
         }
       }
+    }
+    .summary-and-call-to-action {
+      border: 0px solid #bbb;
+      width: 75%;
+      // height: 300px;
+      .host-information-box {
+        border: 0px solid #EAEAEA;
+        text-align: center;
+        padding-top: 30px;
+        img {
+          margin-bottom: 15px;
+        }
+        a:link, a:visited {
+          color: $fermis-apartments-gray;
+        }
+      }
+      .summary-and-call-to-action-box {
+        border: 0px solid #EAEAEA;
+        .summary-box {
+          padding-top: 30px;
+          .summary {
+            .home-summary {
+              margin: 0;
+              margin-bottom: 5px;
+              color: #565a5c;
+            }
+            .location-and-room-count {
+              color: $fermis-apartments-gray;
+              a:link, a:visited {
+                color: $fermis-apartments-gray;
+              }
+            }
+            .at-a-glance {
+              border: 0px solid #EAEAEA;
+              @include border-radius(5px);
+              padding: 05px 0px 05px 0px;
+              .feature {
+                border: 0px solid #EAEAEA;
+                display: inline-block;
+                text-align: center;
+                margin-right: 25px;
+                margin-bottom: 5px;
+                img {
+                  display: block;
+                  margin: 0 auto;
+                  margin-bottom: 5px;
+                }
+                .feature-label {
+                  color: $fermis-apartments-gray;
+                }
+              }
+            }
+          }
+        }
+        .call-to-action-box {
+          border: 1px solid $fermis-apartments-gray;
+          min-height: 210px;
+          border-left: 1px solid #dce0e0;
+          border-right: 1px solid #dce0e0;
+          border-top-width: 0;
+          border-bottom-width: 0;
+          text-align: center;
+          padding: 35px 35px 15px 35px;
+          .agent-phone-number {
+            color: $fermis-apartments-razmattaz;
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
+          a:link, a:visited {
+            color: $fermis-apartments-razmattaz;
+          }
+          .agent-name {
+            color: $fermis-apartments-razmattaz;
+          }
+        }
+      }
+    }
+    .full-details {
+      border: 1px solid #dce0e0;
+      background-color: #F5F5F5;
+      min-height: 600px;
     }
   }
 }
