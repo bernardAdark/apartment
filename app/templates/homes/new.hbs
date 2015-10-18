@@ -9,16 +9,25 @@
 </div>
 <div>{{textarea value=description placeholder="A sweet summary of the home"}}</div>
 <div>{{input value=price placeholder="Price"}}</div>
-<div>{{input value=rooms placeholder="Number of rooms"}}</div>
+<div>
+  Rooms
+  <div>Number of bedrooms: {{input value=bedrooms}}</div>
+  <div>Number of halls: {{input value=halls}}</div>
+</div>
 <div>{{input value=period placeholder="Months it can be rented for"}}</div>
 <div>
-  <label>Private bathroom:
-    <input type="radio" name="bathroom" value="1">Yes
-    <input type="radio" name="bathroom" value="0">No
-  </label>
+  <div>Bathrooms: {{input value=bathrooms}}</div>
+  <div>
+    <label>
+      Shared:
+        {{radio-button value=1 groupValue=bathroom}}Yes
+        {{radio-button value=0 groupValue=bathroom}}No
+    </label>
+  </div>
 </div>
 <div>
-  <label>Private kitchen:
+  <label>
+    Private kitchen:
     <input type="radio" name="kitchen" value="1">Yes
     <input type="radio" name="kitchen" value="0">No
   </label>
