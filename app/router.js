@@ -36,6 +36,7 @@ Router.map(function() {
 
   this.route('hosts', function() {
     this.route('new');
+    this.route('host', {path: '/:host_id'});
   });
 });
 
