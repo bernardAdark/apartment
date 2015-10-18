@@ -1,1 +1,23 @@
-<h2>Form for adding a new host</h2>
+<h2>Add new host</h2>
+<form>
+<p>
+  {{input value=title placeholder="Mrs."}}
+  {{input value=firstName placeholder="Agnes"}}
+  {{input value=lastName placeholder="Oduro"}}
+</p>
+<p>Marital status:
+  {{radio-button value=1 groupValue=maritalStatus}}Married
+  {{radio-button value=0 groupValue=maritalStatus}}Not married
+</p>
+
+This is a conditional statement. Only ask for this information if they're married. The UI should handle that.
+
+<p>
+  {{input value=spouseTitle placeholder="Mr."}}
+  {{input value=spouseFirstName placeholder="Thomas"}}
+  {{input value=spouseLastName placeholder="Oduro"}}
+</p>
+<p>{{input value=occupation placeholder="Trader"}}</p>
+<p>{{input value=education placeholder="MSLC"}}</p>
+<p><button type="submit" {{action "createHost"}}>Add host</button></p>
+</form>
