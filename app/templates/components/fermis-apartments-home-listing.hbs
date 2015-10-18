@@ -2,7 +2,9 @@
 <div class="col-xs-4 listing-card">
   <div class="box">
     <div class="top image-and-price">
-      <a href="#"><img src={{currentImage}} class="img img-responsive listing-image" /></a>
+        {{#link-to 'homes.home' home.id}}
+        <img src={{currentImage}} class="img img-responsive listing-image" />
+        {{/link-to}}
       {{fermis-apartments-home-listing-previous-image-control previousImage=(action 'showPreviousImage')}}
       {{fermis-apartments-home-listing-next-image-control nextImage=(action 'showNextImage')}}
       <div class="price-tag">{{value-or-default home.pricePerMonth '0'}}/mo<sup>&#8373;</sup></div>
