@@ -13,6 +13,7 @@ export default Model.extend({
   spouseLastName: attr('string'),
   occupation: attr('string'),
   photo: attr(),
+  story: attr('string'),
   createdAt: attr('date', { defaultValue() { return new Date() } }),
   updatedAt: attr('date', { defaultValue() { return new Date() } }),
 
