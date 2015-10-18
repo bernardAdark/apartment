@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
 
   actions: {
     createHome() {
-      var newHome = this.store.createRecord('home', {
+      let newHome = this.store.createRecord('home', {
         description: this.get('description'),
         price: this.get('price'),
         period: this.get('period'),
@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
         bathroom: this.get('bathroom')
       });
 
-      var s = this.store.peekRecord('suburb', this.get('suburb'));
+      let s = this.store.peekRecord('suburb', this.get('suburb'));
       s.get('homes').addObject(newHome);
       newHome.save().then(() => { return s.save();  })
 
@@ -32,8 +32,8 @@ export default Ember.Controller.extend({
         updatedAt: new Date()
       });
 
-      var oldSuburb = model.home.get('suburb').get('id');
-      var newSuburb = this.store.peekRecord('suburb', this.get('suburb'));
+      let oldSuburb = model.home.get('suburb').get('id');
+      let newSuburb = this.store.peekRecord('suburb', this.get('suburb'));
 
       if (oldSuburb === this.get('suburb')) {
         model.home.save();
