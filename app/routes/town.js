@@ -8,5 +8,9 @@ export default Ember.Route.extend({
       }).
       then((towns) => { return towns.objectAt(0) }).
       catch((error) => { console.log('Found nothing') });
+  },
+
+  afterModel(model) {
+    return model.get('suburbs');
   }
 });
