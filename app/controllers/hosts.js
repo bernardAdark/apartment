@@ -9,10 +9,10 @@ export default Ember.Controller.extend({
         lastName: this.get('lastName'),
         maritalStatus: this.get('maritalStatus'),
         occupation: this.get('occupation'),
-        education: this.get('education'),
         spouseTitle: this.get('spouseTitle'),
         spouseFirstName: this.get('spouseFirstName'),
-        spouseLastName: this.get('spouseLastName')
+        spouseLastName: this.get('spouseLastName'),
+        story: this.get('story')
       });
 
       newHost.save().catch(error => console.log(error.errors));
