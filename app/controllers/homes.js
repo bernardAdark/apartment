@@ -5,18 +5,22 @@ export default Ember.Controller.extend({
 
   actions: {
     createHome() {
-      let newHome = this.store.createRecord('home', {
+      var newHome = this.store.createRecord('home', {
+        summary: this.get('summary'),
         description: this.get('description'),
         price: this.get('price'),
+        bedrooms: this.get('bedrooms'),
+        halls: this.get('halls'),
         period: this.get('period'),
-        rooms: this.get('rooms'),
-        kitchen: this.get('kitchen'),
-        bathroom: this.get('bathroom')
+        bathroom: { quantity: this.get('bathrooms'), shared: this.get('sharedBathroom') },
+        kitchen: this.get('kitchen')
       });
 
-      let s = this.store.peekRecord('suburb', this.get('suburb'));
+      var s = this.store.peekRecord('suburb', this.get('suburb'));
       s.get('homes').addObject(newHome);
-      newHome.save().then(() => { return s.save();  })
+      newHome.save().
+        then(() => { return s.save();  }).
+        catch(error => console.log(error.errors));
 
       this.transitionToRoute('homes.home', newHome.id);
     },
@@ -32,8 +36,8 @@ export default Ember.Controller.extend({
         updatedAt: new Date()
       });
 
-      let oldSuburb = model.home.get('suburb').get('id');
-      let newSuburb = this.store.peekRecord('suburb', this.get('suburb'));
+      var oldSuburb = model.home.get('suburb').get('id');
+      var newSuburb = this.store.peekRecord('suburb', this.get('suburb'));
 
       if (oldSuburb === this.get('suburb')) {
         model.home.save();

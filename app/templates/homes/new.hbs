@@ -1,4 +1,5 @@
 <h2>By listing your property, you're helping someone find their peace.</h2>
+<form>
 <div>
   <select onchange={{action (mut suburb) value="target.value"}}>
     <option>---</option>
@@ -7,7 +8,8 @@
     {{/each}}
   </select>
 </div>
-<div>{{textarea value=description placeholder="A sweet summary of the home"}}</div>
+<div>{{input value=summary placeholder="A sweet summary of the home"}}</div>
+<div>{{textarea value=description placeholder="A rather long description of the home"}}</div>
 <div>{{input value=price placeholder="Price"}}</div>
 <div>
   Rooms
@@ -20,16 +22,17 @@
   <div>
     <label>
       Shared:
-        {{radio-button value=1 groupValue=bathroom}}Yes
-        {{radio-button value=0 groupValue=bathroom}}No
+        {{radio-button value=1 groupValue=sharedBathroom}}Yes
+        {{radio-button value=0 groupValue=sharedBathroom}}No
     </label>
   </div>
 </div>
 <div>
   <label>
-    Private kitchen:
-    <input type="radio" name="kitchen" value="1">Yes
-    <input type="radio" name="kitchen" value="0">No
+    Kitchen
+      {{radio-button value=1 groupValue=kitchen}}Private
+      {{radio-button value=0 groupValue=kitchen}}Shared
   </label>
 </div>
 <div><button {{action "createHome"}}>List my property</button></div>
+</form>
