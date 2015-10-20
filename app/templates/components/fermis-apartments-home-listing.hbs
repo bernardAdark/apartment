@@ -5,7 +5,7 @@
       <a href="#"><img src={{currentImage}} class="img img-responsive listing-image" /></a>
       {{fermis-apartments-home-listing-previous-image-control previousImage=(action 'showPreviousImage')}}
       {{fermis-apartments-home-listing-next-image-control nextImage=(action 'showNextImage')}}
-      <div class="price-tag">{{value-or-default home.pricePerMonth '0'}}/mo<sup>&#8373;</sup></div>
+      <div class="price-tag">{{value-or-default home.monthly '0'}}/mo<sup>&#8373;</sup></div>
     </div>
     <div class="bottom details">
       <p class="lead description">{{value-or-default home.description 'No description'}}
