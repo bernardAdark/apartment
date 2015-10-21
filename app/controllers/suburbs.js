@@ -4,13 +4,13 @@ export default Ember.Controller.extend({
   town: null,
   actions: {
     createSuburb() {
-      var newSuburb = this.store.createRecord('suburb', {
+      let newSuburb = this.store.createRecord('suburb', {
         name: this.get('name'),
         description: this.get('description'),
         slug: Ember.String.dasherize(this.get('name'))
       });
 
-      var suburbOf = this.store.peekRecord('town', this.get('town'));
+      let suburbOf = this.store.peekRecord('town', this.get('town'));
       suburbOf.get('suburbs').addObject(newSuburb);
       newSuburb.save().then(() => { return suburbOf.save(); })
 

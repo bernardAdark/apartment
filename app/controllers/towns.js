@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     createTown() {
-      var newTown = this.store.createRecord('town', {
+      let newTown = this.store.createRecord('town', {
         name: this.get('name'),
         description: this.get('description'),
         slug: Ember.String.dasherize(this.get('name'))
