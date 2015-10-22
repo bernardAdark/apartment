@@ -1,11 +1,12 @@
 import DS from 'ember-data';
+const { Model, attr, belongsTo, hasMany } = DS;
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  description: DS.attr('string'),
-  slug: DS.attr('string'),
+export default Model.extend({
+  name: attr('string'),
+  description: attr('string'),
+  slug: attr('string'),
 
   // Association.
-  town: DS.belongsTo('town', {async: true }),
-  homes: DS.hasMany('home', { async: true })
+  town: belongsTo('town', {async: true }),
+  homes: hasMany('home', { async: true })
 });
