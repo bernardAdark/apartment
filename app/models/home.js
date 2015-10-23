@@ -1,6 +1,11 @@
 import DS from 'ember-data';
 const { computed } = Ember;
-const { Model, attr, belongsTo, hasMany } = DS;
+const {
+  Model,
+  attr,
+  belongsTo,
+  hasMany
+} = DS;
 
 export default Model.extend({
   summary: attr('string'),
@@ -10,6 +15,7 @@ export default Model.extend({
   bedrooms: attr('number'),
   halls: attr('number'),
   address: attr('string'),
+  bannerImage: attr('string'),
   bathroom: attr(),
   amenities: attr(),
   createdAt: attr('date', { defaultValue() { return new Date } }),
@@ -18,6 +24,7 @@ export default Model.extend({
   // Association.
   host: belongsTo('host', {async: true}),
   suburb: belongsTo('suburb', {async: true}),
+  photos: hasMany('photo', {asyc: true}),
 
   // Computed.
   town: computed('suburb', function() { return this.get('suburb').get('town') }),
