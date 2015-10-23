@@ -8,7 +8,7 @@ module.exports = function(environment) {
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
       'script-src': "'self' https://*.firebaseio.com",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
-      'img-src': "'self' https://*.muscache.com" // Remove the mustache thing when we are serving our own (actual) home images
+      'img-src': "'self' data: https://*.muscache.com" // Remove the mustache thing when we are serving our own (actual) home images
     },
     firebase: 'https://blinding-torch-8228.firebaseio.com',
     baseURL: '/',
