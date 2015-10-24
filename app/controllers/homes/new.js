@@ -15,8 +15,14 @@ export default Ember.Controller.extend({
   dstv: false,
   garden: false,
   microwave: false,
+  photos: [],
 
   actions: {
+    imageLoaded(image) {
+      console.log('Setting the banner image to the current picture');
+      this.get('photos').addObject(image);
+    },
+
     createHome() {
       var newHome = this.store.createRecord('home', {
         summary: this.get('summary'),
@@ -26,6 +32,7 @@ export default Ember.Controller.extend({
         bedrooms: this.get('bedrooms'),
         halls: this.get('halls'),
         address: this.get('address'),
+        kitchens: this.get('kitchens'),
         bathroom: {quantity: this.get('bathrooms'), shared: this.get('shared')},
         amenities: {
           internet: {name: 'Internet', available: this.get('internet')},
@@ -41,7 +48,8 @@ export default Ember.Controller.extend({
           dstv: { name: 'DSTv', available: this.get('dstv') },
           garden: { name: 'Garden', available: this.get('garden') },
           microwave: { name: 'Microwave', available: this.get('microwave') }
-        }
+        },
+        photos: this.get('photos')
       });
 
       var s = this.store.peekRecord('suburb', this.get('suburb'));
