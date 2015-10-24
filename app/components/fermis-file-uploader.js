@@ -15,20 +15,19 @@ const {
   assert
 } = Ember;
 
-
 export default Component.extend({
   classNames: ['file-picker'],
   classNameBindings: ['multiple:multiple:single'],
   accept: '.jpg,.jpeg,.webp',
-  multiple: false,
+  multiple: true,
   preview: true,
   dropzone: true,
   progress: true,
-  hideFileInput: true,
-  readAs: 'readAsDataURL',
   selectOnClick: true,
   count: 0,
   errors: [],
+  acceptedFileFormats: 'image/jpeg image/jpg image/webp'.w(),
+  filesLoaded: 'filesLoaded',
 
   progressStyle: computed('progressValue', function() {
     var __width = this.get('progressValue') || 0;
@@ -44,17 +43,9 @@ export default Component.extend({
     this.progressElement = this.$('.file-picker__progress');
     this.fileInputElement = this.$('.file-picker__input');
 
-    if (this.get('hideFileInput')) {
-      this.hideInput();
-    }
     this.hidePreview();
     this.hideProgress();
-
-    this.fileInputElement.on('change', bind(this, 'filesSelected'));
-  },
-
-  willDestroyElement() {
-    this.fileInputElement.off('change', bind(this, 'fileSelected'));
+    this.fileInputElement.hide();
   },
 
   /**
@@ -66,35 +57,27 @@ export default Component.extend({
   },
 
   handleFiles(files) {
-    if (typeof this.filesAreValid === 'function') {
-      if (!this.filesAreValid(files)) {
-        return;
-      }
-    }
     this.updatePreview(files);
-    if (this.get('multiple')) {
-      this.sendAction('filesLoaded', files);
-    } else {
-      this.readFile(files[0], this.get('readAs')).
-        then((file) => { return this.sendAction('filesLoaded', file) });
+
+    for (let i = 0; i < files.length; i++) {
+      this.readFile(files[i]).then((file) => {
+        this.sendAction('filesLoaded', file.data)
+      });
     }
   },
 
   updatePreview(files) {
-    if (this.get('multiple')) {
-      // TODO
-    } else {
-      this.clearPreview();
-      this.progressElement.show();
-      this.readFile(files[0], 'readAsDataURL').then(bind(this, 'addPreviewImage'));
-      this.dropzoneElement.hide();
+    !this.get('multiple') && this.clearPreview();
+
+    for (let i = 0; i < files.length; i++) {
+      this.readFile(files[i]).then(bind(this, 'addPreviewImage'));
     }
 
-    this.previewElement.show();
+    this.showPreview();
   },
 
   addPreviewImage(image) {
-    var img = this.$(`<img src="" class="file-picker__preview__image multiple">`);
+    var img = this.$(`<img src="${image.data}" class="file-picker__preview__image multiple">`);
     this.hideProgress();
     this.previewElement.append(img);
   },
@@ -102,17 +85,10 @@ export default Component.extend({
   /**
    * Reads a file.
    * @param {File} file a file
-   * @param {String} readAs One of
-   * - readAsArrayBuffer
-   * - readAsBinaryString
-   * - readAsDataURL
-   * - readAsText
    * @return {Promise}
    */
-  readFile(file, readAs) {
+  readFile(file) {
     const reader = new FileReader();
-    assert(`readAs method ${readAs} not implemented`, reader[readAs] && readAs !== 'abort');
-
     return new RSVP.Promise((resolve, reject) => {
       reader.onload = (event) => {
         resolve({
@@ -140,16 +116,16 @@ export default Component.extend({
         this.set('progressValue', event.loaded/event.total*100);
       };
 
-      return reader[readAs](file);
+      return reader.readAsDataURL(file);
     });
-  },
-
-  hideInput() {
-    this.$('.file-picker__input').hide();
   },
 
   hidePreview() {
     this.previewElement.hide();
+  },
+
+  showPreview() {
+    this.previewElement.show();
   },
 
   hideProgress() {
@@ -174,9 +150,16 @@ export default Component.extend({
   click(event) {
     if (this.get('selectOnClick')) {
       if (!$(event.target).hasClass('file-picker__input')) {
-        this.$('.file-picker__input').trigger('click');
+        this.fileInputElement.trigger('click');
       }
     }
+  },
+
+
+  // During Drag'n'Drop only activate DropZone(r) if the file
+  // has the right MIME Type.
+  isImage(file) {
+    return this.get('acceptedFileFormats').indexOf(file.type) > -1;
   },
 
   /**
@@ -184,11 +167,6 @@ export default Component.extend({
   * See https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Drag_and_drop
   * for details on Drag 'n' Drop events and how to handle 'em.
   */
-  dragOver(event) {
-    event.stopPropagation();
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'copy';
-  },
 
   drop(event) {
     // The drop event is fired on the element where the drop occurred at the
@@ -202,7 +180,16 @@ export default Component.extend({
     event.stopPropagation();
     event.preventDefault();
 
+    for (let i = 0; i < event.dataTransfer.files.length; i++) {
+      assert("Only JPEG image format is accepted", this.isImage(event.dataTransfer.files[i]));
+    }
+
     this.handleFiles(event.dataTransfer.files);
+  },
+
+  dragOver(event) {
+    event.stopPropagation();
+    event.preventDefault();
   },
 
   dragEnter(event) {
@@ -214,14 +201,20 @@ export default Component.extend({
     // a drop is allowed, such as displaying a highlight or insertion marker.
     // See https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Drag_and_drop
 
+    // Only cancel default behavior if the drag data has the appropriate type.
     // TODO: A visual indication that this is a dropzone. Perhaps add a class
     // or something. [assigned to Precious :p].
-    event.stopPropagation();
-    event.preventDefault();
+    if (event.dataTransfer.types[0].toLowerCase() === "files") {
+      event.stopPropagation();
+      event.preventDefault();
 
-    this.dropzoneElement.text('');
-    this.dropzoneElement.css('background', '#ccc');
-    !this.get('multiple') && this.clearPreview();
+      this.dropzoneElement.text('');
+      this.dropzoneElement.css('background', '#ccc');
+      !this.get('multiple') && this.clearPreview();
+
+      event.dataTransfer.effectAllowed = 'copy';
+      event.dataTransfer.dropEffect = 'copy';
+    }
   },
 
   dragLeave(event) {
@@ -229,10 +222,5 @@ export default Component.extend({
     // while a drag is occurring. Listeners should remove any
     // highlighting or insertion markers used for drop feedback.
     // See https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Drag_and_drop
-    event.stopPropagation();
-    event.preventDefault();
-
-    this.dropzoneElement.css('background', '#fff');
-    this.dropzoneElement.text('Drag here or click to upload the banner image');
   }
 });
