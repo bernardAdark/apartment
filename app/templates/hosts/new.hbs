@@ -5,6 +5,12 @@
   {{input value=firstName placeholder="Agnes"}}
   {{input value=lastName placeholder="Oduro"}}
 </p>
+<p>
+  <select onchange={{ action (mut gender) value="target.value"}}>
+    <option value="M">Male</option>
+    <option value="F">Female</option>
+  </select>
+</p>
 <p>Marital status:
   {{radio-button value=1 groupValue=maritalStatus}}Married
   {{radio-button value=0 groupValue=maritalStatus}}Not married
@@ -18,5 +24,8 @@ This is a conditional statement. Only ask for this information if they're marrie
   {{input value=spouseLastName placeholder="Oduro"}}
 </p>
 <p>{{input value=occupation placeholder="Trader"}}</p>
+<p>Shot of the host (and their spouse, or even better, family)
+{{#fermis-file-uploader}}Drop image here, or click to upload one{{/fermis-file-uploader}}
+</p>
 <p><button type="submit" {{action "createHost"}}>Add host</button></p>
 </form>
