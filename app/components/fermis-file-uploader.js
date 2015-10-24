@@ -43,16 +43,22 @@ export default Component.extend({
     this.progressElement = this.$('.file-picker__progress');
     this.fileInputElement = this.$('.file-picker__input');
 
+    this.fileInputElement.on('change', bind(this, 'filesSelected'));
+
     this.hidePreview();
     this.hideProgress();
     this.fileInputElement.hide();
+  },
+
+  willDestroyElement() {
+    this.fileInputElement.off('change', bind(this, 'filesSelected'));
   },
 
   /**
    * When the file input changed (a file got selected)
    * @param {Event} event The file change event.
    */
-  fileSelected(event) {
+  filesSelected(event) {
     this.handleFiles(event.target.files);
   },
 
