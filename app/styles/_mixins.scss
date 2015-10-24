@@ -45,3 +45,12 @@
       -ms-border-bottom-right-radius: $radius;
           border-bottom-right-radius: $radius;
 }
+
+@mixin background-size($value) {
+  -webkit-background-size: $value;
+  -moz-background-size: $value;
+  -ms-background-size: $value;
+  -o-background-size: $value;
+  background-size: $value;
+}
+
