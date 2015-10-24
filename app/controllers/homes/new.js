@@ -18,9 +18,9 @@ export default Ember.Controller.extend({
   photos: [],
 
   actions: {
-    filesLoaded(file) {
+    imageLoaded(image) {
       console.log('Setting the banner image to the current picture');
-      this.get('photos').addObject(file);
+      this.get('photos').addObject(image);
     },
 
     createHome() {

@@ -27,7 +27,7 @@ export default Component.extend({
   count: 0,
   errors: [],
   acceptedFileFormats: 'image/jpeg image/jpg image/webp'.w(),
-  filesLoaded: 'filesLoaded',
+  imageLoaded: 'imageLoaded',
 
   progressStyle: computed('progressValue', function() {
     var __width = this.get('progressValue') || 0;
@@ -67,7 +67,7 @@ export default Component.extend({
 
     for (let i = 0; i < files.length; i++) {
       this.readFile(files[i]).then((file) => {
-        this.sendAction('filesLoaded', file.data)
+        this.sendAction('imageLoaded', file.data)
       });
     }
   },
