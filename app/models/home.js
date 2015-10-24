@@ -15,6 +15,7 @@ export default Model.extend({
   bedrooms: attr('number'),
   halls: attr('number'),
   address: attr('string'),
+  kitchens: attr('number'),
   bathroom: attr(),
   amenities: attr(),
   createdAt: attr('date', { defaultValue() { return new Date } }),

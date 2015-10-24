@@ -32,6 +32,7 @@ export default Ember.Controller.extend({
         bedrooms: this.get('bedrooms'),
         halls: this.get('halls'),
         address: this.get('address'),
+        kitchens: this.get('kitchens'),
         bathroom: {quantity: this.get('bathrooms'), shared: this.get('shared')},
         amenities: {
           internet: {name: 'Internet', available: this.get('internet')},
