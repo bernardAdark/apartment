@@ -15,8 +15,14 @@ export default Ember.Controller.extend({
   dstv: false,
   garden: false,
   microwave: false,
+  photos: [],
 
   actions: {
+    filesLoaded(file) {
+      console.log('Setting the banner image to the current picture');
+      this.get('photos').addObject(file);
+    },
+
     createHome() {
       var newHome = this.store.createRecord('home', {
         summary: this.get('summary'),
@@ -41,7 +47,8 @@ export default Ember.Controller.extend({
           dstv: { name: 'DSTv', available: this.get('dstv') },
           garden: { name: 'Garden', available: this.get('garden') },
           microwave: { name: 'Microwave', available: this.get('microwave') }
-        }
+        },
+        photos: this.get('photos')
       });
 
       var s = this.store.peekRecord('suburb', this.get('suburb'));
