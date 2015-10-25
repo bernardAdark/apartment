@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'apartment',
     environment: environment,
     contentSecurityPolicy: {
+      'frame-src': "'self' https://*.firebaseio.com",
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
       'script-src': "'self' https://*.firebaseio.com",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",

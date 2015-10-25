@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   photo: '',
   gender: 'M',
+  religion: null,
   phoneNumbers: [],
 
   actions: {
@@ -15,14 +16,15 @@ export default Ember.Controller.extend({
         title: this.get('title'),
         firstName: this.get('firstName'),
         lastName: this.get('lastName'),
-        maritalStatus: this.get('maritalStatus'),
+        married: this.get('married'),
         occupation: this.get('occupation'),
         spouseTitle: this.get('spouseTitle'),
         spouseFirstName: this.get('spouseFirstName'),
         spouseLastName: this.get('spouseLastName'),
         photo: this.get('photo'),
         phoneNumbers: this.get('phoneNumbers'),
-        gender: this.get('gender')
+        gender: this.get('gender'),
+        religion: this.get('religion')
       });
 
       newHost.save().
