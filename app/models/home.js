@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-const { computed } = Ember;
+const { computed, assert } = Ember;
 const {
   Model,
   attr,
@@ -29,7 +29,7 @@ export default Model.extend({
   // Computed.
   town: computed('suburb', function() { return this.get('suburb').get('town') }),
   monthly: computed('price', 'period', function() {
-    Ember.assert('Period should be greater than 0 months', this.get('period') > 0);
+    assert('Period should be greater than 0 months', this.get('period') > 0);
     return Math.round(this.get('price')/this.get('period'))-0.01;
   })
 });
