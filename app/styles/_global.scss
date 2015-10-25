@@ -141,6 +141,164 @@ html, body {
       }
     }
   }
+
+  // Home Listing Photo Grid
+  .home-listing-photo-grid {
+    .cell {
+      border: 1px solid #EAEAEA;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+    .left, .middle, .right {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .left,
+    .right {
+      .cell {
+        min-height: 10em;
+      }
+    }
+    .middle {
+      .cell {
+        min-height: 20em;
+      }
+    }
+    .right {
+      .top {}
+      .bottom {
+        position: relative;
+        a {
+          color: #fff;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-right: -50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  // Listing Image Gallery
+  .image-gallery {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+    overflow-x: hidden;
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-y: auto;
+    background-color: #000;
+    opacity: 1;
+    color: #fff;
+    .close-button-box {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 100;
+      margin-top: 12px;
+      button {
+        border: none;
+        background-color: transparent;
+      }
+      button:hover {
+        color: $fermis-apartments-razmattaz;
+      }
+    }
+    .header {
+      // padding: 30px;
+      height: 80px;
+      border: 0px solid #fff;
+    }
+    .body {
+      height: 90%;
+      .previous-image-control,
+      .next-image-control {
+        border: 0px solid #fff;
+        height: calc(100% - (80px + 100px)); 
+        position: relative;
+        cursor: pointer;
+        i {
+          position: absolute;               /* 2 */
+          top: 50%;                         /* 3 */
+          transform: translate(0, -50%);    /* 4 */
+        }
+      }
+      .previous-image-control:hover,
+      .next-image-control:hover {
+        opacity: 0.5;
+      }
+      .previous-image-control {
+        i {
+          left: 23%;
+        }
+      }
+      .next-image-control {
+        i {
+          left: 53%;
+        }
+      }
+      .current-image-box {
+        border: 0px solid #fff;
+        height: calc(100% - (80px + 100px)); 
+        .image {
+          width: 68%;
+          border: 0px solid #f00;
+          height: 100%;
+          margin: 0 auto;
+          background: transparent no-repeat center;
+          @include background-size(contain);
+        }
+      }
+    }
+    .footer {
+      border: 0px solid #fff;
+      height: 95px;
+      position: absolute; 
+      bottom: 0;
+      width: 100%;
+      .thumbnail-images {
+        overflow: auto;
+        white-space: nowrap;
+        height: 100%;
+        padding-left: 0;
+        text-align: center;
+        // width: 75%;
+        // margin: 0 auto;
+        img {
+          height: 100%;
+          width: 10%;
+          margin-right: 7px;
+          display: inline-block;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50% 50%;
+          opacity: 0.6;
+          cursor: pointer;
+        }
+        img.active {
+          opacity: 1.0;
+        }
+        img:hover {
+          opacity: 1.0;
+        }
+      }
+    }
+  }
+  .image-gallery.show {
+    display: block;
+  }
 }
 
 #footer {
