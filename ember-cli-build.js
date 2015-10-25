@@ -21,7 +21,6 @@ module.exports = function(defaults) {
   
   // Additional Libraries
   app.import('vendor/custom-bootstrap/js/bootstrap.js'); 
-  app.import('bower_components/lodash/lodash.min.js');
   app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
   app.import('vendor/custom-font-awesome/font-awesome.min.css');
   app.import('bower_components/animate.css/animate.min.css');
