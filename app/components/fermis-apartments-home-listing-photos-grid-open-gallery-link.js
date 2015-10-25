@@ -5,6 +5,9 @@ export default Ember.Component.extend({
   attributeBindings: ['href'],
   //Properties
   href: '',
+  photosCount: function () {
+    return this.get('parentView.photosCount');
+  }.property('parentView.photosCount'),
   //Events
   click: function (e) {
     e.preventDefault();
