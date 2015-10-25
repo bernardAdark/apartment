@@ -34,11 +34,10 @@ Router.map(function() {
 
   this.route('suburb', {path: '/s/:suburb_slug'});
 
-  this.route('hosts', function() {
+  this.route('new-host', {path: '/p/new'});
+  this.route('host', {path: '/p/:host_id'}, function() {
+    this.route('homes');
     this.route('new');
-    this.route('host', {path: '/:host_id'}, function() {
-      this.route('homes');
-    });
   });
 });
 

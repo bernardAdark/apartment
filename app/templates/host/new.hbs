@@ -1,0 +1,39 @@
+<h2>By listing your property, you're helping someone find their peace.</h2>
+<form>
+<select onchange={{action (mut suburb) value="target.value"}}>
+  <option>---</option>
+  {{#each model.suburbs as |choice|}}
+  <option value={{choice.id}} selected={{eq suburb choice.id}}>{{choice.name}}</option>
+  {{/each}}
+</select>
+<div>{{input value=summary placeholder="Usually, a sweet something something"}}</div>
+<div>{{textarea value=description placeholder="It's ok to elaborate"}}</div>
+<div>{{input value=price placeholder="in GHS"}}</div>
+<div>{{input value=period placeholder="in months"}}</div>
+<div>{{input value=bedrooms placeholder="Bedrooms"}}</div>
+<div>{{input value=halls placeholder="Halls"}}</div>
+<div>{{input value=kitchens placeholder="Kitchens"}}</div>
+<div>{{input value=address placeholder="Address"}}</div>
+<div>
+Bathroom {{input value=bathrooms placeholder="Bathrooms"}}
+Shared: {{radio-button value=1 groupValue=shared}} Y {{radio-button value=0 groupValue=shared}} N
+</div>
+<div>
+  Amenities:
+  <div>{{input type="checkbox" checked=internet}} Internet</div>
+  <div>{{input type="checkbox" checked=mains}} Main Power</div>
+  <div>{{input type="checkbox" checked=water}} Running water</div>
+  <div>{{input type="checkbox" checked=gated}} Gated/Fenced</div>
+  <div>{{input type="checkbox" checked=pool}} Swimming pool</div>
+  <div>{{input type="checkbox" checked=ac}} Room Air Conditioning</div>
+  <div>{{input type="checkbox" checked=laundry}} Washing Machine</div>
+  <div>{{input type="checkbox" checked=standby}} Standby Generator</div>
+  <div>{{input type="checkbox" checked=reservoir}} Water Reservoir (Water Tank)</div>
+  <div>{{input type="checkbox" checked=garage}} Garage</div>
+  <div>{{input type="checkbox" checked=dstv}} DSTv</div>
+  <div>{{input type="checkbox" checked=garden}} Garden</div>
+  <div>{{input type="checkbox" checked=microwave}} Microwave</div>
+  <div>{{#fermis-file-uploader}}Drag here or click to upload the banner image{{/fermis-file-uploader}}</div>
+</div>
+<div><button {{action "createHome"}}>List my property</button></div>
+</form>

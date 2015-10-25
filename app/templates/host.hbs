@@ -1,12 +1,1 @@
-<p>Full name: {{model.fullName}}</p>
-<p>Occupation: {{model.occupation}}</p>
-<p><img style="width:200px;height:200px;" src="{{model.photo}}"/></p>
-{{#if model.married}}
-  <p>Partner: {{model.spouseFullName}}</p>
-{{/if}}
-<p>Story: {{model.story}}</p>
-<p>
-{{#link-to 'hosts.host.homes' model}}
-See what {{model.homeLabelName}} {{if model.married 'have' 'has'}} for you!
-{{/link-to}}
-</p>
+{{outlet}}
