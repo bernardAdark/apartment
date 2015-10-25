@@ -104,6 +104,87 @@
       border: 1px solid #dce0e0;
       background-color: #F5F5F5;
       min-height: 600px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+      .wrapper {
+        width: 75%;
+        border: 0px solid #dce0e0;
+        .inner {
+          .box {
+            padding-left: 0; 
+            padding-right: 0; 
+            .lead {
+              font-size: 14px;
+              color: #565a5c;
+              -webkit-font-smoothing: antialiased;
+              margin-bottom: 0;
+            }
+            hr {
+              margin-top: 15px;
+              margin-bottom: 15px;
+              border: 0;
+              border-top: 1px solid #dce0e0;
+            }
+            .about {
+              .title {
+                font-weight: bold; 
+                color: #565a5c;
+              }
+            }
+            .details {
+              table {
+                td {
+                  border-bottom: 1px solid #ddd;
+                  border-top: none;
+                }
+                tr:not(:first-child) {
+                  td {
+                    padding-top: 25px;  
+                    padding-bottom: 25px;  
+                  }
+                }
+              }
+              .section {
+                .heading {
+                  color: #82888a;
+                  width: 30%;
+                }
+              }
+              .section.amenities {
+                .amenity {
+                  margin-bottom: 15px;
+                  .name {
+                    @include font-smoothing(antialiased);
+                  }
+                }
+                .amenity.unavailable {
+                  .name {
+                    color: #999999;
+                    text-decoration: line-through;
+                  }
+                }
+                .amenity.available {
+                  img {
+                    position: relative;
+                    top: 1px;
+                  }
+                  .name {
+                    color: #565a5c;
+                    font-weight: bold;
+                    display: inline-block;
+                    margin-left: 8px;
+                  }
+                }
+              }
+              .section.payment {
+                .lead {
+                  margin-bottom: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
