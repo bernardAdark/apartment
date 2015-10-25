@@ -86,7 +86,7 @@ export default Ember.Component.extend({
     },
     setCurrentImage: function (image) {
       var images = this.get('imageList');
-      var index = _.findIndex(images, 'url', image.url); 
+      var index = images.indexOf(image); 
       this.set('currentImageIndex', index);
     }
   }
