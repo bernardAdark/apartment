@@ -21,8 +21,8 @@
               <h3 class="home-summary">{{model.summary}}</h3>
               <p class="small location-and-room-count">
                 <span class="location">
-                {{#link-to 'suburb' model.suburb.slug}}{{value-or-default model.suburb.name 'Unknown suburb'}}{{/link-to}},
-                {{#link-to 'town' model.town.slug}}{{value-or-default model.town.name 'Unknown town'}}{{/link-to}}
+                {{#link-to 'suburb' model.suburb.slug}}{{model.suburb.name}}{{/link-to}},
+                {{#link-to 'town' model.town.slug}}{{model.town.name}}{{/link-to}}
                 </span>
               </p>
               <div class="at-a-glance">
@@ -76,31 +76,31 @@
                       <tr class="section amenities">
                         <td class="heading">Amenities</td>
                         <td>
-                          {{show-amenity model.home.amenities.mainsPower name='Mains Power' available=true}}
-                          {{show-amenity model.home.amenities.runningWater name='Running Water' available=true}}
-                          {{show-amenity model.home.amenities.gated name='Gated' available=true}}
-                          {{show-amenity model.home.amenities.pool name='Swimming Pool' available=false}}
-                          {{show-amenity model.home.amenities.airConditioning name='Air Conditioning' available=true}}
-                          {{show-amenity model.home.amenities.washingMachine name='Washing Machine' available=true}}
-                          {{show-amenity model.home.amenities.internet name='Internet' available=false}}
+                          {{show-amenity model.amenities.mains}}
+                          {{show-amenity model.amenities.water}}
+                          {{show-amenity model.amenities.gated}}
+                          {{show-amenity model.amenities.pool}}
+                          {{show-amenity model.amenities.ac}}
+                          {{show-amenity model.amenities.laundry}}
+                          {{show-amenity model.amenities.internet}}
                         </td>
                         <td>
-                          {{show-amenity model.home.amenities.powerGenerator name='Power Generator' available=true}}
-                          {{show-amenity model.home.amenities.waterReservoir name='Water Reservoir' available=false}}
-                          {{show-amenity model.home.amenities.garage name='Garage' available=true}}
-                          {{show-amenity model.home.amenities.garden name='Garden' available=false}}
-                          {{show-amenity model.home.amenities.dstv name='DSTV' available=false}}
-                          {{show-amenity model.home.amenities.microwave name='Microwave' available=true}}
+                          {{show-amenity model.amenities.standby}}
+                          {{show-amenity model.amenities.tank}}
+                          {{show-amenity model.amenities.garage}}
+                          {{show-amenity model.amenities.garden}}
+                          {{show-amenity model.amenities.dstv}}
+                          {{show-amenity model.amenities.microwave}}
                         </td>
                       </tr>
                       <tr class="section payment">
                         <td class="heading">Prices</td>
                         <td>
-                          <p class="lead">Full Rent: <strong><sup>&#8373;</sup> {{model.home.price}}</strong></p>
-                          <p class="lead">Rent Period: <strong>{{value-or-default model.home.period '24 Months'}}</strong></p>
+                          <p class="lead">Full Rent: <strong><sup>&#8373;</sup> {{model.price}}</strong></p>
+                          <p class="lead">Rent Period: <strong>{{model.period}} Months</strong></p>
                         </td>
                         <td>
-                          <p class="lead">Monthly Rent: <strong><sup>&#8373;</sup> {{value-or-default model.home.pricePerMonth '0'}}</strong></p>
+                          <p class="lead">Monthly Rent: <strong><sup>&#8373;</sup> {{model.monthly}}</strong></p>
                         </td>
                       </tr>
                       <tr class="section description">
