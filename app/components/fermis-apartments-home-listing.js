@@ -23,12 +23,20 @@ export default Ember.Component.extend({
   },
   actions: {
     showControls: function () {
-      this.childViews[0].send('showControl'); // previous image control
-      this.childViews[1].send('showControl'); // next image control
+      this.childViews.forEach(function (view) {
+        var classNames = view.classNames.join('|');
+        if (classNames.indexOf('image-control') !== -1) {
+          view.send('showControl');
+        }
+      });
     },
     hideControls: function () {
-      this.childViews[0].send('hideControl'); // previous image control
-      this.childViews[1].send('hideControl'); // next image control
+      this.childViews.forEach(function (view) {
+        var classNames = view.classNames.join('|');
+        if (classNames.indexOf('image-control') !== -1) {
+          view.send('hideControl');
+        }
+      });
     },
     showNextImage: function () {
       var currentImageIndex = this.get('currentImageIndex'),

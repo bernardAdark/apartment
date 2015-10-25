@@ -1,0 +1,21 @@
+<div class="close-button-box">
+  {{fermis-apartments-image-gallery-close-button closeGallery=(action 'close')}}
+</div> 
+
+<div class="row-fluid header">
+  <div class="col-lg-12"></div>
+</div>
+<div class="row-fluid body">
+  {{fermis-apartments-image-gallery-previous-image-control previousImage=(action 'showPreviousImage')}}
+  <div class="col-lg-10 current-image-box">
+    <div class="image" style="background-image: url({{currentImage}});"></div>
+  </div>
+  {{fermis-apartments-image-gallery-next-image-control nextImage=(action 'showNextImage')}}
+</div>
+<div class="row-fluid footer">
+  <div class="col-lg-12 thumbnail-images">
+  {{#each imageList as |image|}}
+    {{fermis-apartments-image-gallery-thumbnail image=image setCurrentImage=(action 'setCurrentImage')}}
+  {{/each}}
+  </div>
+</div>
