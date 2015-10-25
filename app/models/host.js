@@ -13,7 +13,7 @@ export default Model.extend({
   lastName: attr('string'),
   gender: attr('string'),
   phoneNumbers: attr(),
-  maritalStatus: attr('boolean'),
+  married: attr('boolean'),
   spouseTitle: attr('string'),
   spouseFirstName: attr('string'),
   spouseLastName: attr('string'),
@@ -33,10 +33,16 @@ export default Model.extend({
 
   homeLabelName: computed('firstName', 'spouseFirstName', function() {
     const _lbl = [this.get('firstName')];
+    let spouseFirstName = this.get('spouseFirstName');
+
     if (!!spouseFirstName.trim()) {
       this.get('gender') === 'M' ? _lbl.unshift(spouseFirstName) : _lbl.push(spouseFirstName);
     }
 
     return _lbl.join(' & ');
+  }),
+
+  spouseFullName: computed('spouseTitle', 'spouseFirstName', 'spouseLastName', function() {
+    return `${this.get('spouseTitle')} ${this.get('spouseFirstName')} ${this.get('spouseLastName')}`
   })
 });

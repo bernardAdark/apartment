@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
         title: this.get('title'),
         firstName: this.get('firstName'),
         lastName: this.get('lastName'),
-        maritalStatus: this.get('maritalStatus'),
+        married: this.get('married'),
         occupation: this.get('occupation'),
         spouseTitle: this.get('spouseTitle'),
         spouseFirstName: this.get('spouseFirstName'),

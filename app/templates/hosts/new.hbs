@@ -12,8 +12,8 @@
   </select>
 </p>
 <p>Marital status:
-  {{radio-button value=1 groupValue=maritalStatus}}Married
-  {{radio-button value=0 groupValue=maritalStatus}}Not married
+  {{radio-button value=1 groupValue=married}}Married
+  {{radio-button value=0 groupValue=married}}Not married
 </p>
 
 This is a conditional statement. Only ask for this information if they're married. The UI should handle that.
@@ -24,6 +24,7 @@ This is a conditional statement. Only ask for this information if they're marrie
   {{input value=spouseLastName placeholder="Oduro"}}
 </p>
 <p>{{input value=occupation placeholder="Trader"}}</p>
+<p>{{textarea value=story placeholder="A really nice story, about you."}}</p>
 <p>Shot of the host (and their spouse, or even better, family)
 {{#fermis-file-uploader}}Drop image here, or click to upload one{{/fermis-file-uploader}}
 </p>
