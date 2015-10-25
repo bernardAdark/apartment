@@ -25,6 +25,15 @@ This is a conditional statement. Only ask for this information if they're marrie
 </p>
 <p>{{input value=occupation placeholder="Trader"}}</p>
 <p>{{textarea value=story placeholder="A really nice story, about you."}}</p>
+<p>
+  <select onchange={{action (mut religion) value="target.value"}}>
+    <option>Prefer not to say</option>
+    <option value="Christian">Christian</option>
+    <option value="Muslim">Muslim</option>
+    <option value="Traditionalist">Traditionalist</option>
+    <option value="Atheist">Atheist</option>
+  </select>
+</p>
 <p>Shot of the host (and their spouse, or even better, family)
 {{#fermis-file-uploader}}Drop image here, or click to upload one{{/fermis-file-uploader}}
 </p>

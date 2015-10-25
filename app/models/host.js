@@ -18,6 +18,7 @@ export default Model.extend({
   spouseFirstName: attr('string'),
   spouseLastName: attr('string'),
   occupation: attr('string'),
+  religion: attr('string'),
   photo: attr(),
   story: attr('string'),
   createdAt: attr('date', { defaultValue() { return new Date() } }),
