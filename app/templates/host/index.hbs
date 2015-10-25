@@ -6,9 +6,9 @@
 {{/if}}
 <p>Story: {{model.story}}</p>
 <p>
-{{#link-to 'hosts.host.homes' model}}
+{{#link-to 'host.homes' model}}
 See what {{model.homeLabelName}} {{if model.married 'have' 'has'}} for you!
 {{/link-to}}
-<div>{{link-to 'List my property' 'hosts.host.new' model.id}}</div>
+<div>{{link-to 'List my property' 'host.new' model.id}}</div>
 </p>
 

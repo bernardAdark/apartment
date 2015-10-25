@@ -32,7 +32,7 @@ export default Ember.Controller.extend({
         halls: this.get('halls'),
         address: this.get('address'),
         kitchens: this.get('kitchens'),
-        bathroom: {quantity: this.get('bathrooms'), shared: this.get('shared')},
+        bathroom: {quantity: this.get('bathrooms'), shared: !!this.get('shared')},
         amenities: {
           internet: {name: 'Internet', available: this.get('internet')},
           mains: { name: 'Main Power', available: this.get('mains') },
@@ -51,16 +51,16 @@ export default Ember.Controller.extend({
         photos: this.get('photos')
       });
 
-      let suburb = this.store.peekRecord('suburb', this.get('suburb'));
+      let suburb = this.store.peekRecord('suburb', this.get('suburb')),
+          host = this.get('model').host;
+      suburb.get('homes').addObject(newHome);
+      host.get('homes').addObject(newHome);
 
-      // suburb.get('homes').addObject(newHome);
-      // host.get('homes').addObject(newHome);
+      newHome.save().then(() => {
+        return suburb.save(), host.save();
+      });
 
-      // newHome.save().then(() => {
-      //   return suburb.save(), host.save();
-      // });
-
-      // this.transitionToRoute('homes.home', newHome);
+      this.transitionToRoute('homes.home', newHome);
     }
   }
 });

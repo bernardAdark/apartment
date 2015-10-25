@@ -7,7 +7,6 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('homes', function() {
-    this.route('new');
     this.route('home', {path: '/:home_id'}, function() {
       this.route('edit');
       this.route('host');
@@ -19,8 +18,8 @@ Router.map(function() {
     this.route('town', {path: '/:town_id'}, function() {
       this.route('edit');
     });
-    this.route('edit', {path: '/:town_id/edit'});
   });
+
   this.route('town', {path: '/:town_name'}, function() {
     this.route('suburbs', function() {
       this.route('suburb', {path: '/:suburb_slug'});
@@ -37,8 +36,8 @@ Router.map(function() {
   this.route('new-host', {path: '/p/new'});
   this.route('host', {path: '/p/:host_id'}, function() {
     this.route('homes');
-    this.route('new');
   });
+  this.route('host.new', {path: '/p/:host_id/new'});
 });
 
 export default Router;
