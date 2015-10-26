@@ -34,6 +34,11 @@
         padding-top: 30px;
         img {
           margin-bottom: 15px;
+          min-height: 125px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50% 50%;
+          width: 100%;
         }
         a:link, a:visited {
           color: $fermis-apartments-gray;
@@ -161,6 +166,8 @@
                   .name {
                     color: #999999;
                     text-decoration: line-through;
+                    display: inline-block;
+                    margin-left: 8px;
                   }
                 }
                 .amenity.available {

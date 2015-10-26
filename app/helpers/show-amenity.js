@@ -11,9 +11,9 @@ export function showAmenity(params, namedArgs) {
   } else {
     var amenityMarkup = `<div class="amenity`;
     if (!amenity.available) {
-      amenityMarkup += ` unavailable">`;
+      amenityMarkup += ` unavailable"><img src="/assets/images/amenity-` + Ember.String.dasherize(amenity.name).replace('/','-') + `-icon-gray.png">`;
     } else {
-      amenityMarkup += ` available"><img src="/assets/images/amenity-` + Ember.String.dasherize(amenity.name) + `-icon-gray.png">`;
+      amenityMarkup += ` available"><img src="/assets/images/amenity-` + Ember.String.dasherize(amenity.name).replace('/','-') + `-icon-gray.png">`;
     }
     amenityMarkup += `<span class="name">` + amenity.name + `</span>`;
     amenityMarkup += `</div>`;

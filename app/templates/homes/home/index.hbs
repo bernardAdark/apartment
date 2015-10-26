@@ -2,7 +2,8 @@
   {{fermis-apartments-image-gallery images=model.images}}
 
   <!-- Big Banner-->
-  <div class="jumbotron home-banner" style="background-image: url(https://a0.muscache.com/im/pictures/110857116/15925182_original.jpg?aki_policy=xx_large)">
+  <!--<div class="jumbotron home-banner" style="background-image: url(https://a0.muscache.com/im/pictures/110857116/15925182_original.jpg?aki_policy=xx_large)">-->
+  <div class="jumbotron home-banner" style="background-image: url({{coverImage}})">
     <div class="overlay">
       <p class="lead price-tag">{{value-or-default model.monthly '0'}} <sup>&#8373;</sup>/mo</p>
     </div>
@@ -11,7 +12,7 @@
   <div class="container summary-and-call-to-action">
     <div class="row">
       <div class="col-lg-2 host-information-box">
-        <img id="host-image" src="{{model.host.photo}}" class="img img-circle img-responsive" />
+        <img style="background-image: url('{{model.host.photo}}');" id="host-image" class="img img-circle img-responsive" />
         {{link-to model.host.homeLabelName 'host' model.host}}
       </div>
        <div class="col-lg-10 summary-and-call-to-action-box">
@@ -28,19 +29,19 @@
               <div class="at-a-glance">
                 <div class="feature">
                   <img class="img" src="/assets/images/couch3-razmattaz.png" />
-                  <span class="feature-label">{{model.halls}} Halls</span>
+                  <span class="feature-label">{{model.halls}} {{pluralize-text 'Hall' count=model.halls}}</span>
                 </div>
                 <div class="feature">
                   <img class="img" src="/assets/images/bed-razmattaz.png" />
-                  <span class="feature-label">{{model.bedrooms}} Bedrooms</span>
+                  <span class="feature-label">{{model.bedrooms}} {{pluralize-text 'Bedroom' count=model.bedrooms}}</span>
                 </div>
                 <div class="feature">
                   <img class="img" src="/assets/images/kitchen6-razmattaz.png" />
-                  <span class="feature-label">{{model.kitchens}} Kitchens</span>
+                  <span class="feature-label">{{model.kitchens}} {{pluralize-text 'Kitchen' count=model.kitchens}}</span>
                 </div>
                 <div class="feature">
                   <img class="img" src="/assets/images/toilet-razmattaz.png" />
-                  <span class="feature-label">{{model.bathroom.quantity}} Washrooms</span>
+                  <span class="feature-label">{{model.bathroom.quantity}} {{pluralize-text 'Bathroom' count=model.bathroom.quantity}}</span>
                 </div>
               </div>
             </div>
@@ -65,7 +66,7 @@
               <div class="row about">
                 <div class="col-lg-12">
                   <h4 class="title">About this listing</h4>
-                  <p class="lead">A large, 1-bed apartment in the lively Shoreditch area of Central London. Moments from Old Street tube station & with 100's of bars & restaurants nearby this is the perfect place for you to explore and enjoy everything the city has to offer.</p>
+                  <!--<p class="lead">A large, 1-bed apartment in the lively Shoreditch area of Central London. Moments from Old Street tube station & with 100's of bars & restaurants nearby this is the perfect place for you to explore and enjoy everything the city has to offer.</p>-->
                 </div>
               </div>
               <hr />
@@ -96,29 +97,23 @@
                       <tr class="section payment">
                         <td class="heading">Prices</td>
                         <td>
-                          <p class="lead">Full Rent: <strong><sup>&#8373;</sup> {{model.price}}</strong></p>
+                          <p class="lead">Full Rent: <strong>{{model.price}} <sup>&#8373;</sup></strong></p>
                           <p class="lead">Rent Period: <strong>{{model.period}} Months</strong></p>
                         </td>
                         <td>
-                          <p class="lead">Monthly Rent: <strong><sup>&#8373;</sup> {{model.monthly}}</strong></p>
+                          <p class="lead">Monthly Rent: <strong>{{model.monthly}} <sup>&#8373;</sup></strong></p>
                         </td>
                       </tr>
                       <tr class="section description">
                         <td class="heading">Description</td>
                         <td colspan="2">
-                          <p class="lead">
-                          A large 1 double bedroom apartment situated on a popular street in Shoreditch. Old Street underground station is a 2 min walk from the front door as are numerous bus routes.<br /><br />
-We meet guests at the apartment to handover keys and show you around. If you need help throughout your stay we are only a few streets away and can be contacted by phone or email. We also provide a very thorough guide to the property and local area. We meet guests at the apartment to handover keys and show you around. If you need help throughout your stay we are only a few streets away and can be contacted by phone or email. We also provide a very thorough guide to the property and local area. <br /><br />
-A large 1 double bedroom apartment situated on a popular street in Shoreditch. Old Street underground station is a 2 min walk from the front door as are numerous bus routes.
-                          </p>
+                          <p class="lead">{{model.description}}</p>
                         </td>
                       </tr>
                       <tr class="section house-rules">
                         <td class="heading">House Rules</td>
                         <td colspan="2">
-                          <p class="lead">
-                          We don't have a big list of house rules. The apartment is our home in London and all we ask is that you leave the property in the condition you find it and be considerate to our neighbours. Please no parties.
-                          </p>
+                          <p class="lead">{{value-or-default model.rules 'None added'}}</p>
                         </td>
                       </tr>
                       <tr class="section gallery-heading">
