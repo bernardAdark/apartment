@@ -41,12 +41,10 @@
       </div>
     </div>
     <div class="row listings">
-      {{#each model.homes as |home|}} 
+      {{#each model.homes as |home|}}
         {{fermis-apartments-home-listing home=home}}
       {{else}}
           {{partial 'loading'}}
-          <!--<p class="lead">Loading is Loading...</p>-->
-          <!-- <img src="svg-loaders/puff.svg" />-->
       {{/each}}
     </div>
   </div>
