@@ -34,10 +34,10 @@ export default Model.extend({
 
   homeLabelName: computed('firstName', 'spouseFirstName', function() {
     const _lbl = [this.get('firstName')];
-    let spouseFirstName = this.get('spouseFirstName');
+    let spouse = this.get('spouseFirstName');
 
-    if (!!spouseFirstName.trim()) {
-      this.get('gender') === 'M' ? _lbl.unshift(spouseFirstName) : _lbl.push(spouseFirstName);
+    if (!!spouse.trim()) {
+      this.get('gender') === 'M' ? _lbl.unshift(spouse) : _lbl.push(spouse);
     }
 
     return _lbl.join(' & ');
