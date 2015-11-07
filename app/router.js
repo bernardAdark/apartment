@@ -38,8 +38,8 @@ Router.map(function() {
   this.route('new-host', {path: '/p/new'});
   this.route('host', {path: '/p/:host_id'}, function() {
     this.route('homes');
+    this.route('new');
   });
-  this.route('host.new', {path: '/p/:host_id/new'});
 });
 
 export default Router;

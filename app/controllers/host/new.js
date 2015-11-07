@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import EmberValidations from 'ember-validations';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(EmberValidations, {
   suburb: null,
   internet: false,
   mains: false,
@@ -22,7 +23,11 @@ export default Ember.Controller.extend({
       this.get('photos').addObject(image);
     },
 
-    createHome() {
+    removeImage(image) {
+      //TODO: Delete image from photos collection.
+    },
+
+    createHome(host) {
       let newHome = this.store.createRecord('home', {
         summary: this.get('summary'),
         description: this.get('description'),
@@ -51,16 +56,22 @@ export default Ember.Controller.extend({
         photos: this.get('photos')
       });
 
-      let suburb = this.store.peekRecord('suburb', this.get('suburb')),
-          host = this.get('model').host;
+      let suburb = this.store.peekRecord('suburb', this.get('suburb'));
       suburb.get('homes').addObject(newHome);
       host.get('homes').addObject(newHome);
 
-      newHome.save().then(() => {
-        return suburb.save(), host.save();
-      });
-
-      this.transitionToRoute('homes.home', newHome);
+      newHome.save().
+        then((h) => {
+          suburb.save();
+          host.save();
+          this.transitionToRoute('homes.home', h);
+        }).
+        catch((e) => {
+          console.error(e.errors);
+          suburb.get('homes').removeObject(newHome);
+          host.get('homes').removeObject(newHome);
+          newHome.deleteRecord();
+        });
     }
   }
 });
