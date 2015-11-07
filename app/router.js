@@ -24,14 +24,16 @@ Router.map(function() {
     this.route('suburbs', function() {
       this.route('suburb', {path: '/:suburb_slug'});
     });
+    this.route('new');
   });
 
   this.route('suburbs', function() {
-    this.route('new');
     this.route('edit', {path: '/:suburb_slug/edit'});
   });
 
-  this.route('suburb', {path: '/s/:suburb_slug'});
+  this.route('suburb', {path: '/s/:suburb_slug'}, function() {
+    this.route('new-deputy', {path: 'new'});
+  });
 
   this.route('new-host', {path: '/p/new'});
   this.route('host', {path: '/p/:host_id'}, function() {
