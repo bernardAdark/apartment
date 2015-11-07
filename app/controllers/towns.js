@@ -2,22 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-    createTown() {
-      let newTown = this.store.createRecord('town', {
-        name: this.get('name'),
-        description: this.get('description'),
-        slug: Ember.String.dasherize(this.get('name'))
-      });
-
-      newTown.save().
-        catch(function(error) {
-          console.log(error.errors);
-          // Stay here. Record wasn't successfully created.
-        });
-
-      this.transitionToRoute('town', newTown.get('slug'));
-    },
-
     updateTown(model) {
       model.setProperties({
         name: this.get('model.name'),
