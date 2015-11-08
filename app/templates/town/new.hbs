@@ -1,0 +1,6 @@
+<h2>Add a new suburb</h2>
+<form>
+<p>{{input value=name placeholder='Name of suburb'}}</p>
+<p>{{textarea value=description placeholder='Sweet, succint summary of suburb'}}</p>
+<p><button type=submit {{action 'createSuburb' model}}>Create new suburb</button></p>
+</form>

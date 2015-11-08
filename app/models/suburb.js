@@ -1,4 +1,6 @@
+import Ember from 'ember';
 import DS from 'ember-data';
+
 const {
   Model,
   attr,
@@ -13,5 +15,6 @@ export default Model.extend({
 
   // Association.
   town: belongsTo('town', {async: true }),
-  homes: hasMany('home', { async: true })
+  homes: hasMany('home', { async: true }),
+  deputies: hasMany('deputy', {async: true }),
 });
