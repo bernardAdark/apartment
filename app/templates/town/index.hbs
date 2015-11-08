@@ -5,11 +5,6 @@
 <h2>{{model.name}}</h2>
 <em>{{model.description}}</em>
 
-<p>{{#link-to 'towns.edit' model}}Edit{{/link-to}}</p>
-
-<hr>
-
-<p>{{link-to 'See homes here' 'town.homes' model.slug}}</p>
 <p>{{link-to 'See suburbs' 'town.suburbs' model.slug}}</p>
 {{else}}
 <p>Nothing found :(</p>

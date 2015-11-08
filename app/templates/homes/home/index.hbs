@@ -47,8 +47,16 @@
             </div>
           </div>
           <div class="col-lg-4 call-to-action-box">
-            <p class="lead text-muted small">Want to schedule a date and time to see this property?<br /> Call <a href=""><span class="agent-name">Akwasi</span></a> on:</p>
-            <h3 class="agent-phone-number">0244 323 000</h3>
+            <p class="lead text-muted small">Want to schedule a date and time to see this property?<br /> Call either
+            <ul>
+              {{#each model.suburb.deputies as |dep|}}
+              <li>
+                <span class="agent-name">{{dep.firstName}}</span>&nbsp;on&nbsp;
+                <span class="agent-phone-number">{{dep.phoneNumber}}</span>
+              </li>
+              {{/each}}
+            </ul>
+            </p>
             <p class="lead text-muted small"> to book a viewing!</p>
           </div>
         </div>

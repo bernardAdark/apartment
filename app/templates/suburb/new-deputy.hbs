@@ -1,0 +1,13 @@
+<form>
+<div>{{input value=title placeholder="e.g. Mr"}}</div>
+<div>{{input value=firstName placeholder="e.g. Abdulla"}}</div>
+<div>{{input value=lastName placeholder="e.g. Bayorbor"}}</div>
+<div>{{input value=idType placeholder="e.g. Passport"}}</div>
+<div>{{input value=idNumber placeholder="e.g. XXXXXXXXXX"}}</div>
+<div>{{input value=occupation placeholder="e.g. Photographer"}}</div>
+<div>{{input value=education placeholder="e.g. Senior High School"}}</div>
+<div>{{input value=phoneNumber placeholder="e.g. 020 123 4567"}}</div>
+<div>{{textarea value=story placeholder="Something cool about you, really."}}</div>
+<div>{{#fermis-file-uploader}}Your photo{{/fermis-file-uploader}}</div>
+<div><button {{action 'createDeputy' model}}>Add new deputy</button></div>
+</form>
