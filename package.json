@@ -45,6 +45,7 @@
     "ember-export-application-global": "^1.0.3",
     "ember-radio-button": "1.0.7",
     "ember-truth-helpers": "1.1.0",
-    "emberfire": "1.5.0"
+    "emberfire": "1.5.0",
+    "testem": "0.9.11"
   }
 }

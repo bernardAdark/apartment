@@ -1,12 +1,23 @@
+import Ember from 'ember';
 import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('home', 'Unit | Model | home', {
-  // Specify the other units that are required for this test.
-  needs: [],
-  unit: true
+  needs: ['model:host', 'model:suburb']
 });
 
-test('it exists', function(assert) {
-  const model = this.subject();
-  assert.ok(!!model);
+
+test('host relationship', function() {
+  let Home = this.store().modelFor('home');
+  let relationship = Ember.get(Home, 'relationshipsByName').get('host');
+  
+  equal(relationship.key, 'host');
+  equal(relationship.kind, 'belongsTo');
+});
+
+test('suburb relationship', function() {
+  let Home = this.store().modelFor('home');
+  let relationship = Ember.get(Home, 'relationshipsByName').get('suburb');
+
+  equal(relationship.key, 'suburb');
+  equal(relationship.kind, 'belongsTo');
 });

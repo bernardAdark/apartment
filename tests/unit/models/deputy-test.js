@@ -1,12 +1,14 @@
+import Ember from 'ember';
 import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('deputy', 'Unit | Model | deputy', {
-  // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:suburb']
 });
 
-test('it exists', function(assert) {
-  var model = this.subject();
-  // var store = this.store();
-  assert.ok(!!model);
+test('suburb relationship', function() {
+  let Deputy = this.store().modelFor('deputy');
+  let relationship = Ember.get(Deputy, 'relationshipsByName').get('suburb');
+
+  equal(relationship.key, 'suburb');
+  equal(relationship.kind, 'belongsTo');
 });
