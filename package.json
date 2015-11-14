@@ -46,6 +46,7 @@
     "ember-radio-button": "1.0.7",
     "ember-truth-helpers": "1.1.0",
     "emberfire": "1.5.0",
-    "testem": "0.9.11"
+    "testem": "0.9.11",
+    "ember-validations": "2.0.0-alpha.4"
   }
 }
