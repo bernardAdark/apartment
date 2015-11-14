@@ -7,23 +7,23 @@ moduleForModel('home', 'Unit | Model | home', {
 
 
 test('host relationship', function() {
-  let Home = this.store().modelFor('home');
-  let relationship = Ember.get(Home, 'relationshipsByName').get('host');
+  const Home = this.store().modelFor('home');
+  const relationship = Ember.get(Home, 'relationshipsByName').get('host');
   
   equal(relationship.key, 'host');
   equal(relationship.kind, 'belongsTo');
 });
 
 test('suburb relationship', function() {
-  let Home = this.store().modelFor('home');
-  let relationship = Ember.get(Home, 'relationshipsByName').get('suburb');
+  const Home = this.store().modelFor('home');
+  const relationship = Ember.get(Home, 'relationshipsByName').get('suburb');
 
   equal(relationship.key, 'suburb');
   equal(relationship.kind, 'belongsTo');
 });
 
 test('summary should be required', function() {
-  let model = this.subject();
+  const model = this.subject();
   Ember.run(function() {
     model.set('summary', null);
   });
@@ -32,7 +32,7 @@ test('summary should be required', function() {
 });
 
 test('description should be required', function() {
-  let model = this.subject();
+  const model = this.subject();
   Ember.run(function() {
     model.set('description', '');
   });
@@ -41,7 +41,7 @@ test('description should be required', function() {
 });
 
 test('should have at least one bedroom', function() {
-  let model = this.subject();
+  const model = this.subject();
   Ember.run(function() {
     model.set('bedrooms', 0);
   });
@@ -50,10 +50,24 @@ test('should have at least one bedroom', function() {
 });
 
 test('should not have negative bedrooms', function() {
-  let model = this.subject();
+  const model = this.subject();
   Ember.run(function() {
     model.set('bedrooms', -9);
   });
 
   equal(model.get('isValid'), false, 'Home is valid with negative number of bedrooms');
 })
+
+test('monthly (computed) should be price/months', function(assert) {
+  const model = this.subject();
+  Ember.run(function() {
+    model.set('price', 12000);
+    model.set('months', 2);
+  });
+
+  assert.equal(model.get('monthly'), Math.round(12000/2)-0.01);
+});
+
+test('town (computed)', function(assert) {
+  assert.ok(true); //TODO: Test
+});
