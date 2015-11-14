@@ -1,4 +1,6 @@
 import DS from 'ember-data';
+import EmberValidations from 'ember-validations';
+
 const { computed } = Ember;
 const {
   Model,
@@ -7,7 +9,17 @@ const {
   hasMany
 } = DS;
 
-export default Model.extend({
+export default Model.extend(EmberValidations, {
+
+  validations: {
+    firstName: { presence: true, length: {minimum: 1} },
+    lastName: { presence: true, length: {minimum: 1} },
+    phoneNumbers: { presence: true },
+    married: { presence: true, inclusion: {in: [true, false, 0, 1]}},
+    photo: { presence: true, format: {with: /^data:image\/jpeg;base64/i } },
+    story: { presence: true, length: {minimum: 1} }
+  },
+
   title: attr('string'),
   firstName: attr('string'),
   lastName: attr('string'),

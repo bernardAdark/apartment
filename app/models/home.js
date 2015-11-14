@@ -1,13 +1,23 @@
 import DS from 'ember-data';
+import EmberValidations from 'ember-validations';
+
 const { computed, assert } = Ember;
 const {
   Model,
   attr,
-  belongsTo,
-  hasMany
+  belongsTo
 } = DS;
 
-export default Model.extend({
+export default Model.extend(EmberValidations, {
+  validations: {
+      summary: { presence: true, length: {minimum: 1} },
+      description: { presence: true, length: {minimum: 1} },
+      period: { presence: true, numericality: true },
+      bedrooms: { presence: true, numericality: {greaterThanOrEqualTo: 1}},
+      halls: { presence: true, numericality: {greaterThanOrEqualTo: 0} },
+      kitchen: { presence: true, numericality: {greaterThanOrEqualTo: 0} }
+  },
+
   summary: attr('string'),
   description: attr('string'),
   period: attr('number'),
