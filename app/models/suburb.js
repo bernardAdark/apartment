@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import EmberValidations from 'ember-validations';
 
 const {
   Model,
@@ -8,7 +9,13 @@ const {
   hasMany
 } = DS;
 
-export default Model.extend({
+export default Model.extend(EmberValidations, {
+
+  validations: {
+    name: {presence: true, length: {minimum: 1, maximum: 50}},
+    description: {presence: true, length: {minimum: 1, maximum: 2000}}
+  },
+
   name: attr('string'),
   description: attr('string'),
   slug: attr('string'),

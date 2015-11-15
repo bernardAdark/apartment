@@ -11,8 +11,8 @@ const {
 export default Model.extend(EmberValidations, {
 
   validations: {
-    name: { presence: true, length: {minimum: 1} },
-    description: { presence: true, length: {minimum: 1} }
+    name: {presence: true, length: {minimum: 1, maximum: 50} },
+    description: {presence: true, length: {minimum: 1, maximum: 2000} }
   },
 
   name: attr('string'),
