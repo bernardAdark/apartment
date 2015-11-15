@@ -2,9 +2,16 @@ import Ember from 'ember';
 import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('home', 'Unit | Model | home', {
-  needs: ['model:host', 'model:suburb', 'ember-validations@validator:local/presence']
+  needs: [
+    'model:town',
+    'model:host',
+    'model:suburb',
+    'model:deputy',
+    'ember-validations@validator:local/presence',
+    'ember-validations@validator:local/numericality',
+    'ember-validations@validator:local/length'
+  ]
 });
-
 
 test('host relationship', function() {
   const Home = this.store().modelFor('home');
@@ -62,12 +69,45 @@ test('monthly (computed) should be price/months', function(assert) {
   const model = this.subject();
   Ember.run(function() {
     model.set('price', 12000);
-    model.set('months', 2);
+    model.set('period', 2);
   });
 
   assert.equal(model.get('monthly'), Math.round(12000/2)-0.01);
 });
 
 test('town (computed)', function(assert) {
-  assert.ok(true); //TODO: Test
+  let model = this.subject(),
+      store = this.store(),
+      GHOST_TOWN_NAME = 'Ghost Town',
+      GHOST_SUBURB_NAME = 'Ghost Suburb',
+      ghostTown,
+      ghostSuburb;
+
+  Ember.run(function() {
+    store.createRecord('town', {
+      name: 'Dummy Town',
+      description: 'Dummy Town located downtown'
+    });
+
+    ghostTown = store.createRecord('town', {
+      name: GHOST_TOWN_NAME,
+      description: 'Weird, but not even ghosts live in Ghost Town'
+    });
+
+    store.createRecord('town', {
+      name: 'Dummy New Town',
+      description: 'Dummy New Town is downhill'
+    });
+
+    ghostSuburb = store.createRecord('suburb', {
+      name: GHOST_SUBURB_NAME,
+      description: 'Weird, but the Ghost Suburb is in Ghost Town'
+    });
+
+    ghostTown.get('suburbs').addObject(ghostSuburb);
+    ghostSuburb.get('homes').addObject(model);
+  });
+
+  assert.equal(model.get('suburb').get('name'), GHOST_SUBURB_NAME);
+  assert.equal(model.get('town').get('name'), GHOST_TOWN_NAME);
 });
