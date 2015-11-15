@@ -46,7 +46,7 @@ export default Model.extend(EmberValidations, {
 
   homeLabelName: computed('firstName', 'spouseFirstName', function() {
     const _lbl = [this.get('firstName')];
-    let spouse = this.get('spouseFirstName');
+    let spouse = this.get('spouseFirstName') || '';
 
     if (!!spouse.trim()) {
       this.get('gender') === 'M' ? _lbl.unshift(spouse) : _lbl.push(spouse);
