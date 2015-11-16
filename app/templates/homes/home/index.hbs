@@ -29,19 +29,19 @@
               <div class="at-a-glance">
                 <div class="feature">
                   <img class="img" src="/assets/images/couch3-razmattaz.png" />
-                  <span class="feature-label">{{model.halls}} {{pluralize-text 'Hall' count=model.halls}}</span>
+                  <span class="feature-label">{{model.halls}} {{if (eq model.halls 1) 'Hall' 'Halls'}}</span>
                 </div>
                 <div class="feature">
                   <img class="img" src="/assets/images/bed-razmattaz.png" />
-                  <span class="feature-label">{{model.bedrooms}} {{pluralize-text 'Bedroom' count=model.bedrooms}}</span>
+                  <span class="feature-label">{{model.bedrooms}} {{if (eq model.bedrooms 1) 'Bedroom' 'Bedrooms'}}</span>
                 </div>
                 <div class="feature">
                   <img class="img" src="/assets/images/kitchen6-razmattaz.png" />
-                  <span class="feature-label">{{model.kitchens}} {{pluralize-text 'Kitchen' count=model.kitchens}}</span>
+                  <span class="feature-label">{{model.kitchens}} {{if (eq model.kitchens 1) 'Kitchen' 'Kitchens'}}</span>
                 </div>
                 <div class="feature">
                   <img class="img" src="/assets/images/toilet-razmattaz.png" />
-                  <span class="feature-label">{{model.bathroom.quantity}} {{pluralize-text 'Bathroom' count=model.bathroom.quantity}}</span>
+                  <span class="feature-label">{{model.bathroom.quantity}} {{if (eq model.bathroom.quantity 1) 'Bathroom' 'Bathrooms'}}</span>
                 </div>
               </div>
             </div>
