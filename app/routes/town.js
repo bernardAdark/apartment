@@ -6,8 +6,8 @@ export default Ember.Route.extend({
         orderBy: 'slug',
         equalTo: Ember.String.dasherize(params.town_name)
       }).
-      then((towns) => { return towns.objectAt(0) }).
-      catch((error) => { console.log('Found nothing') });
+      then((towns) => { return towns.objectAt(0); }).
+      catch((error) => { console.log('Found nothing'); });
   },
 
   afterModel(model) {

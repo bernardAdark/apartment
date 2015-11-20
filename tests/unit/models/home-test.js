@@ -13,61 +13,61 @@ moduleForModel('home', 'Unit | Model | home', {
   ]
 });
 
-test('host relationship', function() {
+test('host relationship', (assert) => {
   const Home = this.store().modelFor('home');
   const relationship = Ember.get(Home, 'relationshipsByName').get('host');
   
-  equal(relationship.key, 'host');
-  equal(relationship.kind, 'belongsTo');
+  assert.equal(relationship.key, 'host');
+  assert.equal(relationship.kind, 'belongsTo');
 });
 
-test('suburb relationship', function() {
+test('suburb relationship', (assert) => {
   const Home = this.store().modelFor('home');
   const relationship = Ember.get(Home, 'relationshipsByName').get('suburb');
 
-  equal(relationship.key, 'suburb');
-  equal(relationship.kind, 'belongsTo');
+  assert.equal(relationship.key, 'suburb');
+  assert.equal(relationship.kind, 'belongsTo');
 });
 
-test('summary should be required', function() {
+test('summary should be required', (assert) => {
   const model = this.subject();
-  Ember.run(function() {
+  Ember.run(() => {
     model.set('summary', null);
   });
   
-  equal(model.get('isValid'), false, 'Home is valid without a `summary`');
+  assert.equal(model.get('isValid'), false, 'Home is valid without a `summary`');
 });
 
-test('description should be required', function() {
+test('description should be required', (assert) => {
   const model = this.subject();
-  Ember.run(function() {
+  Ember.run(() => {
     model.set('description', '');
   });
 
-  equal(model.get('isValid'), false, 'Home is valid without a `description`');
+  assert.equal(model.get('isValid'), false, 'Home is valid without a `description`');
 });
 
-test('should have at least one bedroom', function() {
+test('should have at least one bedroom', (assert) => {
   const model = this.subject();
-  Ember.run(function() {
+  Ember.run(() => {
     model.set('bedrooms', 0);
   });
 
-  equal(model.get('isValid'), false, 'Home is valid with no bedrooms');
+  assert.equal(model.get('isValid'), false, 'Home is valid with no bedrooms');
 });
 
-test('should not have negative bedrooms', function() {
+test('should not have negative bedrooms', (assert) => {
   const model = this.subject();
-  Ember.run(function() {
+  Ember.run(() => {
     model.set('bedrooms', -9);
   });
 
-  equal(model.get('isValid'), false, 'Home is valid with negative number of bedrooms');
-})
+  assert.equal(model.get('isValid'), false, 'Home is valid with negative number of bedrooms');
+});
 
 test('monthly (computed) should be price/months', function(assert) {
   const model = this.subject();
-  Ember.run(function() {
+  Ember.run(() => {
     model.set('price', 12000);
     model.set('period', 2);
   });
@@ -83,7 +83,7 @@ test('town (computed)', function(assert) {
       ghostTown,
       ghostSuburb;
 
-  Ember.run(function() {
+  Ember.run(() => {
     store.createRecord('town', {
       name: 'Dummy Town',
       description: 'Dummy Town located downtown'

@@ -1,13 +1,14 @@
+import Ember from 'ember';
 import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('town', 'Unit | Model | town', {
   needs: ['model:suburb']
 });
 
-test('suburbs relationship', function() {
+test('suburbs relationship', (assert) => {
   let Town = this.store().modelFor('town');
   let relationship = Ember.get(Town, 'relationshipsByName').get('suburbs');
 
-  equal(relationship.key, 'suburbs');
-  equal(relationship.kind, 'hasMany');
+  assert.equal(relationship.key, 'suburbs');
+  assert.equal(relationship.kind, 'hasMany');
 });

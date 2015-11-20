@@ -4,7 +4,6 @@ import EmberValidations from 'ember-validations';
 const {
   Model,
   attr,
-  belongsTo,
   hasMany
 } = DS;
 
