@@ -1,7 +1,7 @@
 {
   "name": "apartment",
-  "version": "0.1.0",
-  "description": "Open-soure Ember+Firebase application for finding apartments in Obuasi",
+  "version": "0.0.0",
+  "description": "Small description for apartment goes here",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -12,41 +12,38 @@
     "start": "ember server",
     "test": "ember test"
   },
-  "repository": "https://github.com/fermislab/apartment",
+  "repository": "https://github.com/fermislab/apartments",
   "engines": {
     "node": ">= 0.10.0"
   },
   "authors": [
-    "Yaw Boakye <wheresyaw@gmail.com>",
+    "Yaw Boakye Yiadom <wheresyaw@gmail.com>",
     "Precious N. E. Nyarko <mrewusi@gmail.com>"
   ],
   "license": "MIT",
   "devDependencies": {
-    "broccoli-asset-rev": "^2.1.2",
-    "deploy": "1.0.3",
-    "ember-cli": "1.13.8",
-    "ember-cli-app-version": "0.5.0",
-    "ember-cli-babel": "^5.1.3",
+    "broccoli-asset-rev": "^2.2.0",
+    "ember-cli": "1.13.13",
+    "ember-cli-app-version": "^1.0.0",
+    "ember-cli-babel": "^5.1.5",
     "ember-cli-content-security-policy": "0.4.0",
-    "ember-cli-dependency-checker": "^1.0.1",
-    "ember-cli-deploy": "0.4.3",
-    "ember-cli-htmlbars": "0.7.9",
-    "ember-cli-htmlbars-inline-precompile": "^0.2.0",
-    "ember-cli-ic-ajax": "0.2.1",
+    "ember-cli-dependency-checker": "^1.1.0",
+    "ember-cli-htmlbars": "^1.0.1",
+    "ember-cli-htmlbars-inline-precompile": "^0.3.1",
+    "ember-cli-ic-ajax": "0.2.4",
     "ember-cli-inject-live-reload": "^1.3.1",
-    "ember-cli-qunit": "^1.0.0",
-    "ember-cli-release": "0.2.3",
-    "ember-cli-sass": "5.0.1",
+    "ember-cli-qunit": "^1.0.4",
+    "ember-cli-release": "0.2.8",
     "ember-cli-selectize": "0.4.3",
-    "ember-cli-sri": "^1.0.3",
+    "ember-cli-sri": "^1.2.0",
     "ember-cli-uglify": "^1.2.0",
-    "ember-data": "1.13.8",
-    "ember-disable-proxy-controllers": "^1.0.0",
-    "ember-export-application-global": "^1.0.3",
+    "ember-cli-windows-addon": "^1.3.1",
+    "ember-data": "1.13.15",
+    "ember-disable-proxy-controllers": "^1.0.1",
+    "ember-export-application-global": "^1.0.4",
     "ember-radio-button": "1.0.7",
-    "ember-truth-helpers": "1.1.0",
-    "emberfire": "1.5.0",
-    "testem": "0.9.11",
-    "ember-validations": "2.0.0-alpha.4"
+    "ember-truth-helpers": "1.2.0",
+    "ember-validations": "^2.0.0-alpha.4",
+    "emberfire": "1.6.1"
   }
 }
