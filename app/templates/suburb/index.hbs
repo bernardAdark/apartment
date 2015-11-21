@@ -1,0 +1,13 @@
+<h2>{{model.name}}</h2>
+{{#if model.deputies.length}}
+<ul>
+  {{#each model.deputies as |deputy|}}
+  <li><img src="{{deputy.photo}}" style="width:20px;height:20px;"> {{deputy.fullName}}</li>
+  {{/each}}
+</ul>
+{{/if}}
+
+<div>
+{{link-to 'Add new deputy' 'suburb.new-deputy'}}
+</div>
+

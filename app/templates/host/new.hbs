@@ -35,5 +35,5 @@ Shared: {{radio-button value=1 groupValue=shared}} Y {{radio-button value=0 grou
   <div>{{input type="checkbox" checked=microwave}} Microwave</div>
   <div>{{#fermis-file-uploader}}Drag here or click to upload the banner image{{/fermis-file-uploader}}</div>
 </div>
-<div><button {{action "createHome"}}>List my property</button></div>
+<div><button {{action "createHome" model.host}}>List my property</button></div>
 </form>

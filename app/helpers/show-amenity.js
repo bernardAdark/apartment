@@ -1,24 +1,32 @@
 import Ember from 'ember';
 
-export function showAmenity(params, namedArgs) {
-  var amenity = params[0] || {
-    name: namedArgs.name,
-    available: namedArgs.available
+export default Ember.Helper.helper(function(value, options) {
+  let amenity = value[0] || {
+    name: options.name,
+    available: options.available
   };
 
   if (!amenity) {
-    return 'Bad';
+    throw new Error('Helper called without arguments');
   } else {
-    var amenityMarkup = `<div class="amenity`;
+    let amenityMarkup = [`<div class="amenity`];
     if (!amenity.available) {
-      amenityMarkup += ` unavailable"><img src="/assets/images/amenity-` + Ember.String.dasherize(amenity.name).replace('/','-') + `-icon-gray.png">`;
+      amenityMarkup.push(
+        ` unavailable"><img src="/assets/images/amenity-`,
+        Ember.String.dasherize(amenity.name).replace('/','-'),
+        `-icon-gray.png">`
+      );
     } else {
-      amenityMarkup += ` available"><img src="/assets/images/amenity-` + Ember.String.dasherize(amenity.name).replace('/','-') + `-icon-gray.png">`;
+      amenityMarkup.push(
+        ` available"><img src="/assets/images/amenity-`,
+        Ember.String.dasherize(amenity.name).replace('/','-'),
+        `-icon-gray.png">`
+      );
     }
-    amenityMarkup += `<span class="name">` + amenity.name + `</span>`;
-    amenityMarkup += `</div>`;
-    return Ember.String.htmlSafe(amenityMarkup);
-  }
-}
 
-export default Ember.Helper.helper(showAmenity);
+    amenityMarkup.push(`<span class="name">`, amenity.name, `</span>`);
+    amenityMarkup.push(`</div>`);
+
+    return Ember.String.htmlSafe(amenityMarkup.join(''));
+  }
+});

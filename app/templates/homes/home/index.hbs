@@ -29,26 +29,34 @@
               <div class="at-a-glance">
                 <div class="feature">
                   <img class="img" src="/assets/images/couch3-razmattaz.png" />
-                  <span class="feature-label">{{model.halls}} {{pluralize-word 'Hall' count=model.halls}}</span>
+                  <span class="feature-label">{{model.halls}} {{if (eq model.halls 1) 'Hall' 'Halls'}}</span>
                 </div>
                 <div class="feature">
                   <img class="img" src="/assets/images/bed-razmattaz.png" />
-                  <span class="feature-label">{{model.bedrooms}} {{pluralize-word 'Bedroom' count=model.bedrooms}}</span>
+                  <span class="feature-label">{{model.bedrooms}} {{if (eq model.bedrooms 1) 'Bedroom' 'Bedrooms'}}</span>
                 </div>
                 <div class="feature">
                   <img class="img" src="/assets/images/kitchen6-razmattaz.png" />
-                  <span class="feature-label">{{model.kitchens}} {{pluralize-word 'Kitchen' count=model.kitchens}}</span>
+                  <span class="feature-label">{{model.kitchens}} {{if (eq model.kitchens 1) 'Kitchen' 'Kitchens'}}</span>
                 </div>
                 <div class="feature">
                   <img class="img" src="/assets/images/toilet-razmattaz.png" />
-                  <span class="feature-label">{{model.bathroom.quantity}} {{pluralize-word 'Bathroom' count=model.bathroom.quantity}}</span>
+                  <span class="feature-label">{{model.bathroom.quantity}} {{if (eq model.bathroom.quantity 1) 'Bathroom' 'Bathrooms'}}</span>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-lg-4 call-to-action-box">
-            <p class="lead text-muted small">Want to schedule a date and time to see this property?<br /> Call <a href=""><span class="agent-name">Akwasi</span></a> on:</p>
-            <h3 class="agent-phone-number">0244 323 000</h3>
+            <p class="lead text-muted small">Want to schedule a date and time to see this property?<br /> Call either
+            <ul>
+              {{#each model.suburb.deputies as |dep|}}
+              <li>
+                <span class="agent-name">{{dep.firstName}}</span>&nbsp;on&nbsp;
+                <span class="agent-phone-number">{{dep.phoneNumber}}</span>
+              </li>
+              {{/each}}
+            </ul>
+            </p>
             <p class="lead text-muted small"> to book a viewing!</p>
           </div>
         </div>
