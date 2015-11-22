@@ -49,11 +49,8 @@ export default Model.extend(EmberValidations, {
     let spouse = this.get('spouseFirstName') || '';
 
     if (!!spouse.trim()) {
-      if (this.get('gender') === 'M') {
-        _lbl.unshift(spouse);
-      } else {
-        _lbl.push(spouse);
-      }
+      let op = this.get('gender') === 'M' ? 'unshift' : 'push';
+      _lbl[op](spouse);
     }
 
     return _lbl.join(' & ');
