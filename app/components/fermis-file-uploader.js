@@ -30,7 +30,7 @@ export default Component.extend({
   action: 'imageLoaded',
 
   progressStyle: computed('progressValue', function() {
-    var __width = this.get('progressValue') || 0;
+    let __width = this.get('progressValue') || 0;
     return htmlSafe(`width: ${__width}%;`);
   }),
 
@@ -83,7 +83,7 @@ export default Component.extend({
   },
 
   addPreviewImage(image) {
-    var img = this.$(`<img src="${image.data}" class="file-picker__preview__image multiple">`);
+    let img = this.$(`<img src="${image.data}" class="file-picker__preview__image multiple">`);
     this.hideProgress();
     this.previewElement.append(img);
   },
@@ -126,18 +126,32 @@ export default Component.extend({
     });
   },
 
+  /**
+   * Hides the element that contains the preview of the uploaded files.
+   */
   hidePreview() {
     this.previewElement.hide();
   },
 
+  /**
+   * Shows the element that contains the preview of uploaded files.
+   */
   showPreview() {
     this.previewElement.show();
   },
 
+  /**
+   * Hides the progress bar.
+   */
   hideProgress() {
     this.progressElement.hide();
   },
 
+  /**
+   * Empty the preview element.
+   * In case multiple uploads are not allowed, each new upload requires that
+   * we empty the preview element, to make way for the newly uploaded file.
+   */
   clearPreview() {
     this.previewElement.html('');
     this.hidePreview();
