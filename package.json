@@ -22,6 +22,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "body-parser": "^1.14.1",
     "broccoli-asset-rev": "^2.2.0",
     "ember-cli": "1.13.13",
     "ember-cli-app-version": "^1.0.0",
@@ -45,6 +46,9 @@
     "ember-radio-button": "1.0.7",
     "ember-truth-helpers": "1.2.0",
     "ember-validations": "^2.0.0-alpha.4",
-    "emberfire": "1.6.1"
+    "emberfire": "1.6.1",
+    "express": "^4.13.3",
+    "glob": "^4.5.3",
+    "morgan": "^1.6.1"
   }
 }
