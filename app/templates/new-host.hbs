@@ -1,33 +1,31 @@
 <h2>Add new host</h2>
 <form>
 <p>
-  {{input value=title placeholder="Mrs."}}
-  {{input value=firstName placeholder="Agnes"}}
-  {{input value=lastName placeholder="Oduro"}}
+  {{input class="title" value=title placeholder="Mrs."}}
+  {{input class="firstname" value=firstName placeholder="Agnes"}}
+  {{input class="lastname" value=lastName placeholder="Oduro"}}
 </p>
 <p>
-  <select onchange={{ action (mut gender) value="target.value"}}>
+  <select class="gender" onchange={{ action (mut gender) value="target.value"}}>
     <option value="M">Male</option>
     <option value="F">Female</option>
   </select>
 </p>
 <p>Marital status:
-  {{radio-button value=1 groupValue=married}}Married
-  {{radio-button value=0 groupValue=married}}Not married
+  {{radio-button radioClass="married" value=1 groupValue=married}}Married
+  {{radio-button radioClass="married" value=0 groupValue=married}}Not married
+</p>
+<p class="spouse-details" style="display:{{if married 'block' 'none'}}">
+  {{input class="spouse-title" value=spouseTitle placeholder="Mr."}}
+  {{input class="spouse-firstname" value=spouseFirstName placeholder="Thomas"}}
+  {{input class="spouse-lastname" value=spouseLastName placeholder="Oduro"}}
 </p>
 
-This is a conditional statement. Only ask for this information if they're married. The UI should handle that.
-
+<p>{{input class="occupation" value=occupation placeholder="Trader"}}</p>
+<p>{{textarea class="story" value=story placeholder="A really nice story, about you."}}</p>
 <p>
-  {{input value=spouseTitle placeholder="Mr."}}
-  {{input value=spouseFirstName placeholder="Thomas"}}
-  {{input value=spouseLastName placeholder="Oduro"}}
-</p>
-<p>{{input value=occupation placeholder="Trader"}}</p>
-<p>{{textarea value=story placeholder="A really nice story, about you."}}</p>
-<p>
-  <select onchange={{action (mut religion) value="target.value"}}>
-    <option>Prefer not to say</option>
+  <select class="religion" onchange={{action (mut religion) value="target.value"}}>
+    <option value="Prefer not to say">Prefer not to say</option>
     <option value="Christian">Christian</option>
     <option value="Muslim">Muslim</option>
     <option value="Traditionalist">Traditionalist</option>
@@ -37,5 +35,5 @@ This is a conditional statement. Only ask for this information if they're marrie
 <p>Shot of the host (and their spouse, or even better, family)
 {{#fermis-file-uploader}}Drop image here, or click to upload one{{/fermis-file-uploader}}
 </p>
-<p><button type="submit" {{action "createHost"}}>Add host</button></p>
+<p><button class="submit btn btn-sucess" type="submit" {{action "createHost"}}>Add host</button></p>
 </form>
