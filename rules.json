@@ -1,0 +1,80 @@
+{
+  "rules": {
+    ".read": "true",
+    "towns": {
+      ".read": "true",
+      "$town": {
+        ".validate": "newData.hasChildren(['name', 'description', 'slug'])",
+        "name": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50"
+        },
+        "description": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 500"
+        },
+        "slug": {
+          ".validate": "newData.isString()"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".read": "true",
+        ".write": "true"
+      }
+    },
+    "suburbs": {
+      ".read": "true",
+      "$suburb": {
+        ".validate": "newData.hasChildren(['name', 'description', 'slug'])",
+        "name": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50"
+        },
+        "description": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 500"
+        },
+        "slug": {
+          ".validate": "newData.isString()"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".read": "true",
+        ".write": "true"
+      }
+    },
+    "deputies": {
+      ".read": "true",
+      "$deputy": {
+        ".validate": "newData.hasChildren(['firstName', 'lastName', 'story', 'photo', 'phoneNumber', 'createdAt'])",
+        "firstName": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50"
+        },
+        "lastName": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50"
+        },
+        "occupation": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50 || newData.val() == null"
+        },
+        "education": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 50 || newData.val() == null"
+        },
+        "story": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 500"
+        },
+        "photo": {
+          ".validate": "newData.isString() && newData.val().length % 4 == 0 && newData.val().beginsWith('data:image/jpeg;')"
+        },
+        "phoneNumber": {
+          ".validate": "newData.isString()"
+        },
+        "createdAt": {
+          ".validate": "newData.val() <= now"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".read": "true",
+        ".write": "true"
+      }
+    }
+  }
+}

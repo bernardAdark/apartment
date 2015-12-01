@@ -1,0 +1,63 @@
+path / {
+  read() = true;
+}
+
+type Root {
+  read() = true;
+}
+
+type Town {
+  read() = true;
+  write() = true;
+
+  name: Name,
+  description: Description,
+  slug: String
+}
+
+type Suburb {
+  read() = true;
+  write() = true;
+
+  name: Name,
+  description: Description,
+  slug: String
+}
+
+type Deputy {
+  read() = true;
+  write() = true;
+
+  firstName: Name,
+  lastName: Name,
+  occupation: Name | Null,
+  education: Name | Null,
+  story: Description,
+  photo: Jpeg,
+  phoneNumber: String,
+  createdAt: Now
+}
+
+type Name extends String {
+  validate() = this.length > 0 && this.length <= 50;
+}
+
+type Description extends String {
+  validate() = this.length > 0 && this.length <= 500;
+}
+
+type Jpeg extends String {
+  validate() = this.length % 4 === 0 && this.beginsWith('data:image/jpeg;');
+}
+
+type Now {
+  validate() = this <= now;
+}
+
+path /towns           is Root;
+path /suburbs         is Root;
+path /deputies        is Root;
+
+path /deputies/$deputy is Deputy;
+path /suburbs/$suburb  is Suburb;
+path /towns/$town      is Town;
