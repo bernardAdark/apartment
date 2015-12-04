@@ -22,3 +22,9 @@ $fermis-apartments-gray: #82888A;
 @import 'pulse_loading_animation';
 @import 'index';
 @import 'home_detail';
+@import 'map';
+
+.fa-search {
+  @extend .fa-search;
+  cursor: pointer;
+}
