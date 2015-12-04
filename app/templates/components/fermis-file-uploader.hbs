@@ -1,19 +1,5 @@
-{{#if dropzone}}
 <div class="file-picker__dropzone" style="width:300px;height:300px;border: 15px dashed #555;">
 	{{yield}}
 </div>
-{{else}}
-	{{yield}}
-{{/if}}
-
-{{#if preview}}
-  <div class="file-picker__preview"></div>
-{{/if}}
-
-{{#if progress}}
-  <div class="file-picker__progress">
-    <span class="file-picker__progress__value" style={{progressStyle}}></span>
-  </div>
-{{/if}}
-
-{{input type="file" class="file-picker__input" value=file accept=accept multiple=multiple}}
+<div class="file-picker__preview"></div>
+{{input type="file" class="file-picker__input" value=file accept=accept}}
