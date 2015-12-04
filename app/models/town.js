@@ -17,6 +17,7 @@ export default Model.extend(EmberValidations, {
   name: attr('string'),
   description: attr('string'),
   slug: attr('string'),
+  geoCoords: attr(),
   createdAt: attr('date', { defaultValue() { return new Date(); } }),
   updatedAt: attr('date', { defaultValue() { return new Date(); } }),
 
