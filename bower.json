@@ -16,7 +16,8 @@
     "bootstrap": "3.3.2",
     "font-awesome": "~4.3.0",
     "selectize": "~0.12.1",
-    "animate.css": "3.4.0"
+    "animate.css": "3.4.0",
+    "mapbox.js": "~2.2.3"
   },
   "resolutions": {
     "ember": "^2.2.0"
