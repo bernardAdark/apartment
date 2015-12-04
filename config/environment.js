@@ -6,14 +6,15 @@ module.exports = function(environment) {
     environment: environment,
     contentSecurityPolicy: {
       'frame-src': "'self' https://*.firebaseio.com",
-      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com http://*.mapbox.com",
       'script-src': "'self' https://*.firebaseio.com",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
-      'img-src': "'self' data: https://*.muscache.com" // Remove the mustache thing when we are serving our own (actual) home images
+      'img-src': "'self' data: https://*.muscache.com https://*.mapbox.com http://*.mapbox.com"
     },
     firebase: 'https://blinding-torch-8228.firebaseio.com',
     baseURL: '/',
     locationType: 'auto',
+    MAPBOX_ACCESS_TOKEN: 'pk.eyJ1IjoieWF3Ym9ha3llIiwiYSI6Ijc2YjM5ZjZhZmY4OTE1NDdmNWYyNTBjNTk4MDE1MjYyIn0.kBscFIVJdBzENTw5SoByFg',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
