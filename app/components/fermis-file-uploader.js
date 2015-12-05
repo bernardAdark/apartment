@@ -39,7 +39,7 @@ export default Component.extend({
     // Cache Drag'n'Drop elements, because traversing the DOM is fucking expensive
     // but reading properties of a Component isn't.
     this.dropzoneElement = this.$('.file-picker__dropzone');
-    this.previewElement = this.$('.file-picker__preview');
+    this.previewElement = this.$('.file-picker__preview .wrapper');
     this.progressElement = this.$('.file-picker__progress');
     this.fileInputElement = this.$('.file-picker__input');
 
@@ -83,7 +83,7 @@ export default Component.extend({
   },
 
   addPreviewImage(image) {
-    let img = this.$(`<img src="${image.data}" class="file-picker__preview__image multiple">`);
+    let img = this.$(`<div class="col-lg-6"><img src="${image.data}" class="file-picker__preview__image multiple img img-responsive"></div>`);
     this.hideProgress();
     this.previewElement.append(img);
   },

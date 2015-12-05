@@ -1,5 +1,11 @@
-<div class="file-picker__dropzone" style="width:300px;height:300px;border: 15px dashed #555;">
-	{{yield}}
+<div class="row">
+  <div class="file-picker__dropzone file-picker-plus file-picker-dropzone col-lg-12" style="">
+	  {{yield}}
+  </div>
 </div>
-<div class="file-picker__preview"></div>
+
+<div class="file-picker__preview file-picker-preview">
+  <div class="row wrapper"></div>
+</div>
+
 {{input type="file" class="file-picker__input" value=file accept=accept}}
