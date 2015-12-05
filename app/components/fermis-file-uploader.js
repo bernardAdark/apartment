@@ -19,6 +19,10 @@ export default Component.extend({
   classNames: ['file-picker'],
   classNameBindings: ['multiple:multiple:single'],
   accept: '.jpg,.jpeg,.webp',
+  multiple: true,
+  preview: true,
+  dropzone: true,
+  progress: true,
   selectOnClick: true,
   count: 0,
   errors: [],
@@ -32,8 +36,6 @@ export default Component.extend({
 
   // When the component was inserted.
   didInsertElement() {
-    this._super(...arguments);
-
     // Cache Drag'n'Drop elements, because traversing the DOM is fucking expensive
     // but reading properties of a Component isn't.
     this.dropzoneElement = this.$('.file-picker__dropzone');
