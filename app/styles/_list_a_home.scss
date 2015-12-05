@@ -1,0 +1,111 @@
+.list-a-home {
+  width: 85%;
+  margin-top: 3em;
+  min-height: 100vh;
+  .header {
+    border-bottom: 6px solid #ED145B;
+    padding-left: 0;
+    padding-right: 0;
+    .wrapper {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .lead {
+      font-weight: bold;
+      font-size: 21px;
+      margin-bottom: 9px;
+      display: inline-block;
+      background-color: #ED145B;
+      color: #FFF;
+      padding: 12px 30px 12px 28px;
+      border-radius: 5px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 45px;
+      border-top-left-radius: 40px;
+    }
+  }
+  .section:first-child {
+    border-top-width: 0; 
+  }
+  .section:last-child {
+    border-bottom: 1px solid #EAEAEA; 
+  }
+  .section {
+    border-top: 1px solid #EAEAEA;
+    padding: 2em 0;
+    .heading {
+      margin-top: 0;
+      color: $fermis-apartments-razmattaz;
+      font-weight: bold;
+    }
+    .description {
+      font-size: 17px; 
+    }
+    .fields {
+      .field-label {
+        font-size: 17px;
+        color: #737373;
+      }
+      .input {
+        font-size: 16px;
+        height: 48px;
+        border: 1px solid #EAEAEA;
+        box-shadow: none;
+      }
+      textarea.form-control {
+        height: auto;
+        box-shadow: none;
+      }
+      .radio-button-options {
+        padding-top: 13px;
+      }
+      .file-picker-preview {
+        .img {
+          margin-bottom: 2em;
+        }
+      }
+      .file-picker-dropzone {
+        border: 5px dashed $fermis-apartments-razmattaz;
+        min-height: 185px;
+        position: relative;
+        margin-bottom: 2em;
+        margin-top: 0.5em;
+        p {
+          position: absolute;
+          top: 50%;
+          transform: translate(21%, -50%);
+        }
+      }
+    }
+  }
+}
+
+#list-a-home {
+  .section {
+    .btn.list-property {
+      background-color: #FFF;
+      border-color: $fermis-apartments-razmattaz;
+      color: $fermis-apartments-razmattaz;
+      padding: 15px 25px;
+      height: auto;
+      font-size: 20px;
+      border-radius: 25px;
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .btn.list-property:hover {
+      background-color: $fermis-apartments-razmattaz;
+      border-color: $fermis-apartments-razmattaz;
+      color: #FFF;
+    }
+  }
+
+  .section.photos {
+    .file-picker-preview {
+      .wrapper {
+        margin-right: -30px;
+        margin-left: -30px;
+      }
+    }
+  }
+}

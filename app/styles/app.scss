@@ -15,12 +15,14 @@ $font-stack: "Gotham Rounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 /*colors*/
 $fermis-apartments-razmattaz: #ED145B;
+$fermis-apartments-carmine-pink: #EB4845;
 $fermis-apartments-gray: #82888A;
 
 @import 'mixins';
 @import 'global';
 @import 'pulse_loading_animation';
 @import 'index';
+@import 'list_a_home';
 @import 'home_detail';
 @import 'map';
 
