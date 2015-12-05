@@ -197,6 +197,7 @@ export default Component.extend({
     // button was released while the mouse was not over a valid drop target
     // See https://developer.mozilla.org/en-US/docs/DragDrop/Drag_Operations#drop
 
+    this.dropzoneElement.css('background', '#FFFFFF');
     event.stopPropagation();
     event.preventDefault();
 
@@ -228,8 +229,7 @@ export default Component.extend({
       event.stopPropagation();
       event.preventDefault();
 
-      this.dropzoneElement.text('');
-      this.dropzoneElement.css('background', '#ccc');
+      this.dropzoneElement.css('background', '#EAEAEA');
       !this.get('multiple') && this.clearPreview();
 
       event.dataTransfer.effectAllowed = 'copy';
