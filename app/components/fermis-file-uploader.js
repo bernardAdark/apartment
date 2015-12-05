@@ -11,7 +11,6 @@ const {
   String: {
     htmlSafe
   },
-  $,
   assert
 } = Ember;
 

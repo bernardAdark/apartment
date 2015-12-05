@@ -19,6 +19,7 @@ export default Model.extend(EmberValidations, {
   name: attr('string'),
   description: attr('string'),
   slug: attr('string'),
+  geoCoords: attr(),
 
   // Association.
   town: belongsTo('town', {async: true }),
