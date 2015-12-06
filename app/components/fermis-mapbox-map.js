@@ -40,7 +40,8 @@ export default Component.extend({
             'marker-size': config.MAP_MARKER_SIZE,
             'marker-color': config.MAP_MARKER_COLOR,
             'marker-symbol': config.MAP_MARKER_SYMBOLS.TOWN
-          }
+          },
+          'id': s.get('id')
         });
       });
 
@@ -55,8 +56,8 @@ export default Component.extend({
 
 
   navigateToSuburb(e) {
-    let suburbSlug = dasherize(e.layer.feature.properties.title);
-    this.sendAction('action', suburbSlug);
+    let suburbId = e.layer.feature.id;
+    this.sendAction('action', suburbId);
   },
 
 
