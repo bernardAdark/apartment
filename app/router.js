@@ -22,16 +22,16 @@ Router.map(function() {
 
   this.route('town', {path: '/:town_name'}, function() {
     this.route('suburbs', function() {
-      this.route('suburb', {path: '/:suburb_slug'});
+      this.route('suburb', {path: '/:slug'});
     });
     this.route('new');
   });
 
   this.route('suburbs', function() {
-    this.route('edit', {path: '/:suburb_slug/edit'});
+    this.route('edit', {path: '/:slug/edit'});
   });
 
-  this.route('suburb', {path: '/s/:suburb_slug'}, function() {
+  this.route('suburb', {path: '/s/:slug'}, function() {
     this.route('new-deputy', {path: 'new'});
   });
 

@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(params) {
-    return this.store.query('suburb', {orderBy: 'slug', equalTo: params.suburb_slug}).
+  model() {
+    return this.store.query('suburb', {orderBy: 'slug', equalTo: this.paramsFor('suburb').slug}).
       then((subs) => { return subs.get('firstObject') });
   },
 
