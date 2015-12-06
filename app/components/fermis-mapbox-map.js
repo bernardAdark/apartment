@@ -21,7 +21,8 @@ export default Component.extend({
     L.mapbox.accessToken = config.MAPBOX_ACCESS_TOKEN;
     L.mapbox.config.FORCE_HTTPS = true;
 
-    const map = L.mapbox.map('map', this.get('mapType') || config.MAP_DEFAULT_TYPE);
+    const map = L.mapbox.map('map', this.get('mapType') || config.MAP_DEFAULT_TYPE).
+      setView(this.get('mapCenter'), this.get('zoomLevel') || config.MAP_DEFAULT_ZOOM_LEVEL);
 
     if (this.get('town')) {
       this.set('mapCenter', this.get('town.geoCoords'));
@@ -47,11 +48,10 @@ export default Component.extend({
 
       const markersLayer = L.mapbox.featureLayer();
       markersLayer.setGeoJSON(geojson).addTo(map);
+      map.fitBounds(markersLayer.getBounds());
 
       markersLayer.on('dblclick', bind(this, 'navigateToSuburb'));
     }
-
-    return map.setView(this.get('mapCenter'), this.get('zoomLevel') || config.MAP_DEFAULT_ZOOM_LEVEL);
   },
 
 
