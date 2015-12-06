@@ -10,6 +10,7 @@ export default Ember.Component.extend({
     this._super(...arguments);
 
     L.mapbox.accessToken = config.MAPBOX_ACCESS_TOKEN;
+    L.mapbox.config.FORCE_HTTPS = true;
 
     const map = L.mapbox.map('map', this.get('mapType') || config.MAP_DEFAULT_TYPE).
       setView(this.get('mapCenter'), this.get('zoomLevel') || config.MAP_DEFAULT_ZOOM_LEVEL);

@@ -6,10 +6,10 @@ module.exports = function(environment) {
     environment: environment,
     contentSecurityPolicy: {
       'frame-src': "'self' https://*.firebaseio.com",
-      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com http://*.mapbox.com",
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com https://*.mapbox.com",
       'script-src': "'self' https://*.firebaseio.com",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
-      'img-src': "'self' data: https://*.muscache.com https://*.mapbox.com http://*.mapbox.com"
+      'img-src': "'self' data: https://*.muscache.com https://*.mapbox.com"
     },
     firebase: 'https://blinding-torch-8228.firebaseio.com',
     baseURL: '/',
