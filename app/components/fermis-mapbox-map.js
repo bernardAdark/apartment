@@ -1,10 +1,19 @@
 import Ember from 'ember';
 import config from 'apartment/config/environment';
 
-export default Ember.Component.extend({
+const {
+  Component,
+  run: {
+    bind
+  },
+  String: {
+    dasherize
+  }
+} = Ember;
+
+export default Component.extend({
   classNames: ['map', 'mapbox-map'],
   mapCenter: config.ACCRA_GEO_COORDS,
-  markers: [],
 
   didInsertElement() {
     this._super(...arguments);
@@ -12,14 +21,14 @@ export default Ember.Component.extend({
     L.mapbox.accessToken = config.MAPBOX_ACCESS_TOKEN;
     L.mapbox.config.FORCE_HTTPS = true;
 
-    const map = L.mapbox.map('map', this.get('mapType') || config.MAP_DEFAULT_TYPE).
-      setView(this.get('mapCenter'), this.get('zoomLevel') || config.MAP_DEFAULT_ZOOM_LEVEL);
+    const map = L.mapbox.map('map', this.get('mapType') || config.MAP_DEFAULT_TYPE);
 
     if (this.get('town')) {
       this.set('mapCenter', this.get('town.geoCoords'));
+      const geojson = [];
 
       this.get('town').get('suburbs').forEach((s) => {
-        this.get('markers').push({
+        geojson.push({
           'type': 'Feature',
           'geometry': {
             'type': 'Point',
@@ -35,10 +44,19 @@ export default Ember.Component.extend({
         });
       });
 
-      L.mapbox.featureLayer().setGeoJSON(this.get('markers')).addTo(map);
+      const markersLayer = L.mapbox.featureLayer();
+      markersLayer.setGeoJSON(geojson).addTo(map);
+
+      markersLayer.on('dblclick', bind(this, 'navigateToSuburb'));
     }
 
-    map.panTo(this.get('mapCenter'));
+    return map.setView(this.get('mapCenter'), this.get('zoomLevel') || config.MAP_DEFAULT_ZOOM_LEVEL);
+  },
+
+
+  navigateToSuburb(e) {
+    let suburbSlug = dasherize(e.layer.feature.properties.title);
+    this.sendAction('action', suburbSlug);
   },
 
 
