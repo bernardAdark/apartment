@@ -1,6 +1,5 @@
-<h2>Add a new suburb</h2>
 <form>
-{{fermis-mapbox-map town=model}}
+{{fermis-mapbox-map respondToClick=true town=model action='pickSuburbGeoCoordinates'}}
 <p>{{input value=name placeholder='Name of suburb'}}</p>
 <p>{{textarea value=description placeholder='Sweet, succint summary of suburb'}}</p>
 <p><button type=submit {{action 'createSuburb' model}}>Create new suburb</button></p>
