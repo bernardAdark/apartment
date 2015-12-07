@@ -1,13 +1,19 @@
 import Ember from 'ember';
-import EmberValidations from 'ember-validations';
 
 export default Ember.Controller.extend({
+  geoCoords: null,
+
   actions: {
+    pickSuburbGeoCoordinates(latlng) {
+      this.set('geoCoords', {lat: latlng.lat, lng: latlng.lng});
+    },
+
     createSuburb(model) {
-      var newSuburb = this.store.createRecord('suburb', {
+      let newSuburb = this.store.createRecord('suburb', {
         name: this.get('name'),
         description: this.get('description'),
-        slug: Ember.String.dasherize(this.get('name'))
+        slug: Ember.String.dasherize(this.get('name')),
+        geoCoords: this.get('geoCoords')
       });
 
       model.get('suburbs').addObject(newSuburb);
