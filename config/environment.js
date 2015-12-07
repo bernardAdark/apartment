@@ -17,7 +17,7 @@ module.exports = function(environment) {
     MAPBOX_ACCESS_TOKEN: 'pk.eyJ1IjoieWF3Ym9ha3llIiwiYSI6Ijc2YjM5ZjZhZmY4OTE1NDdmNWYyNTBjNTk4MDE1MjYyIn0.kBscFIVJdBzENTw5SoByFg',
 
     ACCRA_GEO_COORDS: ["5.623284", "-0.176357"],
-    MAP_DEFAULT_ZOOM_LEVEL: 15,
+    MAP_DEFAULT_ZOOM_LEVEL: 12,
     MAP_DEFAULT_TYPE: 'mapbox.streets',
     MAP_MARKER_SIZE: 'large',
     MAP_MARKER_COLOR: '#E12269',
