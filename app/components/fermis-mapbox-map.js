@@ -16,6 +16,8 @@ export default Component.extend({
   mapCenter: config.ACCRA_GEO_COORDS,
   suburbPickerMarker: L.mapbox.featureLayer(),
   respondToClick: false,
+  zoomLevel: config.MAP_DEFAULT_ZOOM_LEVEL,
+  mapType: config.MAP_DEFAULT_TYPE,
 
   didInsertElement() {
     this._super(...arguments);
@@ -23,30 +25,38 @@ export default Component.extend({
     L.mapbox.accessToken = config.MAPBOX_ACCESS_TOKEN;
     L.mapbox.config.FORCE_HTTPS = true;
 
-    const map = L.mapbox.map('map', this.get('mapType') || config.MAP_DEFAULT_TYPE).
-      setView(this.get('mapCenter'), this.get('zoomLevel') || config.MAP_DEFAULT_ZOOM_LEVEL);
+    const map = L.mapbox.map('map', this.get('mapType'));
 
-    if (this.get('town')) {
-      this.set('mapCenter', this.get('town.geoCoords'));
+    if (this.get('model')) {
+      this.set('mapCenter', [this.get('model.geoCoords').lat, this.get('model.geoCoords').lng]);
       const geojson = [];
+      let suburbs = this.get('model').get('suburbs')
 
-      this.get('town').get('suburbs').forEach((s) => {
-        geojson.push({
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [s.get('geoCoords').lng, s.get('geoCoords').lat]
-          },
-          'properties': {
-            'title': s.get('name'),
-            'description': s.get('description'),
-            'marker-size': config.MAP_MARKER_SIZE,
-            'marker-color': config.MAP_MARKER_COLOR,
-            'marker-symbol': config.MAP_MARKER_SYMBOLS.TOWN
-          },
-          'id': s.get('id')
+      if (suburbs) {
+        suburbs.forEach((s) => {
+          geojson.push({
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [s.get('geoCoords').lng, s.get('geoCoords').lat]
+            },
+            'properties': {
+              'title': s.get('name'),
+              'description': s.get('description'),
+              'marker-size': config.MAP_MARKER_SIZE,
+              'marker-color': config.MAP_MARKER_COLOR,
+              'marker-symbol': config.MAP_MARKER_SYMBOLS.TOWN
+            },
+            'id': s.get('id')
+          });
         });
-      });
+
+        console.log(geojson);
+      } else {
+        // TODO: This is a suburb. I think we should use the markers to mark
+        // the available apartments.
+        map.setView(this.get('mapCenter'), this.get('zoomLevel'));
+      }
 
       if (!!geojson.length) {
         const markersLayer = L.mapbox.featureLayer();
