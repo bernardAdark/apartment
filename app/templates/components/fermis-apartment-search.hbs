@@ -1,0 +1,49 @@
+<p>Bedrooms: [sticky options]</p>
+<p>Total Rent: {{fermis-apartment-slider name='rent'
+                                         connect=true
+                                         openHandle=rentOpenHandle
+                                         closeHandle=rentCloseHandle
+                                         min=0
+                                         max=2000
+                                         margin=100
+                                         action='search'}}</p>
+<p>Months:     {{fermis-apartment-slider name='months'
+                                         connect=true
+                                         openHandle=monthsOpenHandle
+                                         closeHandle=monthsCloseHandle
+                                         min=0
+                                         max=36
+                                         step=1
+                                         margin=3
+                                         action='search'}}</p>
+<p>Basic filters:<br>
+ <label>{{input type='checkbox' checked=couple}} We're a couple</label><br>
+ <label>{{input type='checkbox' checked=furnished}} Furnished</label><br>
+ <label>{{input type='checkbox' checked=kitchen}} Private kitchen</label><br>
+ <label>{{input type='checkbox' checked=pets}} Pets allowed</label><br>
+</p>
+<table id='more-filters' style='display:none'>
+  <tr>
+    <td class='key' valign='top'>Features</td>
+    <td class='values' valign='top'>
+      <label>{{input type='checkbox' checked=water}} Water</label><br>
+      <label>{{input type='checkbox' checked=gated}} Fenced</label><br>
+      <label>{{input type='checkbox' checked=cable}} DSTv (Satellite/Cable TV)</label><br>
+      <label>{{input type='checkbox' checked=internet}} Internet</label><br>
+      <label>{{input type='checkbox' checked=wash}} Washing Machine</label><br>
+      <label>{{input type='checkbox' checked=garage}} Garage</label><br>
+      <label>{{input type='checkbox' checked=ac}} Room air conditioning</label><br>
+      <label>{{input type='checkbox' checked=garden}} Garden</label><br>
+    </td>
+  </tr>
+  <tr>
+    <td class='key' valign='top'>Religion</td>
+    <td class='values' valign='top'>
+      <label>{{radio-button value='christian' groupValue=religion}} Christian</label><br>
+      <label>{{radio-button value='muslim' groupValue=religion}} Muslim</label><br>
+      <label>{{radio-button value='atheist' groupValue=religion}} Atheist</label><br>
+      <label>{{radio-button value='other' groupValue=religion}} Other</label><br>
+    </td>
+  </tr>
+</table>
+<button class='btn btn-large' id='filter-toggle'>More Filters</button>
