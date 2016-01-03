@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   suburb: null,
+  kitchens: 1,
+  halls: 1,
+  bedrooms: 1,
+  bathrooms: 1,
   internet: false,
   mains: false,
   water: false,
@@ -18,8 +22,8 @@ export default Ember.Controller.extend({
   photos: [],
 
   actions: {
-    imageLoaded(image) {
-      this.get('photos').addObject(image);
+    imageLoaded(fileName) {
+      this.get('photos').addObject(fileName);
     },
 
     removeImage(image) {
@@ -56,20 +60,22 @@ export default Ember.Controller.extend({
       });
 
       let suburb = this.store.peekRecord('suburb', this.get('suburb'));
+      let town = this.store.peekRecord('town', suburb.get('town').get('id'));
+
       suburb.get('homes').addObject(newHome);
+      town.get('homes').addObject(newHome);
       host.get('homes').addObject(newHome);
 
       newHome.save().
         then((h) => {
           suburb.save();
+          town.save();
           host.save();
           this.transitionToRoute('homes.home', h);
         }).
         catch((e) => {
           console.error(e.errors);
-          suburb.get('homes').removeObject(newHome);
-          host.get('homes').removeObject(newHome);
-          newHome.deleteRecord();
+          this.store.unloadRecord(newHome);
         });
     }
   }
