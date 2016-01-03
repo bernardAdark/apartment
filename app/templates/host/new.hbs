@@ -31,14 +31,14 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="form-group">
-            <label class="field-label" for="price">Price</label>
-            {{input type="text" class="form-control input" value=price placeholder="E.g. GHS 3000"}}
+            <label class="field-label" for="price">Price (in GHS)</label>
+            {{input class="form-control input" value=price placeholder="E.g. 3000" type="number" step="100.0" min="0.00"}}
           </div>
         </div>
         <div class="col-lg-6">
           <div class="form-group">
-            <label class="field-label" for="period">Rent Period</label>
-            {{input type="text" class="form-control input" value=period placeholder="E.g. 12 Months"}}
+            <label class="field-label" for="period">Rent Period (in months)</label>
+            {{input class="form-control input" value=period placeholder="E.g. 12" type="number" min=1 max=60}}
           </div>
         </div>
       </div>
@@ -47,19 +47,19 @@
         <div class="col-lg-4">
           <div class="form-group">
             <label class="field-label" for="bedrooms">Bedrooms</label>
-            {{input type="number" class="form-control input" value=bedrooms placeholder="Number of Bedrooms" value="1"}}
+            {{input class="form-control input" value=bedrooms placeholder="Number of Bedrooms" type="number" min=0}}
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
             <label class="field-label" for="halls">Halls</label>
-            {{input type="number" class="form-control input" value=halls placeholder="Number of Halls" value="1"}}
+            {{input class="form-control input" value=halls placeholder="Number of Halls" type="number" min=0}}
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
             <label class="field-label" for="kitchens">Kitchens</label>
-            {{input type="number" class="form-control input" value=kitchens placeholder="Number of Kitchens" value="1"}}
+            {{input class="form-control input" id="kitchens" value=kitchens placeholder="Number of Kitchens" type="number" min=0}}
           </div>
         </div>
       </div>
@@ -68,13 +68,13 @@
         <div class="col-lg-6">
           <div class="form-group">
             <label class="field-label" for="bathrooms">Bathrooms</label>
-            {{input type="number" class="form-control input" value=bathrooms placeholder="Number of Bathrooms" value="1"}}
+            {{input class="form-control input" value=bathrooms placeholder="Number of Bathrooms" type="number" min=0}}
           </div>
         </div>
         <div class="col-lg-6">
           <div class="form-group">
-            <label class="field-label" for="halls">Any Shared Bathrooms?</label>
-            <div class="radio-button-options"><label class="field-label" for="halls">Yes</label> &nbsp; {{radio-button value=1 groupValue=shared}} &nbsp;&nbsp;&nbsp;<label class="field-label" for="halls">No</label> &nbsp; {{radio-button value=0 groupValue=shared}}</div>
+            <label class="field-label">Any Shared Bathrooms?</label>
+            <div class="radio-button-options"><label class="field-label">Yes</label> &nbsp; {{radio-button value=1 groupValue=shared}} &nbsp;&nbsp;&nbsp;<label class="field-label">No</label> &nbsp; {{radio-button value=0 groupValue=shared}}</div>
           </div>
         </div>
       </div>
