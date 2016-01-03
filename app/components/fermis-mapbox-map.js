@@ -12,7 +12,7 @@ const {
 } = Ember;
 
 export default Component.extend({
-  classNames: ['map', 'mapbox-map'],
+  classNames: 'map mapbox-map col-xs-12 col-sm-7 col-md-7'.w(),
   mapCenter: config.ACCRA_GEO_COORDS,
   suburbPickerMarker: L.mapbox.featureLayer(),
   respondToClick: false,
@@ -26,6 +26,7 @@ export default Component.extend({
     L.mapbox.config.FORCE_HTTPS = true;
 
     const map = L.mapbox.map('map', this.get('mapType'));
+    map.tileLayer.setOpacity(0.3);
 
     if (this.get('model')) {
       this.set('mapCenter', [this.get('model.geoCoords').lat, this.get('model.geoCoords').lng]);
@@ -50,8 +51,6 @@ export default Component.extend({
             'id': s.get('id')
           });
         });
-
-        console.log(geojson);
       } else {
         // TODO: This is a suburb. I think we should use the markers to mark
         // the available apartments.
