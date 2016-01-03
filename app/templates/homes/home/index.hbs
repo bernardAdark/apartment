@@ -1,9 +1,6 @@
 <div class="home-detail">
   {{fermis-apartments-image-gallery images=model.images}}
-
-  <!-- Big Banner-->
-  <!--<div class="jumbotron home-banner" style="background-image: url(https://a0.muscache.com/im/pictures/110857116/15925182_original.jpg?aki_policy=xx_large)">-->
-  <div class="jumbotron home-banner" style="background-image: url({{coverImage}})">
+  <div class="jumbotron home-banner" style="background-image: url({{model.coverImageFullURL}})">
     <div class="overlay">
       <p class="lead price-tag">{{value-or-default model.monthly '0'}} <sup>&#8373;</sup>/mo</p>
     </div>

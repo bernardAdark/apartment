@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 import EmberValidations from 'ember-validations';
+import ENV from 'apartment/config/environment';
 
 const { computed, assert } = Ember;
 const {
@@ -32,11 +33,17 @@ export default Model.extend(EmberValidations, {
   updatedAt: attr('date', { defaultValue() { return new Date } }),
 
   // Association.
-  host: belongsTo('host', {async: true}),
-  suburb: belongsTo('suburb', {async: true}),
+  host: belongsTo(),
+  suburb: belongsTo(),
   photos: attr(),
 
   // Computed.
+  coverImage: computed('photos', function() {
+    return this.get('photos').objectAt(0);
+  }),
+  coverImageFullURL: computed('photos', function() {
+    return `${ENV.IMGIX_URL}/${this.get('photos').objectAt(0)}`;
+  }),
   town: computed('suburb', function() { return this.get('suburb').get('town') }),
   monthly: computed('price', 'period', function() {
     assert('Period should be greater than 0 months', this.get('period') > 0);

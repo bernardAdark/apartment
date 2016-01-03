@@ -1,19 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  //Properties
-  images: [
-    'https://a1.muscache.com/im/pictures/110310002/bf11161f_original.jpg?aki_policy=x_medium',
-    'https://a0.muscache.com/im/pictures/57704319/a8f7ba16_original.jpg?aki_policy=x_medium',
-    'https://a0.muscache.com/im/pictures/19277686/0060a489_original.jpg?aki_policy=x_medium'
-  ],  
-  currentImageIndex: 0,
-  currentImage: function () {
-    var images = this.get('images'),
-        currentImageIndex = this.get('currentImageIndex');
-
-    return images[currentImageIndex];
-  }.property('currentImageIndex'),
   // Events
   mouseEnter: function () {
     this.send('showControls');
