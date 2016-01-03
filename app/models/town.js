@@ -22,5 +22,6 @@ export default Model.extend(EmberValidations, {
   updatedAt: attr('date', { defaultValue() { return new Date(); } }),
 
   // Associations.
-  suburbs: hasMany('suburb', { async: true })
+  suburbs: hasMany('suburb', {async: true}),
+  homes: hasMany('home', {async: true})
 });

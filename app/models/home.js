@@ -35,6 +35,7 @@ export default Model.extend(EmberValidations, {
   // Association.
   host: belongsTo(),
   suburb: belongsTo(),
+  town: belongsTo(),
   photos: attr(),
 
   // Computed.
@@ -44,7 +45,6 @@ export default Model.extend(EmberValidations, {
   coverImageFullURL: computed('photos', function() {
     return `${ENV.IMGIX_URL}/${this.get('photos').objectAt(0)}`;
   }),
-  town: computed('suburb', function() { return this.get('suburb').get('town') }),
   monthly: computed('price', 'period', function() {
     assert('Period should be greater than 0 months', this.get('period') > 0);
     return Math.round(this.get('price')/this.get('period'))-0.01;
