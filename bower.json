@@ -17,7 +17,10 @@
     "font-awesome": "~4.3.0",
     "selectize": "~0.12.1",
     "animate.css": "3.4.0",
-    "mapbox.js": "~2.2.3"
+    "mapbox.js": "~2.2.3",
+    "nouislider": "~8.2.1",
+    "ember-cli-imgix-core-js-shim": "0.0.2",
+    "imgix-core-js": "0.2.4"
   },
   "resolutions": {
     "ember": "^2.2.0"

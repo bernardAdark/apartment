@@ -6,6 +6,10 @@ export default Ember.Route.extend({
   },
 
   afterModel(model) {
-    return model.get('host');
+    return Ember.RSVP.hash({
+      host: model.get('host'),
+      suburb: model.get('suburb'),
+      town: model.get('town')
+    })
   }
 });

@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from 'apartment/config/environment';
 
 const {
   Component,
@@ -62,11 +63,19 @@ export default Component.extend({
   },
 
   handleFiles(files) {
-    this.updatePreview(files);
-
+    // TODO: Check for duplicate uploads.
+    // Cancel if file has already been uploaded.
     for (let i = 0; i < files.length; i++) {
-      this.readFile(files[i]).then((file) => {
-        this.sendAction('action', file.data)
+      let self = this;
+      let f = files[i];
+      let fileName = this.get('uuid').v4() + '.' + f.name.split('.').pop();
+      this.get('s3').bucket.upload({Key: fileName, ContentType: f.type, Body: f}, (err, data) => {
+        if (data) {
+          this.sendAction('action', fileName);
+          this.updatePreview(files);
+        } else {
+          console.error('Something bad happened...', err);
+        }
       });
     }
   },

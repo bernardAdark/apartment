@@ -4,7 +4,8 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       host: this.store.findRecord('host', this.paramsFor('host').host_id),
-      suburbs: this.store.findAll('suburb')
+      suburbs: this.store.findAll('suburb'),
+      towns: this.store.findAll('town')
     });
   }
 });

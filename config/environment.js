@@ -6,24 +6,29 @@ module.exports = function(environment) {
     environment: environment,
     contentSecurityPolicy: {
       'frame-src': "'self' https://*.firebaseio.com",
-      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com https://*.mapbox.com",
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com https://*.mapbox.com https://the-grocers-other-assets.s3.amazonaws.com",
       'script-src': "'self' https://*.firebaseio.com",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
-      'img-src': "'self' data: https://*.muscache.com https://*.mapbox.com"
+      'img-src': "'self' data: https://*.muscache.com https://*.mapbox.com https://the-grocers-other-assets.s3.amazonaws.com https://fermis-apartment-img.imgix.net"
     },
-    firebase: 'https://blinding-torch-8228.firebaseio.com',
+    firebase: process.env.FIREBASE_URL,
     baseURL: '/',
     locationType: 'auto',
-    MAPBOX_ACCESS_TOKEN: 'pk.eyJ1IjoieWF3Ym9ha3llIiwiYSI6Ijc2YjM5ZjZhZmY4OTE1NDdmNWYyNTBjNTk4MDE1MjYyIn0.kBscFIVJdBzENTw5SoByFg',
+    MAPBOX_ACCESS_TOKEN: process.env.MAPBOX_ACCESS_TOKEN,
 
     ACCRA_GEO_COORDS: ["5.623284", "-0.176357"],
-    MAP_DEFAULT_ZOOM_LEVEL: 15,
+    MAP_DEFAULT_ZOOM_LEVEL: 12,
     MAP_DEFAULT_TYPE: 'mapbox.streets',
     MAP_MARKER_SIZE: 'large',
     MAP_MARKER_COLOR: '#E12269',
     MAP_MARKER_SYMBOLS: {
       TOWN: 'town'
     },
+    AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+    AWS_S3_BUCKET: process.env.AWS_S3_BUCKET_NAME,
+    AWS_REGION: process.env.AWS_REGION,
+    IMGIX_URL: `https://${process.env.IMGIX_URL}`,
 
     EmberENV: {
       FEATURES: {
@@ -35,7 +40,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      DEFAULT_FETCH_LIMIT: 20
+      DEFAULT_FETCH_LIMIT: 20,
+      imgix: {
+        source: process.env.IMGIX_URL
+      }
     }
   };
 
@@ -45,6 +53,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.imgix.debug = true;
   }
 
   if (environment === 'test') {

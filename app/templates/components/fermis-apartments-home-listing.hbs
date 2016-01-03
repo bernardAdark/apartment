@@ -3,7 +3,12 @@
   <div class="box">
     <div class="top image-and-price">
         {{#link-to 'homes.home' home.id}}
-        <img src={{currentImage}} class="img img-responsive listing-image" />
+        {{imgix-image-element
+            path=home.coverImage
+            class="img img-responsive listing-img"
+            style="width:100%; height:100%;"
+            aspectRatio=1.333
+        }}
         {{/link-to}}
       {{fermis-apartments-home-listing-previous-image-control previousImage=(action 'showPreviousImage')}}
       {{fermis-apartments-home-listing-next-image-control nextImage=(action 'showNextImage')}}
@@ -14,8 +19,8 @@
       </p>
       <p class="small location-and-room-count">
         <span class="location">
-        {{#link-to 'suburb' home.suburb.slug}}{{value-or-default home.suburb.name 'Unknown suburb'}}{{/link-to}},
-        {{#link-to 'town' home.town.slug}}{{value-or-default home.town.name 'Unknown town'}}{{/link-to}}
+        {{#link-to 'suburb' home.suburb.slug}}{{value-or-default home.suburb.name '...'}}{{/link-to}},
+        {{#link-to 'town' home.town.slug}}{{value-or-default home.town.name '...'}}{{/link-to}}
         </span> &middot;
         <span class="room-count">{{home.rooms}} Room(s)</span> &middot;
         {{#link-to 'homes.home' home.id}}
