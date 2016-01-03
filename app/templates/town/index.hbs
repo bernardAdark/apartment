@@ -1,1 +1,21 @@
+<aside id='sidebar' class='col-sm-5 col-md-5'>
+  <!-- TODO: Every town should have a banner image, ideally an aerial shot -->
+  <h3>Welcome to {{model.name}}<br><a href={{model.video}}>(Video)</a></h3>
+  {{#if model.nickname}}
+  <h4>Also known as {{model.nickname}}</h4>
+  {{/if}}
+
+  <p id='description'>
+  {{model.description}}
+  </p>
+
+  <p id='why'>
+    <h4>Why live in {{model.name}}?</h4>
+    <p>{{model.why}}</p>
+  </p>
+  {{fermis-apartment-search}}
+  {{#if results}}
+  {{fermis-apartment-search-result model=results}}
+  {{/if}}
+</aside>
 {{fermis-mapbox-map model=model action='goToSuburb'}}
