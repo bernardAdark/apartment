@@ -7,8 +7,8 @@ export default Ember.Controller.extend({
   phoneNumbers: [],
 
   actions: {
-    imageLoaded(image) {
-      this.set('photo', image);
+    imageLoaded(fileName) {
+      this.set('photo', fileName);
     },
 
     createHost() {
