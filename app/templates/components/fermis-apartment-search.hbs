@@ -1,16 +1,16 @@
 <p>Bedrooms: [sticky options]</p>
-<p>Total Rent: {{fermis-apartment-slider name='rent'
+<p>Total Rent: {{fermis-apartment-slider name='price'
                                          connect=true
-                                         openHandle=rentOpenHandle
-                                         closeHandle=rentCloseHandle
+                                         openHandle=priceOpenHandle
+                                         closeHandle=priceCloseHandle
                                          min=0
-                                         max=2000
+                                         max=10000
                                          margin=100
                                          action='search'}}</p>
-<p>Months:     {{fermis-apartment-slider name='months'
+<p>Months:     {{fermis-apartment-slider name='period'
                                          connect=true
-                                         openHandle=monthsOpenHandle
-                                         closeHandle=monthsCloseHandle
+                                         openHandle=periodOpenHandle
+                                         closeHandle=periodCloseHandle
                                          min=0
                                          max=36
                                          step=1
@@ -28,7 +28,7 @@
     <td class='values' valign='top'>
       <label>{{input type='checkbox' checked=water}} Water</label><br>
       <label>{{input type='checkbox' checked=gated}} Fenced</label><br>
-      <label>{{input type='checkbox' checked=cable}} DSTv (Satellite/Cable TV)</label><br>
+      <label>{{input type='checkbox' checked=dstv}} DSTv (Satellite/Cable TV)</label><br>
       <label>{{input type='checkbox' checked=internet}} Internet</label><br>
       <label>{{input type='checkbox' checked=wash}} Washing Machine</label><br>
       <label>{{input type='checkbox' checked=garage}} Garage</label><br>

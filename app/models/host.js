@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import DS from 'ember-data';
 import EmberValidations from 'ember-validations';
+import ENV from 'apartment/config/environment';
 
 const { computed } = Ember;
 const {
@@ -16,7 +17,7 @@ export default Model.extend(EmberValidations, {
     lastName: { presence: true, length: {minimum: 1} },
     phoneNumbers: { presence: true },
     married: { presence: true, inclusion: {in: [true, false, 0, 1]}},
-    photo: { presence: true, format: {with: /^data:image\/jpeg;base64/i } },
+    photo: { presence: true },
     story: { presence: true, length: {minimum: 1} }
   },
 
@@ -42,6 +43,10 @@ export default Model.extend(EmberValidations, {
   // Computed.
   fullName: computed('title', 'firstName', 'lastName', function() {
     return `${this.get('title')} ${this.get('firstName')} ${this.get('lastName')}`;
+  }),
+
+  photoFullURL: computed('photo', function() {
+    return `${ENV.IMGIX_URL}/${this.get('photo')}`;
   }),
 
   homeLabelName: computed('firstName', 'spouseFirstName', function() {

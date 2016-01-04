@@ -14,7 +14,7 @@ export default Ember.Route.extend({
   afterModel(model) {
     return Ember.RSVP.hash({
       suburbs: model.get('suburbs'),
-      homes: this.store.findAll('home')
+      homes: this.store.query('home', { orderBy: 'town', equalTo: model.get('id') })
     });
   }
 });
