@@ -19,10 +19,10 @@ export default Component.extend({
   garage: false,
   ac: false,
   garden: false,
-  rentOpenHandle: 100,
-  rentCloseHandle: 500,
-  monthsOpenHandle: 3,
-  monthsCloseHandle: 12,
+  priceOpenHandle: 100,
+  priceCloseHandle: 500,
+  periodOpenHandle: 3,
+  periodCloseHandle: 12,
 
   didInsertElement() {
     this._super(...arguments);
@@ -68,13 +68,13 @@ export default Component.extend({
       }
 
       const f = this.getProperties([
-                  'water',     'gated', 'cable',  'internet', 'wash',
+                  'water',     'gated', 'dstv',  'internet', 'wash',
                   'garage',    'ac',    'garden', 'couple',   'kitchen',
-                  'furnished', 'pets',  'rent',   'months',   'religion'
+                  'furnished', 'pets',  'price',   'period',   'religion'
                 ]);
 
-      f['months'] = f['months'] || [this.get('monthsOpenHandle'), this.get('monthsCloseHandle')];
-      f['rent'] = f['rent'] || [this.get('rentOpenHandle'), this.get('rentCloseHandle')]
+      f['period'] = f['period'] || [this.get('periodOpenHandle'), this.get('periodCloseHandle')];
+      f['price'] = f['price'] || [this.get('priceOpenHandle'), this.get('priceCloseHandle')]
 
       this.sendAction('action', f);
     }
