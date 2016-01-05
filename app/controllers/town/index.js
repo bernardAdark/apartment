@@ -1,11 +1,7 @@
 import Ember from 'ember';
+import within from '../../metal/within';
 
 export default Ember.Controller.extend({
-  within(array, number) {
-    Ember.assert('Must have only 2 elements', array.length === 2);
-    return number >= array[0] && number <= array[1];
-  },
-
   actions: {
     goToSuburb(suburbId) {
       let suburb = this.store.peekRecord('suburb', suburbId);
