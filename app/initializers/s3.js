@@ -12,7 +12,7 @@ export function initialize(application) {
       AWS.config.sslEnabled = true;
       AWS.config.logger = console;
 
-      let __bckt = new AWS.S3({params: {Bucket: ENV.AWS_S3_BUCKET_NAME}});
+      let __bckt = new AWS.S3({params: {Bucket: ENV.AWS_S3_BUCKET}});
       this.set('bucket', __bckt);
     },
   });
