@@ -32,10 +32,6 @@ export default Ember.Controller.extend({
       this.get('photos').addObject(fileName);
     },
 
-    removeImage(image) {
-      //TODO: Delete image from photos collection.
-    },
-
     createHome(host) {
       let newHome = this.store.createRecord('home', {
         summary: this.get('summary'),

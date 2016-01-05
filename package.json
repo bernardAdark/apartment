@@ -12,7 +12,7 @@
     "start": "ember server",
     "test": "ember test"
   },
-  "repository": "https://github.com/fermislab/apartments",
+  "repository": "https://github.com/fermislab/apartment",
   "engines": {
     "node": ">= 4.2.3"
   },
