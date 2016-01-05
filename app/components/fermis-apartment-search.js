@@ -15,7 +15,7 @@ export default Component.extend({
   gated: false,
   cable: false,
   internet: false,
-  wash: false,
+  laundry: false,
   garage: false,
   ac: false,
   garden: false,
@@ -43,11 +43,14 @@ export default Component.extend({
       this.set('gated', false);
       this.set('cable', false);
       this.set('internet', false);
-      this.set('wash', false);
+      this.set('laundry', false);
       this.set('garage', false);
       this.set('ac', false);
       this.set('garden', false);
-      this.set('religion', null);
+      this.set('christian', false);
+      this.set('muslim', false);
+      this.set('atheist', false);
+      this.set('others', false);
 
       this.toggleFilterButton.text('More Filters');
       this.send('search');
@@ -68,9 +71,10 @@ export default Component.extend({
       }
 
       const f = this.getProperties([
-                  'water',     'gated', 'dstv',  'internet', 'wash',
-                  'garage',    'ac',    'garden', 'couple',   'kitchen',
-                  'furnished', 'pets',  'price',   'period',   'religion'
+                  'water',     'gated',  'dstv',    'internet', 'laundry',
+                  'garage',    'ac',     'garden',  'couple',   'kitchen',
+                  'furnished', 'pets',   'price',   'period',
+                  'christian', 'muslim', 'atheist', 'others'
                 ]);
 
       f['period'] = f['period'] || [this.get('periodOpenHandle'), this.get('periodCloseHandle')];

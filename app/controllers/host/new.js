@@ -19,6 +19,12 @@ export default Ember.Controller.extend({
   dstv: false,
   garden: false,
   microwave: false,
+  single: false,
+  pets: false,
+  christian: false,
+  muslim: false,
+  atheist: false,
+  others: false,
   photos: [],
 
   actions: {
@@ -55,6 +61,15 @@ export default Ember.Controller.extend({
           dstv: { name: 'DSTv', available: this.get('dstv') },
           garden: { name: 'Garden', available: this.get('garden') },
           microwave: { name: 'Microwave', available: this.get('microwave') }
+        },
+        rules: {
+          single: this.get('single'),
+          couple: this.get('couple'),
+          pets: this.get('pets'),
+          christian: this.get('christian'),
+          muslim: this.get('muslim'),
+          atheist: this.get('atheist'),
+          others: this.get('others')
         },
         photos: this.get('photos')
       });
