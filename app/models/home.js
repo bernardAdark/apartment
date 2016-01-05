@@ -29,6 +29,7 @@ export default Model.extend(EmberValidations, {
   kitchens: attr('number'),
   bathroom: attr(),
   amenities: attr(),
+  rules: attr(),
   createdAt: attr('date', { defaultValue() { return new Date } }),
   updatedAt: attr('date', { defaultValue() { return new Date } }),
 
