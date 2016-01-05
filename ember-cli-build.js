@@ -7,7 +7,8 @@ module.exports = function(defaults) {
       clientAllowedKeys: [
         'IMGIX_URL'
       ]
-    }
+    },
+    fingerprint: { enabled: false }
   });
 
   app.import('vendor/custom-bootstrap/js/bootstrap.js'); 
