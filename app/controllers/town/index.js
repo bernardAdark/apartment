@@ -9,21 +9,26 @@ export default Ember.Controller.extend({
     },
 
     search(features) {
-      let __amenities = [],
-          __other = 'price period couple furnished pets kitchen'.w();
+      let __a = [],
+          __r = [],
+          __o = 'price period couple furnished pets kitchen christian muslim atheist others'.w();
 
       Object.keys(features).forEach((f) => {
-        if (!__other.contains(f)) {
-          (features[f] && __amenities.push(f)) || delete features[f];
-        }
+        features[f] && (
+          __o.contains(f) ? __r.push(f) : __a.push(f)
+        ) || delete features[f];
       });
 
-      let self = this;
+      __r.removeObjects(['price', 'period']);
+
       this.set('results', this.store.filter('home', function(home) {
-        let __amn = home.get('amenities');
-        return self.within(features['price'], home.get('price')) &&
-               self.within(features['period'], home.get('period')) && 
-               !__amenities.any((a) => { return !__amn[a]['available'] });
+        let __amn = home.get('amenities'),
+            __rules = home.get('rules') || {};
+
+        return within(features.price, home.get('price')) &&
+               within(features.period, home.get('period')) &&
+               !__a.any((a) => { return !__amn[a]['available'] }) &&
+               !__r.any((r) => { return console.log(__rules[r]), !__rules[r] });
       }));
     }
   }
