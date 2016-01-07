@@ -5,10 +5,10 @@ moduleForModel('deputy', 'Unit | Model | deputy', {
   needs: ['model:suburb']
 });
 
-test('suburb relationship', function() {
+test('suburb relationship', function(assert) {
   let Deputy = this.store().modelFor('deputy');
   let relationship = Ember.get(Deputy, 'relationshipsByName').get('suburb');
 
-  equal(relationship.key, 'suburb');
-  equal(relationship.kind, 'belongsTo');
+  assert.equal(relationship.key, 'suburb');
+  assert.equal(relationship.kind, 'belongsTo');
 });
