@@ -66,7 +66,6 @@ export default Component.extend({
     // TODO: Check for duplicate uploads.
     // Cancel if file has already been uploaded.
     for (let i = 0; i < files.length; i++) {
-      let self = this;
       let f = files[i];
       let fileName = this.get('uuid').v4() + '.' + f.name.split('.').pop();
       this.get('s3').bucket.upload({Key: fileName, ContentType: f.type, Body: f}, (err, data) => {

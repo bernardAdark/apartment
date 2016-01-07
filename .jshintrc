@@ -2,7 +2,8 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "noUiSlider"
   ],
   "browser": true,
   "boss": true,
@@ -12,11 +13,8 @@
   "eqeqeq": true,
   "evil": true,
   "forin": false,
-  "immed": false,
   "laxbreak": false,
-  "newcap": true,
   "noarg": true,
-  "noempty": false,
   "nonew": false,
   "nomen": false,
   "onevar": false,
@@ -28,5 +26,7 @@
   "white": false,
   "eqnull": true,
   "esnext": true,
-  "unused": true
+  "unused": true,
+  "asi": true,
+  "expr": true
 }

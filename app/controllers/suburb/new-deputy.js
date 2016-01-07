@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
 
       suburb.get('deputies').addObject(newDeputy);
       newDeputy.save().
-        then((d) => {
+        then(() => {
           suburb.save();
           this.transitionToRoute('suburb', suburb.get('id'));
         }).

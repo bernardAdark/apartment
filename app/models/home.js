@@ -30,8 +30,8 @@ export default Model.extend(EmberValidations, {
   bathroom: attr(),
   amenities: attr(),
   rules: attr(),
-  createdAt: attr('date', { defaultValue() { return new Date } }),
-  updatedAt: attr('date', { defaultValue() { return new Date } }),
+  createdAt: attr('date', { defaultValue() { return new Date() } }),
+  updatedAt: attr('date', { defaultValue() { return new Date() } }),
 
   // Association.
   host: belongsTo(),

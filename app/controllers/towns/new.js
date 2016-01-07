@@ -18,7 +18,7 @@ export default Ember.Controller.extend(EmberValidations, {
       console.warn(newTown);
 
       newTown.save().
-        then((town) => {
+        then(() => {
           this.transitionToRoute('town', newTown.get('slug'));
         }).
         catch(function(error) {

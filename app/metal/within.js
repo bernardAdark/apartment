@@ -20,7 +20,7 @@
  */
 export default function within(bounds, n, incl=true) {
   bounds.sort((a, b) => { return a > b });
-  return incl
-    ? (n >= bounds[0] && n <= bounds[1])
-    : (n >  bounds[0] && n <  bounds[1]);
+  return incl ?
+    (n >= bounds[0] && n <= bounds[1]) :
+    (n >  bounds[0] && n <  bounds[1]);
 }

@@ -28,7 +28,7 @@ module.exports = function(environment) {
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
     AWS_S3_BUCKET: process.env.AWS_S3_BUCKET_NAME,
     AWS_REGION: process.env.AWS_REGION,
-    IMGIX_URL: `https://${process.env.IMGIX_URL}`,
+    IMGIX_URL: 'https://' + process.env.IMGIX_URL,
 
     EmberENV: {
       FEATURES: {
