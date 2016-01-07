@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import ENV from 'apartment/config/environment';
 
 export function initialize(application) {

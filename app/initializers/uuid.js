@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export function initialize(application) {
   let uuid = Ember.Object.extend({
     v4() {
