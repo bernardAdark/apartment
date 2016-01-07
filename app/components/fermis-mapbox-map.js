@@ -5,9 +5,6 @@ const {
   Component,
   run: {
     bind
-  },
-  String: {
-    dasherize
   }
 } = Ember;
 

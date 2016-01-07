@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
 
       model.get('suburbs').addObject(newSuburb);
       newSuburb.save().
-        then((suburb) => {
+        then(() => {
           model.save();
           this.transitionToRoute('town', model);
         }).
