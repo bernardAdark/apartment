@@ -18,8 +18,8 @@ export default Model.extend({
   photo: attr('string'),
   story: attr('string'),
   phoneNumber: attr('string'),
-  createdAt: attr('date', { defaultValue() { return new Date } }),
-  updatedAt: attr('date', { defaultValue() { return new Date } }),
+  createdAt: attr('date', { defaultValue() { return new Date() } }),
+  updatedAt: attr('date', { defaultValue() { return new Date() } }),
 
   // Associations.
   suburb: belongsTo('suburb', {async: true}),
